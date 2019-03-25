@@ -1,3 +1,5 @@
+"""This code was copied from the Authentication and Authorisation unit of the course."""
+
 from django.conf.urls import url, include
 from accounts.views import logout, login, registration, user_profile
 from accounts import url_reset

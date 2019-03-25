@@ -7,3 +7,6 @@ The Full-Stack Frameworks milestone project for Code Institute's full-stack web 
 
 ### Travis Continuous Integration
 [![Build Status](https://travis-ci.org/joanms/unicorn-attractor.svg?branch=master)](https://travis-ci.org/joanms/unicorn-attractor)
+
+## Acknowledgements
+The code in the accounts app was copied from the Authentication and Authorisation unit of the course.

@@ -1,3 +1,5 @@
+"""This code was copied from the Authentication and Authorisation unit of the course."""
+
 from django.conf.urls import url
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.views import password_reset, password_reset_done, password_reset_confirm, password_reset_complete

@@ -1,6 +1,6 @@
 <!--This code was adapted from the Authentication and Authorisation unit of the course.-->
 
-{% load static %}
+{% load staticfiles %}
 
 <html>
 
@@ -74,14 +74,16 @@
         </div>
     </nav>
 
-    <h1>
-        {% block page_heading %}{% endblock %}
-    </h1>
-    {% if messages %}
-    <div>
-        {% for message in messages %} {{ message }} {% endfor %}
+    <div class="container">
+        <h1>
+            {% block page_heading %}{% endblock %}
+        </h1>
+        {% if messages %}
+        <div>
+            {% for message in messages %} {{ message }} {% endfor %}
+        </div>
+        {% endif %} {% block content %}{% endblock %}
     </div>
-    {% endif %} {% block content %}{% endblock %}
 </body>
 
 </html>

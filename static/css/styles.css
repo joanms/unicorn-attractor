@@ -9,3 +9,8 @@ form {
 .navbar-dark {
     background-color: #470878 !important;
 }
+
+.navbar-brand {
+    color: #D1239A !important;
+    font-size: 2.5em;
+}

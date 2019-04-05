@@ -6,7 +6,6 @@ form {
     width: 50%;
 }
 
-.navbar {
-    background-color: #700CBC;
-    color: white;
+.navbar-dark {
+    background-color: #470878 !important;
 }

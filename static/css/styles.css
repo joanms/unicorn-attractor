@@ -1,16 +1,15 @@
-body {
-    background-color: #DAD4F7;
-}
-
 form {
     width: 50%;
 }
 
-.navbar-dark {
-    background-color: #470878 !important;
+.navbar-light {
+    background-color: #DAD4F7 !important;
+}
+
+#logo {
+    color: #D1239A;
 }
 
 .navbar-brand {
-    color: #D1239A !important;
     font-size: 2.5em;
 }

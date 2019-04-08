@@ -7,10 +7,6 @@ from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, UserRegistrationForm
 
 
-def index(request):
-    """Return the index.html file"""
-    return render(request, 'index.html')
-
 @login_required
 def logout(request):
     """Log the user out"""

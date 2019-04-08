@@ -1,6 +1,6 @@
 <!--This code was adapted from the Authentication and Authorisation unit of the course.-->
 
-{% load staticfiles %}
+{% load static from staticfiles %}
 
 <html>
 
@@ -21,7 +21,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'index' %}"><img id="logo" src="../media/img/logo.png"></img>UnicornAttractor</a>
+        <a class="navbar-brand" href="{% url 'index' %}"><img src="media/img/logo.png"></img>UnicornAttractor</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

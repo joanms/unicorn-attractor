@@ -20,7 +20,6 @@ from accounts import urls as urls_accounts
 from django.views.static import serve
 from .settings import MEDIA_ROOT
 
-
 urlpatterns = [
     url(r'^', include(urls_home)),
     url(r'^admin/', admin.site.urls),

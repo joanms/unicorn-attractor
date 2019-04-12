@@ -13,4 +13,4 @@ class User(models.Model):
     image = models.ImageField(upload_to="img", blank=True, null=True)
     
     def __unicode__(self):
-        return self.title
+        return self.username

@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-class Profile(models.Model):
+class User(models.Model):
     """
     A user's profile
     """

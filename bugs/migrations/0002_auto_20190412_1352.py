@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='bug',
             name='submitter',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='accounts.User'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='accounts.Profile'),
         ),
     ]

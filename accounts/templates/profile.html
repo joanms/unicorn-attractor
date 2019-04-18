@@ -6,4 +6,11 @@
 
 {% block page_heading %}{{ user }}'s Profile{% endblock %} 
 
-{% block content %}<p>{{ profile.email }}</p>{% endblock %}
+{% block content %}
+
+<p>{{ profile.email }}</p>
+<p>{{ profile.bugs_submitted }}</p>
+<p>Is this thing on?</p>
+
+
+{% endblock %}

@@ -12,5 +12,5 @@ class Bug(models.Model):
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title

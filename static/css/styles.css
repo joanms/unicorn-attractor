@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Milonga|Roboto');
 
+/*Colours
+#D4D4F7 Lilac
+#2E2FE3 Royal Blue
+#583870 Dark Purple
+#AE0D7A Dark Pink
+#340926 Dark Burgundy*/
+
 body {
     font-family: "Roboto", sans-serif;
+    color: #340926;
     background-color: #D4D4F7;
 }
 
@@ -19,7 +27,7 @@ form {
 }
 
 .navbar-dark {
-    background-color: #693C8B !important;
+    background-color: #583870 !important;
 }
 
 .navbar-brand {

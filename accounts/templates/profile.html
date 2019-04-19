@@ -1,4 +1,4 @@
-<!--This code was copied from the Authentication and Authorisation unit of the course.-->
+<!--This code was adapted from the Authentication and Authorisation unit of the course.-->
 
 {% extends 'base.html' %} 
 
@@ -8,9 +8,9 @@
 
 {% block content %}
 
-<p>{{ profile.email }}</p>
-<p>{{ profile.bugs_submitted }}</p>
-<p>Is this thing on?</p>
-
+<p>Date Joined: {{ user.date_joined }}</p>
+<p>Email Address: {{ user.email }}</p>
+<p>Bugs Submitted: {{ user.profile.bugs_submitted}}</p>
+<p>Features Requested: {{ user.profile.features_submitted}}</p>
 
 {% endblock %}

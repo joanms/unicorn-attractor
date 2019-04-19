@@ -10,5 +10,5 @@ The Full-Stack Frameworks milestone project for Code Institute's full-stack web 
 
 ## Acknowledgements
 ### Media
-The logo is by [Tim Treis](https://pixabay.com/users/ttreis-2641058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1600762) 
+The logo is by [Clker-Free-Vector-Images](https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=310175) 
 and was downloaded from [Pixabay](https://pixabay.com).

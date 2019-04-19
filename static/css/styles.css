@@ -1,15 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Milonga|Roboto');
 
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #D4D4F7;
+}
+
+h1 {
+    font-family: "Milonga", cursive;
+}
+
+.navbar-brand {
+    font-family: "Milonga", cursive;
+    font-size: 3.5em !important;
+}
+
 form {
     width: 50%;
 }
 
-.navbar-light {
-    background-color: #DAD4F7 !important;
-}
-
-#logo {
-    color: #D1239A;
+.navbar-dark {
+    background-color: #693C8B !important;
 }
 
 .navbar-brand {

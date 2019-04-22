@@ -6,25 +6,25 @@
 
 {% block content %}
 
-    <h1>Your Profile</h1>
-    <div class="row">
-        <div class="col-md-2 col-sm-3 text-center">
-            <a class="profile-img" href="#">
-                <img src="/media/img/joan_new.jpg" class="img-circle">
-            </a>
-        </div>
-        <div class="col-sm-10 col-md-9">
-            <h3>{{ post.title }}</h3>
-            <div class="row">
-                <div class="col-xs-9">
-                    <p><span class="boldtext">Username:</span> {{ user.username }} </p>
-                    <p><span class="boldtext">Date Joined:</span> {{ user.date_joined }} </p>
-                    <p><span class="boldtext">Email Address:</span> {{ user.email }} </p>
-                    <p><span class="boldtext">Bugs Submitted:</span> {{user.profile.bugs_submitted}}</p>
-                    <p><span class="boldtext">Features Requested:</span> {{ user.profile.features_submitted }}</p>
-                </div>
+<h1>Your Profile</h1>
+<div class="row">
+    <div class="col-md-2 col-sm-3 text-center">
+        <a class="profile-img" href="#">
+            <img src="/media/img/joan_new.jpg" class="img-circle">
+        </a>
+    </div>
+    <div class="col-sm-10 col-md-9">
+        <h3>{{ post.title }}</h3>
+        <div class="row">
+            <div class="col-xs-9">
+                <p><span class="boldtext">Username:</span> {{ user.username }} </p>
+                <p><span class="boldtext">Date Joined:</span> {{ user.date_joined }} </p>
+                <p><span class="boldtext">Email Address:</span> {{ user.email }} </p>
+                <p><span class="boldtext">Bugs Submitted:</span> {{user.profile.bugs_submitted}}</p>
+                <p><span class="boldtext">Features Requested:</span> {{ user.profile.features_submitted }}</p>
             </div>
         </div>
     </div>
+</div>
 
 {% endblock %}

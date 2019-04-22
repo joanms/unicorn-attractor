@@ -44,6 +44,7 @@ a {
 
 a:hover {
     color: #AE0D7A;
+    text-decoration: none;
 }
 
 
@@ -55,7 +56,6 @@ a:hover {
 .btn-secondary:hover {
     background-color: #AE0D7A;
 }
-
 
 
 /*Nav*/

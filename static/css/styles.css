@@ -5,14 +5,14 @@
 #2E2FE3 Royal Blue
 #583870 Dark Purple
 #AE0D7A Dark Pink
-#340926 Dark Burgundy*/
+#5D1D3A Dark Burgundy*/
 
 
 /*Main Content*/
 
 body {
     font-family: "Roboto", sans-serif;
-    color: #340926;
+    color: #5D1D3A;
     background: url(../img/unicorn-background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -32,10 +32,9 @@ h1 {
 .container {
     margin-top: 50px;
     background-color: rgba(212, 212, 247, 0.7) !important;
-    -webkit-box-shadow: 0 10px 6px -6px #340926;
-    -moz-box-shadow: 0 10px 6px -6px #340926;
-    box-shadow: 0 10px 6px -6px #340926;
-
+    -webkit-box-shadow: 0 10px 6px -6px #5D1D3A;
+    -moz-box-shadow: 0 10px 6px -6px #5D1D3A;
+    box-shadow: 0 10px 6px -6px #5D1D3A;
 }
 
 form {
@@ -65,9 +64,9 @@ a:hover {
 
 .navbar-dark {
     background-color: #583870 !important;
-    -webkit-box-shadow: 0 10px 6px -6px #340926;
-    -moz-box-shadow: 0 10px 6px -6px #340926;
-    box-shadow: 0 10px 6px -6px #340926;
+    -webkit-box-shadow: 0 10px 6px -6px #5D1D3A;
+    -moz-box-shadow: 0 10px 6px -6px #5D1D3A;
+    box-shadow: 0 10px 6px -6px #5D1D3A;
 }
 
 .navbar-brand {

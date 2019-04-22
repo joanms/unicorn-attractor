@@ -1,4 +1,4 @@
-"""This code was copied from the Authentication and Authorisation unit of the course."""
+"""This is based on code from the Authentication and Authorisation unit of the course."""
 
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages

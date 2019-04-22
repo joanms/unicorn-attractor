@@ -75,7 +75,11 @@
     </nav>
 
     <div class="container shadow p-3 mb-5 bg-white rounded">
-        {% block content %}{% endblock %}
+        {% if messages %}
+        <div>
+            {% for message in messages %} {{ message }} {% endfor %}
+        </div>
+        {% endif %} {% block content %}{% endblock %}
     </div>
 </body>
 

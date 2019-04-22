@@ -32,9 +32,6 @@ h1 {
 .container {
     margin-top: 50px;
     background-color: rgba(212, 212, 247, 0.7) !important;
-    -webkit-box-shadow: 0 10px 6px -6px #5D1D3A;
-    -moz-box-shadow: 0 10px 6px -6px #5D1D3A;
-    box-shadow: 0 10px 6px -6px #5D1D3A;
 }
 
 form {
@@ -64,9 +61,6 @@ a:hover {
 
 .navbar-dark {
     background-color: #583870 !important;
-    -webkit-box-shadow: 0 10px 6px -6px #5D1D3A;
-    -moz-box-shadow: 0 10px 6px -6px #5D1D3A;
-    box-shadow: 0 10px 6px -6px #5D1D3A;
 }
 
 .navbar-brand {

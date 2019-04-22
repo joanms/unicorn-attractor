@@ -61,6 +61,9 @@ a:hover {
 
 .navbar-dark {
     background-color: #583870 !important;
+    -webkit-box-shadow: 0 10px 6px -6px #340926;
+    -moz-box-shadow: 0 10px 6px -6px #340926;
+    box-shadow: 0 10px 6px -6px #340926;
 }
 
 .navbar-brand {

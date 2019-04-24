@@ -29,9 +29,9 @@ h1 {
     font-weight: bold;
 }
 
-.container {
+.panel {
     margin-top: 50px;
-    background-color: rgba(212, 212, 247, 0.7) !important;
+    background-color: rgba(212, 212, 247, 0.7);
 }
 
 form {

@@ -28,12 +28,13 @@ In addition, you may also use this section to discuss plans for additional featu
 
 ## Technologies Used
 
+- **[Balsamiq](https://balsamiq.com/)** was used to create the wireframes.
 - **[HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)** was used to set up the templates for the site.
 - **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)** was used to style the site content.
+- **[Bootstrap](https://getbootstrap.com/)** was used as the basis for the site's layout and responsiveness.
 - **[Python](https://www.python.org/)** was used to write the site's logic.
-- - **[Django](https://www.djangoproject.com/)** was used as a framework to simplify the development of the site.
+- **[Django](https://www.djangoproject.com/)** was used as a framework to simplify the development of the site.
 - **[Heroku](https://www.heroku.com/)** was used to deploy the project.
-
 
 ## Testing
 

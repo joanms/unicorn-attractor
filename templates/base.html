@@ -76,7 +76,7 @@
 
     <div class="container-fluid">
         {% if messages %}
-        <div>
+        <div class="panel">
             {% for message in messages %} {{ message }} {% endfor %}
         </div>
         {% endif %} {% block content %}{% endblock %}

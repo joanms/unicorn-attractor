@@ -1,8 +1,10 @@
 from django.test import TestCase
 from .forms import UserLoginForm, UserRegistrationForm
 
-# Create your tests here.
+
 class LoginForm(TestCase):
+    
+    """Tests for the login form"""
     
     def test_can_log_in(self):
         form = UserLoginForm({'username': 'FooBar', 'password': 'abc123!?'})
@@ -18,7 +20,10 @@ class LoginForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['password'], [u'This field is required.'])
         
+
 class RegistrationForm(TestCase):
+    
+    """Tests for the registration form"""
     
     def test_can_register(self):
         form = UserRegistrationForm({'email': 'test@example.com', 'username': 'FooBar', 'password1': 'abc123!?', 'password2': 'abc123!?'})
@@ -27,7 +32,7 @@ class RegistrationForm(TestCase):
     def test_email_is_required(self):
         form = UserRegistrationForm({'email': ''})
         self.assertFalse(form.is_valid())
-        # Need to add error message - fix problem with key error
+        # self.assertEqual(form.errors['email'], [u'Email address must be unique']) # Need to fix KeyError: email
         
     def test_username_is_required(self):
         form = UserRegistrationForm({'username': ''})
@@ -39,3 +44,8 @@ class RegistrationForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['password2'], [u'Passwords must match'])
 
+
+class TestViews(TestCase):
+    
+    """Tests for the views"""
+    

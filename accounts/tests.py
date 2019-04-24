@@ -37,4 +37,5 @@ class RegistrationForm(TestCase):
     def test_passwords_must_match(self):
         form = UserRegistrationForm({'password1': 'abc123!?', 'password2': 'xyz123!?'})
         self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['password2'], [u'Passwords must match'])
 

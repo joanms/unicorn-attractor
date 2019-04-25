@@ -34,6 +34,8 @@ In addition, you may also use this section to discuss plans for additional featu
 - **[Bootstrap](https://getbootstrap.com/)** was used as the basis for the site's layout and responsiveness.
 - **[Python](https://www.python.org/)** was used to write the site's logic.
 - **[Django](https://www.djangoproject.com/)** was used as a framework to simplify the development of the site.
+- **[SendGrid](https://sendgrid.com/)** was used to send emails from the site.
+- **[Travis](https://travis-ci.org/)** was used to test the code.
 - **[Heroku](https://www.heroku.com/)** was used to deploy the project.
 
 ## Testing

@@ -57,6 +57,13 @@ class RegistrationForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['username'], [u'This field is required.'])
 
+    def test_password_must_be_confirmed(self):
+    
+        """Ensure that the password is repeated"""
+    
+        form = UserRegistrationForm({'password1': 'abc123!?', 'password2': ''})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['password2'], [u'This field is required.'])
 
     def test_passwords_must_match(self):
     

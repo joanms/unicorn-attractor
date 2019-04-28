@@ -74,9 +74,9 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container">
         {% if messages %}
-        <div class="panel">
+        <div class="page-content">
             {% for message in messages %} {{ message }} {% endfor %}
         </div>
         {% endif %} {% block content %}{% endblock %}

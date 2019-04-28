@@ -4,4 +4,17 @@
 
 {% block content %}
 
+<div class="row">
+    <div class="mx-auto form-container">
+       <h1>Report a Bug</h1>
+       <form method="POST">
+
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            
+        </form>
+    </div>
+</div>    
+
 {% endblock %}

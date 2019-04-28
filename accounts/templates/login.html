@@ -8,7 +8,7 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-xs-10 offset-xs-1 page-content">
+    <div class="col-md-4 offset-md-4 page-content">
         <h1>Log In</h1>
         <form method="POST">
             {% csrf_token %} {{ login_form | as_bootstrap}}

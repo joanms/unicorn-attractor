@@ -8,7 +8,7 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-md-4 offset-md-4 page-content">
+    <div class="mx-auto panel">
         <h1>Log In</h1>
         <form method="POST">
             {% csrf_token %} {{ login_form | as_bootstrap}}

@@ -29,8 +29,11 @@ h1 {
     font-weight: bold;
 }
 
-.page-content {
+.panel {
+    display: block;
+    width: 600px;
     margin-top: 50px;
+    padding: 25px;
     background-color: rgba(212, 212, 247, 0.7);
 }
 

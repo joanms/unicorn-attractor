@@ -8,11 +8,8 @@
     <div class="mx-auto form-container">
        <h1>Report a Bug</h1>
        <form method="POST">
-
-            {% csrf_token %}
-            
-            {{ form.as_p }}
-            
+            {% csrf_token %} {{ bug_form.as_p}}
+            <button type="submit" class="btn btn-secondary">Submit Report</button>
         </form>
     </div>
 </div>    

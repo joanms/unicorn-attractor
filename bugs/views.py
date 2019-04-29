@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from bugs.forms import BugReportForm
+from .models import Bug
 
 
 def report_bug(request):
@@ -18,4 +19,8 @@ def report_bug(request):
     
     
 def view_bugs(request):
-    return render(request, 'view_bugs.html')
+    
+    """Displays a table listing all reported bugs"""
+    
+    bugs = Bug.objects.all()
+    return render(request, 'view_bugs.html', {'bugs': bugs})

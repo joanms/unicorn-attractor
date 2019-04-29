@@ -7,14 +7,12 @@
 {% block page_title %}Login Page{% endblock %} 
 
 {% block content %}
-<div class="row">
-    <div class="mx-auto form-container">
-        <h1>Log In</h1>
-        <form method="POST">
-            {% csrf_token %} {{ login_form | as_bootstrap}}
-            <button type="submit" class="btn btn-secondary">Log In</button>
-        </form>
-        <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
-    </div>
-</div>    
+<div class="mx-auto form-container">
+    <h1>Log In</h1>
+    <form method="POST">
+        {% csrf_token %} {{ login_form | as_bootstrap}}
+        <button type="submit" class="btn btn-secondary">Log In</button>
+    </form>
+    <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+</div>
 {% endblock %}

@@ -27,7 +27,7 @@ def login(request):
 
             if user:
                 auth.login(user=user, request=request)
-                return render(request, 'profile.html', {"profile": user})
+                return redirect(request, 'profile.html', {"profile": user})
             else:
                 login_form.add_error(None, "Your username or password is incorrect")
     else:

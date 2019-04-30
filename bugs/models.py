@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from accounts.models import Profile
+from django.contrib.auth.models import User
 
 class Bug(models.Model):
     """
@@ -8,7 +8,7 @@ class Bug(models.Model):
     """
     title = models.CharField(max_length=50)
     date_submitted = models.DateTimeField(auto_now_add=True)
-    submitter = models.ForeignKey(Profile, null=False)
+    submitter = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
 

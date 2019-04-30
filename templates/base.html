@@ -40,30 +40,26 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Log Out <span class="sr-only">(current)</span></a>
                     </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Bugs
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'report bug' %}">Report a Bug</a>
-                        <a class="dropdown-item" href="{% url 'view bugs' %}">Reported Bugs</a>
-                    </div>
-                  </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Features
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Request a Feature</a>
-                        <a class="dropdown-item" href="#">Requested Features</a>
-                    </div>
-                  </li>  
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Statistics <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact <span class="sr-only">(current)</span></a>
-                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bugs</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'report bug' %}">Report a Bug</a>
+                            <a class="dropdown-item" href="{% url 'view bugs' %}">Reported Bugs</a>
+                        </div>
+                      </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Features</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Request a Feature</a>
+                            <a class="dropdown-item" href="#">Requested Features</a>
+                        </div>
+                      </li>  
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Statistics <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">  
+                        <a class="nav-link" href="#">Contact <span class="sr-only">(current)</span></a>
+                    </li>
                 {%  else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'registration' %}">Register <span class="sr-only">(current)</span></a>

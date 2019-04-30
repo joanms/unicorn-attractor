@@ -9,6 +9,7 @@ def report_bug(request):
     """Renders a form for reporting bugs"""
     bug_form = BugReportForm(request.POST or None)
     if bug_form.is_valid():
+        bug_form.submitter = request.user
         bug_form.save()
     context = {
         'bug_form': bug_form

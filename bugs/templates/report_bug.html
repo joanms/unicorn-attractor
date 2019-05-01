@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class="mx-auto form-container">
+<div class="mx-auto small-container">
    <h1>Report a Bug</h1>
    <form method="POST">
         {% csrf_token %} {{ bug_form | as_bootstrap}}

@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class="mx-auto main-container">
+<div class="mx-auto large-container">
     <h1>Reported Bugs</h1>
     <table class="table">
         <thead>
@@ -21,7 +21,7 @@
         <tbody>
             {% for bug in bugs %}
             <tr>
-                <th scope="row">{{ bug.title }}</th>
+                <th scope="row"><a href="{% url 'bug detail' bug.id %}">{{ bug.title }}</a></th>
                 <td>{{ bug.description }}</td>
                 <td>{{ bug.submitter }}</td>
                 <td>{{ bug.date_submitted }}</td>

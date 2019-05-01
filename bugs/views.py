@@ -38,3 +38,10 @@ def view_bugs(request):
     """
     bugs = Bug.objects.all()
     return render(request, 'view_bugs.html', {'bugs': bugs})
+    
+def upvote(request, bug_id):
+    bug = Bug.objects.get(pk=bug_id)
+    bug.upvotes += 1
+    bug.save()
+    bugs = Bug.objects.all()
+    return redirect('/bugs/view_bugs/')

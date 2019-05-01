@@ -25,8 +25,8 @@
                 <td>{{ bug.description }}</td>
                 <td>{{ bug.submitter }}</td>
                 <td>{{ bug.date_submitted }}</td>
-                <td>{{ bug.upvotes }} <button type="submit" class="btn btn-secondary btn-sm" id="upvote">
-                    <i class="fas fa-arrow-up"></i></button></td>
+                <td>{{ bug.upvotes }} <a href="upvote/{{ bug.id }}"><button class="btn btn-secondary btn-sm" id="upvote">
+                    <i class="fas fa-arrow-up"></i></button></a></td>
             </tr>
             {% endfor %}
         </tbody>

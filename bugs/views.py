@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from bugs.forms import BugReportForm
 from .models import Bug
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
@@ -41,7 +42,10 @@ def view_bugs(request):
     
 def upvote(request, bug_id):
     bug = Bug.objects.get(pk=bug_id)
-    bug.upvotes += 1
-    bug.save()
+    if request.user != bug.submitter:
+        bug.upvotes += 1
+        bug.save()
+    else:
+        messages.error(request, "You can't upvote a bug that you submitted.")
     bugs = Bug.objects.all()
     return redirect('/bugs/view_bugs/')

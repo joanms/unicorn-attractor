@@ -6,7 +6,9 @@ from django.contrib.auth.decorators import login_required
 
 @login_required()
 def report_bug(request):
-    """Renders a form for reporting bugs"""
+    """
+    Renders a form for reporting bugs
+    """
     bug_form = BugReportForm(request.POST or None)
     if bug_form.is_valid():
         bug_form.submitter = request.user
@@ -18,6 +20,8 @@ def report_bug(request):
     
     
 def view_bugs(request):
-    """Displays a table listing all reported bugs"""
+    """
+    Displays a table listing all reported bugs
+    """
     bugs = Bug.objects.all()
     return render(request, 'view_bugs.html', {'bugs': bugs})

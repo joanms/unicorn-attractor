@@ -12,9 +12,10 @@ def report_bug(request):
     if request.method == 'POST':
         bug_form = BugReportForm(request.POST or None)
         if bug_form.is_valid():
-            bug_form.submitter = request.user
-            bug = bug_form.save()
-            return redirect(bug_detail, bug.pk)
+            bug = bug_form.save(commit=False)
+            bug.submitter = request.user
+            bug.save()
+            return redirect(view_bugs)
     else:
         bug_form = BugReportForm()
     return render(request, 'report_bug.html', {'bug_form': bug_form})
@@ -22,7 +23,7 @@ def report_bug(request):
 
 def bug_detail(request, pk):
     """
-    Create a view that returns a singleBug object based on the 
+    Create a view that returns a single Bug object based on the 
     bug ID (pk) and render it to the 'bug_detail.html' template
     or return a 404 error if the bug is not found
     """

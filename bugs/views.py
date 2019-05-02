@@ -40,12 +40,17 @@ def view_bugs(request):
     bugs = Bug.objects.all()
     return render(request, 'view_bugs.html', {'bugs': bugs})
     
+
 def upvote(request, bug_id):
+    """
+    Allows users to upvote bugs they didn't submit themselves
+    """
     bug = Bug.objects.get(pk=bug_id)
-    if request.user != bug.submitter:
+    if request.user == bug.submitter:
+        messages.error(request, "You can't upvote a bug that you submitted.")
+    else:
         bug.upvotes += 1
         bug.save()
-    else:
-        messages.error(request, "You can't upvote a bug that you submitted.")
+
     bugs = Bug.objects.all()
     return redirect('/bugs/view_bugs/')

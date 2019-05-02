@@ -21,11 +21,12 @@
         <tbody>
             {% for bug in bugs %}
             <tr>
-                <th scope="row"><a href="{% url 'bug detail' bug.id %}">{{ bug.title }}</a></th>
-                <td>{{ bug.description }}</td>
+                <th scope="row">{{ bug.title }}</th>
+                <td>{{ bug.description|truncatewords:30 }} <a href="{% url 'bug detail' bug.id %}"><button class="btn btn-secondary btn-sm">
+                    Read More</button></a></td>
                 <td>{{ bug.submitter }}</td>
                 <td>{{ bug.date_submitted }}</td>
-                <td>{{ bug.upvotes }} <a href="upvote/{{ bug.id }}"><button class="btn btn-secondary btn-sm" id="upvote">
+                <td>{{ bug.upvotes }} <a href="upvote/{{ bug.id }}"><button class="btn btn-secondary btn-sm">
                     <i class="fas fa-arrow-up"></i></button></a></td>
             </tr>
             {% endfor %}

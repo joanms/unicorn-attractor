@@ -11,19 +11,18 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Submitter</th>
-                <th scope="col">Date Submitted</th>
-                <th scope="col">Upvotes</th>
+                <th scope="col" style="width: 20%">Title</th>
+                <th scope="col" style="width: 45%">Description</th>
+                <th scope="col" style="width: 10%">Submitter</th>
+                <th scope="col" style="width: 15%">Date Submitted</th>
+                <th scope="col" style="width: 10%">Upvotes</th>
             </tr>
         </thead>
         <tbody>
             {% for bug in bugs %}
             <tr>
-                <th scope="row">{{ bug.title }}</th>
-                <td>{{ bug.description|truncatewords:30 }} <a href="{% url 'bug detail' bug.id %}"><button class="btn btn-secondary btn-sm">
-                    Read More</button></a></td>
+                <th scope="row"><a href="{% url 'bug detail' bug.id %}">{{ bug.title }}</a></th>
+                <td>{{ bug.description|truncatewords:20 }}</td>
                 <td>{{ bug.submitter }}</td>
                 <td>{{ bug.date_submitted }}</td>
                 <td>{{ bug.upvotes }} <a href="upvote/{{ bug.id }}"><button class="btn btn-secondary btn-sm">

@@ -12,10 +12,11 @@
         <thead>
             <tr>
                 <th scope="col" style="width: 20%">Title</th>
-                <th scope="col" style="width: 45%">Description</th>
+                <th scope="col" style="width: 35%">Description</th>
                 <th scope="col" style="width: 10%">Submitter</th>
                 <th scope="col" style="width: 15%">Date Submitted</th>
                 <th scope="col" style="width: 10%">Upvotes</th>
+                <th scope="col" style="width: 10%">Status</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
                 <td>{{ bug.date_submitted }}</td>
                 <td>{{ bug.upvotes }} <a href="upvote/{{ bug.id }}"><button class="btn btn-secondary btn-sm">
                     <i class="fas fa-arrow-up"></i></button></a></td>
+                <td>{{ bug.status }}</td>    
             </tr>
             {% endfor %}
         </tbody>

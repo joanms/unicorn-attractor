@@ -11,6 +11,7 @@ class Bug(models.Model):
     submitter = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
+    status = models.TextField(default="To do")
 
     def __str__(self):
         return self.title

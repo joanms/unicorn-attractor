@@ -16,6 +16,8 @@ def report_bug(request):
             bug = bug_form.save(commit=False)
             bug.submitter = request.user
             bug.save()
+            request.user.profile.bugs_submitted += 1
+            request.user.profile.save()
             return redirect(view_bugs)
     else:
         bug_form = BugReportForm()

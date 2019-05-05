@@ -17,15 +17,15 @@ class Bug(models.Model):
         return self.title
         
 
-# class Comment(models.Model):
-#     """
-#     A comment on a bug
-#     """
-#     bug = models.ForeignKey(Bug, on_delete=models.CASCADE)
-#     title = models.CharField(max_length=50)
-#     date_submitted = models.DateTimeField(auto_now_add=True)
-#     submitter = models.ForeignKey(User, on_delete=models.CASCADE)
-#     text = models.TextField()
+class Comment(models.Model):
+    """
+    A comment on a bug
+    """
+    bug = models.ForeignKey(Bug, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    comment_date = models.DateTimeField(auto_now_add=True)
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
 
-#     def __str__(self):
-#         return self.title
+    def __str__(self):
+        return self.title

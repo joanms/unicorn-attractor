@@ -45,11 +45,16 @@ def view_bugs(request):
 
 def upvote(request, bug_id):
     """
-    Allows users to upvote bugs they didn't submit themselves
+    Allows users to upvote bugs they didn't submit themselves 
+    and haven't already upvoted
     """
     bug = Bug.objects.get(pk=bug_id)
     if request.user == bug.submitter:
         messages.error(request, "You can't upvote a bug that you submitted.")
+        
+    # I need an elif statement here checking whether the user has already upvoted 
+    # and, if so, telling them that they can't upvote again.
+    
     else:
         bug.upvotes += 1
         bug.save()

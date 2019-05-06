@@ -22,8 +22,20 @@ body {
 
 h1 {
     font-family: "Milonga", cursive;
+    font-size: 3em;
     margin-bottom: 25px;
 }
+
+h2 {
+    font-family: "Milonga", cursive;
+    font-size: 2em;
+}
+
+h3 {
+    font-family: "Milonga", cursive;
+    font-size: 1.5em;
+}
+
 
 .boldtext{
     font-weight: bold;

@@ -64,17 +64,19 @@ def upvote(request, bug_id):
     return redirect('/bugs/view_bugs/')
     
 
-def comment(request):
+def comment(request, pk):
     """
-    Renders a form for reporting bugs
+    Renders a form for commenting on bugs
     """
+    bug = get_object_or_404(Bug, pk=pk)
+    comments = Comment.objects.all()
     if request.method == 'POST':
         comment_form = CommentForm(request.POST or None)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.commenter = request.user
             comment.save()
-            return redirect(bug_detail)
+            return render(request, 'bug_detail.html', {'bug': bug, 'comments': comments})
     else:
         comment_form = CommentForm()
-    return render(request, 'bug_comment.html', {'comment_form': comment_form})
+    return render(request, 'bug_comment.html', {'comment_form': comment_form, 'bug': bug})

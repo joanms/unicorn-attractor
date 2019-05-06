@@ -7,9 +7,9 @@
 {% block content %}
 
 <div class="mx-auto small-container">
-   <h1>Comment on the Bug</h1>
+   <h1>Comment on &ldquo;{{ bug.title }}&rdquo;</h1>
    <form method="POST">
-        {% csrf_token %} {{ comment_form | as_bootstrap}}
+        {% csrf_token %} {{ comment_form | as_bootstrap }}
         <button type="submit" class="btn btn-secondary">Submit Comment</button>
     </form>
 </div>

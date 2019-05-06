@@ -6,19 +6,21 @@
 
 {% block content %}
 
-<div class="mx-auto small-container">
+<div class="mx-auto medium-container">
     
     <h1>{{ bug.title }}</h1>
     <strong>Submitted By: {{ bug.submitter }}</strong><br>
     <strong>Date and Time: {{ bug.date_submitted }}</strong><br>
     <strong>Upvotes: {{ bug.upvotes }} 
-    <button type="submit" class="btn btn-secondary btn-sm" id="upvote"><i class="fas fa-arrow-up"></i></button></td></strong><br>
+    <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-up"></i></button></td></strong><br>
     <p>{{ bug.description }}</p>
     
+    <h2>Comments</h2>
+    <a href="{% url 'comment on a bug' bug.id %}"<p>Comment on this bug.</p></a>
     {% if comments %}
-        <h2>Comments</h2>
         {% for comment in comments %}
             <h3>{{ comment.title }}</h3>
+            <p>by <strong>{{ comment.commenter }}</strong></p>
             <p>{{ comment.text }}</p>
         {% endfor %}
     {% endif %}    

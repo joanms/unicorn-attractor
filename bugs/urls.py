@@ -6,5 +6,5 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/$', bug_detail, name="bug detail"),
     url(r'^report_bug/$', report_bug, name="report bug"),
     url(r'^view_bugs/upvote/(?P<bug_id>[0-9]+)/$', upvote, name='upvote'),
-    url(r'^comment/(?P<bug_id>[0-9]+)/$', comment, name="comment on a bug"),
+    url(r'^comment/(?P<pk>\d+)/$', comment, name="comment on a bug"),
 ]

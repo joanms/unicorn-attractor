@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from bugs.forms import BugReportForm
-from .models import Bug
+from bugs.forms import BugReportForm, CommentForm
+from .models import Bug, Comment
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -40,7 +40,8 @@ def view_bugs(request):
     Displays a table listing all reported bugs
     """
     bugs = Bug.objects.all()
-    return render(request, 'view_bugs.html', {'bugs': bugs})
+    comments = Comment.objects.all()
+    return render(request, 'view_bugs.html', {'bugs': bugs, 'comments': comments})
     
 
 def upvote(request, bug_id):
@@ -61,3 +62,19 @@ def upvote(request, bug_id):
 
     bugs = Bug.objects.all()
     return redirect('/bugs/view_bugs/')
+    
+
+def comment(request):
+    """
+    Renders a form for reporting bugs
+    """
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST or None)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.commenter = request.user
+            comment.save()
+            return redirect(bug_detail)
+    else:
+        comment_form = CommentForm()
+    return render(request, 'bug_comment.html', {'comment_form': comment_form})

@@ -2,17 +2,27 @@
 
 {% load bootstrap_tags %} 
 
-{% block page_title %}View Bugs{% endblock %}
+{% block page_title %}Bug Details{% endblock %}
 
 {% block content %}
 
 <div class="mx-auto small-container">
+    
     <h1>{{ bug.title }}</h1>
     <strong>Submitted By: {{ bug.submitter }}</strong><br>
     <strong>Date and Time: {{ bug.date_submitted }}</strong><br>
     <strong>Upvotes: {{ bug.upvotes }} 
     <button type="submit" class="btn btn-secondary btn-sm" id="upvote"><i class="fas fa-arrow-up"></i></button></td></strong><br>
     <p>{{ bug.description }}</p>
+    
+    {% if comments %}
+        <h2>Comments</h2>
+        {% for comment in comments %}
+            <h3>{{ comment.title }}</h3>
+            <p>{{ comment.text }}</p>
+        {% endfor %}
+    {% endif %}    
+
 </div>
 
 {% endblock %}

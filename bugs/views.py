@@ -31,7 +31,8 @@ def bug_detail(request, pk):
     or return a 404 error if the bug is not found
     """
     bug = get_object_or_404(Bug, pk=pk)
-    return render(request, "bug_detail.html", {'bug': bug})
+    comments = Comment.objects.filter(bug_id=bug)
+    return render(request, "bug_detail.html", {'bug': bug, 'comments': comments})
 
 
     
@@ -40,8 +41,7 @@ def view_bugs(request):
     Displays a table listing all reported bugs
     """
     bugs = Bug.objects.all()
-    comments = Comment.objects.all()
-    return render(request, 'view_bugs.html', {'bugs': bugs, 'comments': comments})
+    return render(request, 'view_bugs.html', {'bugs': bugs})
     
 
 def upvote(request, bug_id):

@@ -12,7 +12,7 @@ def report_bug(request):
     logged-in user as its submitter if a valid form is submitted.
     """
     if request.method == 'POST':
-        bug_form = BugReportForm(request.POST or None)
+        bug_form = BugReportForm(request.POST)
         if bug_form.is_valid():
             bug = bug_form.save(commit=False)
             bug.submitter = request.user
@@ -50,7 +50,7 @@ def comment(request, pk):
     """
     bug = get_object_or_404(Bug, pk=pk)
     if request.method == 'POST':
-        comment_form = CommentForm(request.POST or None)
+        comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.commenter = request.user

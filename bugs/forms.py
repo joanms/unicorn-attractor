@@ -19,6 +19,5 @@ class CommentForm(forms.ModelForm):
     """
     class Meta:
         model = Comment
-        fields = ['title', 'text']
-    title = forms.CharField()
+        fields = ['text']
     text = forms.Textarea()    

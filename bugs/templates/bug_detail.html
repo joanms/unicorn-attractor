@@ -19,9 +19,7 @@
         <h2>Comments</h2>
         {% if comments %}
             {% for comment in comments %}
-                <h3>{{ comment.title }}</h3>
-                <strong>Submitted by {{ comment.commenter }}, 
-                {{ comment.comment_date }}</strong><br>
+                <strong>{{ comment.commenter }}</strong> <em>commented {{ comment.comment_date }}</em>
                 <p>{{ comment.text }}</p>
             {% endfor %}
         {% endif %}

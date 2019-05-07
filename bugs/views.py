@@ -23,16 +23,6 @@ def report_bug(request):
     else:
         bug_form = BugReportForm()
     return render(request, 'report_bug.html', {'bug_form': bug_form})
-    
-
-def bug_detail(request, pk):
-    """
-    Displays a single bug or returns a 404 error if the bug is not found
-    """
-    bug = get_object_or_404(Bug, pk=pk)
-    comments = Comment.objects.all()
-    return render(request, "bug_detail.html", {'bug': bug, 'comments': comments})
-
 
     
 def view_bugs(request):
@@ -41,6 +31,35 @@ def view_bugs(request):
     """
     bugs = Bug.objects.all()
     return render(request, 'view_bugs.html', {'bugs': bugs})
+    
+
+def bug_detail(request, pk):
+    """
+    Displays a single bug or returns a 404 error if the bug is not found, 
+    and displays comments on the bug
+    """
+    bug = get_object_or_404(Bug, pk=pk)
+    comments = Comment.objects.filter(bug=bug)
+    return render(request, "bug_detail.html", {'bug': bug, 'comments': comments})
+    
+
+def comment(request, pk):
+    """
+    Renders a form for commenting on bugs and saves a bug with the currently 
+    logged-in user as the commenter if a valid form is submitted.
+    """
+    bug = get_object_or_404(Bug, pk=pk)
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST or None)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.commenter = request.user
+            comment.bug = bug
+            comment.save()
+            return redirect(bug_detail, bug.pk)
+    else:
+        comment_form = CommentForm()
+    return render(request, 'bug_comment.html', {'bug': bug, 'comment_form': comment_form})
     
 
 def upvote(request, bug_id):
@@ -61,22 +80,3 @@ def upvote(request, bug_id):
 
     bugs = Bug.objects.all()
     return redirect('/bugs/view_bugs/')
-    
-
-def comment(request, pk):
-    """
-    Renders a form for commenting on bugs and saves a bug with the currently 
-    logged-in user as the commenter if a valid form is submitted.
-    """
-    bug = get_object_or_404(Bug, pk=pk)
-    comments = Comment.objects.all()
-    if request.method == 'POST':
-        comment_form = CommentForm(request.POST or None)
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            comment.commenter = request.user
-            comment.save()
-            return redirect(bug_detail, {'bug': bug, 'comments': comments})
-    else:
-        comment_form = CommentForm()
-    return render(request, 'bug_comment.html', {'comment_form': comment_form, 'bug': bug, 'comments': comments})

@@ -9,7 +9,7 @@
 <div class="mx-auto medium-container">
     
     <h1>{{ bug.title }}</h1>
-    <strong>Submitted by {{ bug.submitter }}</strong><br>
+    <strong>Submitted by {{ bug.submitter }}</strong>, 
     <strong>{{ bug.date_submitted }}</strong><br>
     <strong>Upvotes: {{ bug.upvotes }} 
     <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-up"></i></button></td></strong><br>
@@ -20,7 +20,7 @@
         {% if comments %}
             {% for comment in comments %}
                 <h3>{{ comment.title }}</h3>
-                <strong>Submitted by {{ comment.commenter }}</strong><br>
+                <strong>Submitted by {{ comment.commenter }}</strong>, 
                 <strong>{{ comment.comment_date }}</strong><br>
                 <p>{{ comment.text }}</p>
             {% endfor %}

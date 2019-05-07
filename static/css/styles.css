@@ -8,17 +8,19 @@
 #5D1D3A Dark Burgundy*/
 
 
-/*Main Content*/
+/*Nav*/
 
-body {
-    font-family: "Roboto", sans-serif;
-    color: #5D1D3A;
-    background: url(../img/unicorn-background.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.navbar-dark {
+    background-color: #583870 !important;
 }
+
+.navbar-brand {
+    font-family: "Milonga", cursive;
+    font-size: 3.5em;
+}
+
+
+/*Headings*/
 
 h1 {
     font-family: "Milonga", cursive;
@@ -37,9 +39,28 @@ h3 {
 }
 
 
-.boldtext{
-    font-weight: bold;
+/*Main Text*/
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #5D1D3A;
+    background: url(../img/unicorn-background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+
+a {
+    color: #2E2FE3;
+}
+
+a:hover {
+    color: #AE0D7A;
+}
+
+
+/*Containers*/
 
 .small-container {
     display: block;
@@ -57,7 +78,6 @@ h3 {
     background-color: rgba(212, 212, 247, 0.9);
 }
 
-
 .large-container {
     display: block;
     width: 80vw;
@@ -66,34 +86,15 @@ h3 {
     background-color: rgba(212, 212, 247, 0.9);
 }
 
-a {
-    color: #2E2FE3;
-}
-
-a:hover {
-    color: #AE0D7A;
-}
-
 
 /*Buttons*/
+
 .btn-secondary {
     background-color: #583870;
 }
 
 .btn-secondary:hover {
     background-color: #AE0D7A;
-}
-
-
-/*Nav*/
-
-.navbar-dark {
-    background-color: #583870 !important;
-}
-
-.navbar-brand {
-    font-family: "Milonga", cursive;
-    font-size: 3.5em;
 }
 
 

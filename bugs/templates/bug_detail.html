@@ -9,22 +9,25 @@
 <div class="mx-auto medium-container">
     
     <h1>{{ bug.title }}</h1>
-    <strong>Submitted By: {{ bug.submitter }}</strong><br>
-    <strong>Date and Time: {{ bug.date_submitted }}</strong><br>
+    <strong>Submitted by {{ bug.submitter }}</strong><br>
+    <strong>{{ bug.date_submitted }}</strong><br>
     <strong>Upvotes: {{ bug.upvotes }} 
     <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-up"></i></button></td></strong><br>
     <p>{{ bug.description }}</p>
     
-    <h2>Comments</h2>
-    <a href="{% url 'comment on a bug' bug.id %}"<p>Comment on this bug.</p></a>
-    {% if comments %}
-        {% for comment in comments %}
-            <h3>{{ comment.title }}</h3>
-            <p>by <strong>{{ comment.commenter }}</strong></p>
-            <p>{{ comment.text }}</p>
-        {% endfor %}
-    {% endif %}    
-
+    <div class="comment-pane">
+        <h2>Comments</h2>
+        {% if comments %}
+            {% for comment in comments %}
+                <h3>{{ comment.title }}</h3>
+                <strong>Submitted by {{ comment.commenter }}</strong><br>
+                <strong>{{ comment.comment_date }}</strong><br>
+                <p>{{ comment.text }}</p>
+            {% endfor %}
+        {% endif %}
+        <a href="{% url 'comment on a bug' bug.id %}"<p>Add your comment.</p></a>
+    </div>
+    
 </div>
 
 {% endblock %}

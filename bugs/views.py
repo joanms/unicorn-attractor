@@ -8,7 +8,8 @@ from django.contrib.auth.decorators import login_required
 @login_required()
 def report_bug(request):
     """
-    Renders a form for reporting bugs
+    Renders a form for reporting bugs and saves a bug with the currently 
+    logged-in user as its submitter if a valid form is submitted.
     """
     if request.method == 'POST':
         bug_form = BugReportForm(request.POST or None)
@@ -26,12 +27,10 @@ def report_bug(request):
 
 def bug_detail(request, pk):
     """
-    Create a view that returns a single Bug object based on the 
-    bug ID (pk) and render it to the 'bug_detail.html' template
-    or return a 404 error if the bug is not found
+    Displays a single bug or returns a 404 error if the bug is not found
     """
     bug = get_object_or_404(Bug, pk=pk)
-    comments = Comment.objects.filter(bug_id=bug)
+    comments = Comment.objects.all()
     return render(request, "bug_detail.html", {'bug': bug, 'comments': comments})
 
 
@@ -66,7 +65,8 @@ def upvote(request, bug_id):
 
 def comment(request, pk):
     """
-    Renders a form for commenting on bugs
+    Renders a form for commenting on bugs and saves a bug with the currently 
+    logged-in user as the commenter if a valid form is submitted.
     """
     bug = get_object_or_404(Bug, pk=pk)
     comments = Comment.objects.all()
@@ -76,7 +76,7 @@ def comment(request, pk):
             comment = comment_form.save(commit=False)
             comment.commenter = request.user
             comment.save()
-            return render(request, 'bug_detail.html', {'bug': bug, 'comments': comments})
+            return redirect(bug_detail, {'bug': bug, 'comments': comments})
     else:
         comment_form = CommentForm()
-    return render(request, 'bug_comment.html', {'comment_form': comment_form, 'bug': bug})
+    return render(request, 'bug_comment.html', {'comment_form': comment_form, 'bug': bug, 'comments': comments})

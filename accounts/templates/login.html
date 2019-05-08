@@ -7,6 +7,8 @@
 {% block page_title %}Login Page{% endblock %} 
 
 {% block content %}
+
+<!--Form for a user who is already registered to log in-->
 <div class="mx-auto small-container">
     <h1>Log In</h1>
     <form method="POST">
@@ -15,4 +17,5 @@
     </form>
     <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
 </div>
+
 {% endblock %}

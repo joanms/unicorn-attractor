@@ -6,8 +6,11 @@
 
 {% block content %}
 
+
+
 <div class="mx-auto medium-container">
     
+    <!--The details of an individual bug-->
     <h1>{{ bug.title }}</h1>
     <strong>Submitted by {{ bug.submitter }}, {{ bug.date_submitted }}<br>
     Upvotes: {{ bug.upvotes }} 
@@ -15,6 +18,7 @@
     Status: {{ bug.status }}</strong>
     <p>{{ bug.description }}</p>
     
+    <!--If there are comments on the bug, they appear here-->
     <div class="comment-pane">
         <h2>Comments</h2>
         {% if comments %}
@@ -23,6 +27,8 @@
                 <p>{{ comment.text }}</p>
             {% endfor %}
         {% endif %}
+        
+        <!--Link for users to make their own comments-->
         <a href="{% url 'comment on a bug' bug.id %}"<p>Add your comment.</p></a>
     </div>
     

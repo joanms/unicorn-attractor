@@ -77,6 +77,8 @@ def upvote(request, bug_id):
     else:
         bug.upvotes += 1
         bug.save()
+        request.user.profile.bugs_upvoted.add(bug)
+        request.user.save()
 
     bugs = Bug.objects.all()
     return redirect('/bugs/view_bugs/')

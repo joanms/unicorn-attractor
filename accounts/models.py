@@ -14,7 +14,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bugs_submitted = models.IntegerField(default=0)
     features_submitted = models.IntegerField(default=0)
-    bugs_upvoted = models.ManyToManyField(Bug, blank=True)
+    bugs_upvoted = models.ManyToManyField(Bug)
     features_upvoted = models.ManyToManyField(Feature, blank=True)
     image = models.ImageField(upload_to="img", blank=True, null=True)
     
@@ -30,4 +30,3 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
-        

@@ -23,7 +23,7 @@
         <h2>Comments</h2>
         {% if comments %}
             {% for comment in comments %}
-                <strong>{{ comment.commenter }}, {{ comment.comment_date }}</strong>
+                <strong>Posted by {{ comment.commenter }}, {{ comment.comment_date }}</strong>
                 <p>{{ comment.text }}</p>
             {% endfor %}
         {% endif %}

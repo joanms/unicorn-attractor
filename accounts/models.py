@@ -14,8 +14,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bugs_submitted = models.IntegerField(default=0)
     features_submitted = models.IntegerField(default=0)
-    bugs_upvoted = models.ManyToManyField(Bug)
-    features_upvoted = models.ManyToManyField(Feature, blank=True)
     image = models.ImageField(upload_to="img", blank=True, null=True)
     
     def __str__(self):

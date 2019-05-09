@@ -11,7 +11,7 @@
 /*Nav*/
 
 .navbar-dark {
-    background-color: #583870 !important;
+    background-color: #583870 !important; /*!important is used to override the Bootstrap CSS for the navbar background colour*/
 }
 
 .navbar-brand {

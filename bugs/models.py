@@ -21,8 +21,8 @@ class Upvote(models.Model):
     """
     An upvote on a bug
     """
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    bug = models.ForeignKey(Bug, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    bug = models.ForeignKey(Bug, on_delete=models.CASCADE, null=True)
         
 
 class Comment(models.Model):
@@ -35,4 +35,4 @@ class Comment(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return self.coment_date
+        return self.text

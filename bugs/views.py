@@ -71,10 +71,8 @@ def upvote(request, bug_id):
     bug = Bug.objects.get(pk=bug_id)
     if request.user == bug.submitter:
         messages.error(request, "You can't upvote a bug that you submitted.")
-        
-    # I need an elif statement here checking whether the user has already upvoted 
-    # and, if so, telling them that they can't upvote again.
-    
+    elif Upvote.objects.filter(user=request.user, bug=bug):
+        messages.error(request, "You have already upvoted this bug.")
     else:
         bug.upvotes += 1
         bug.save()

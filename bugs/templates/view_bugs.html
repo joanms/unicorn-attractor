@@ -33,6 +33,7 @@
                     <td>{{ bug.description|truncatewords:20 }}</td>
                     <td>{{ bug.submitter }}</td>
                     <td>{{ bug.date_submitted }}</td>
+                    <!--The code for upvoting is based on this: https://www.quora.com/How-do-I-create-a-vote-button-in-Django/answer/Lakshmi-Suvvada-->
                     <td>{{ bug.upvotes }} <a href="upvote/{{ bug.id }}"><button class="btn btn-secondary btn-sm">
                         <i class="fas fa-arrow-up"></i></button></a></td>
                     <td>{{ bug.status }}</td>    

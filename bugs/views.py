@@ -62,6 +62,7 @@ def comment(request, pk):
     return render(request, 'bug_comment.html', {'bug': bug, 'comment_form': comment_form})
     
 
+# The code for upvoting is based on this: https://www.quora.com/How-do-I-create-a-vote-button-in-Django/answer/Lakshmi-Suvvada
 def upvote(request, bug_id):
     """
     Allows users to upvote bugs they didn't submit themselves 

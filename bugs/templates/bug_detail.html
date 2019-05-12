@@ -14,7 +14,7 @@
     <h1>{{ bug.title }}</h1>
     <strong>Submitted by {{ bug.submitter }}, {{ bug.date_submitted }}<br>
     Upvotes: {{ bug.upvotes }} 
-    <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-up"></i></button></td><br>
+    <a href="upvote/{{ bug.id }}"><button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-up"></i></button></a></td><br>
     Status: {{ bug.status }}</strong>
     <p>{{ bug.description }}</p>
     

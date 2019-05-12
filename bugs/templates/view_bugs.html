@@ -16,12 +16,13 @@
             
             <thead>
                 <tr>
-                    <th scope="col" style="width: 20%">Title</th>
-                    <th scope="col" style="width: 35%">Description</th>
+                    <th scope="col" style="width: 15%">Title</th>
+                    <th scope="col" style="width: 30%">Description</th>
                     <th scope="col" style="width: 10%">Submitter</th>
                     <th scope="col" style="width: 15%">Date Submitted</th>
                     <th scope="col" style="width: 10%">Upvotes</th>
                     <th scope="col" style="width: 10%">Status</th>
+                    <th scope="col" style="width: 10%"></th>
                 </tr>
             </thead>
             
@@ -29,14 +30,15 @@
                 {% for bug in bugs %}
                 <tr>
                     <!--Users can click on the bug title to see its details, including comments from users-->
-                    <th scope="row"><a href="{% url 'bug detail' bug.id %}">{{ bug.title }}</a></th>
+                    <th scope="row">{{ bug.title }}</th>
                     <td>{{ bug.description|truncatewords:20 }}</td>
                     <td>{{ bug.submitter }}</td>
                     <td>{{ bug.date_submitted }}</td>
                     <!--The code for upvoting is based on this: https://www.quora.com/How-do-I-create-a-vote-button-in-Django/answer/Lakshmi-Suvvada-->
-                    <td>{{ bug.upvotes }} <a href="upvote/{{ bug.id }}"><button class="btn btn-secondary btn-sm">
-                        <i class="fas fa-arrow-up"></i></button></a></td>
-                    <td>{{ bug.status }}</td>    
+                    <td>{{ bug.upvotes }}</td>
+                    <td>{{ bug.status }}</td>
+                    <td><a href="{% url 'bug detail' bug.id %}">
+                        <button class="btn btn-secondary btn-sm">View Details</button></a></td>
                 </tr>
                 {% endfor %}
             </tbody>

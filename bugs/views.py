@@ -71,6 +71,7 @@ def upvote(request, bug_id):
     and haven't already upvoted
     """
     bug = Bug.objects.get(pk=bug_id)
+    comments = Comment.objects.filter(bug=bug)
     if request.user == bug.submitter:
         messages.error(request, "You can't upvote a bug that you submitted.")
     elif Upvote.objects.filter(user=request.user, bug=bug):
@@ -80,5 +81,4 @@ def upvote(request, bug_id):
         bug.save()
         upvote = Upvote.objects.create(user=request.user, bug=bug)
 
-    bugs = Bug.objects.all()
-    return redirect('/bugs/view_bugs/')
+    return render(request, "bug_detail.html", {'bug': bug, 'comments': comments})

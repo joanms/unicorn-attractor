@@ -13,10 +13,10 @@
     <!--The details of an individual bug-->
     <h1>{{ bug.title }}</h1>
     <strong>Submitted by {{ bug.submitter }}, {{ bug.date_submitted }}<br>
-    Upvotes: {{ bug.upvotes }} 
-    <a href="upvote/{{ bug.id }}"><button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-up"></i></button></a></td><br>
+    Upvotes: {{ bug.upvotes }}<br>
     Status: {{ bug.status }}</strong>
     <p>{{ bug.description }}</p>
+    <em>If you also experience this bug, please click here: <a href="{% url 'upvote' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Upvote</i></button></a></td><br></em>
     
     <!--If there are comments on the bug, they appear here-->
     <div class="comment-pane">

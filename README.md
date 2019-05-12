@@ -58,13 +58,15 @@ Automated testing is carried out with Django's own testing framwork. To run the 
 python3 manage.py test
 
 ### Manual testing
+I carried out manual testing as follows:
+
 #### Registration
 1. Navigate to registration page.
 2. Enter the email address of an already registered user and a new username.
 3. Ensure that an error message appears, saying that email addresses must be unique.
 4. Enter a unique email address and the username of an already registered user.
 5. Ensure that an error message appears saying that a user with that username already exists.
-2. Register several new users by filling in all fields correctly, and ensuring that all data entered is saved in the database.
+6. Register several new users by filling in all fields correctly, and ensuring that all data entered is saved in the database.
 
 #### Login
 1. Navigate to the login page.
@@ -82,6 +84,19 @@ python3 manage.py test
 6. Click on the link in the email and ensure that a page appears invting me to enter a new password.
 7. Ensure that a page appears confirming that the password has been reset, and inviting me to log in.
 8. Log in with the new password to ensure that it has been changed successfully.
+
+#### Upvoting bugs
+1. Click on the upvote button for a bug not submitted or already upvoted by the logged in user.
+2. Ensure that the upvote count increases by one.
+3. Click on the upvote button for a bug submitted by the currently logged in user.
+4. Ensure that a message displays saying 'You can't upvote a bug that you submitted'.
+5. Click on the upvote button for a bug already upvoted by the currently logged in user.
+6. Ensure that a message displays saying 'You have already upvoted this bug'.
+
+#### Viewing bug details
+1. Click on the title of a bug on the page listing reported bugs.
+2. Ensure that a page showing the details of that bug appears.
+3. Ensure that all comments made about that bug, and only that bug, appear at the bottom of the page.
 
 ## Acknowledgements
 ### Media

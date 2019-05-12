@@ -1,6 +1,10 @@
 from django.test import TestCase
 from .forms import BugReportForm, CommentForm
+from django.contrib.auth.models import User
 
+
+c = Client()
+c.login(username='Jane', password='password')
 
 class TestForms(TestCase):
 
@@ -20,7 +24,7 @@ class TestForms(TestCase):
         
         
 class TestViews(TestCase):
-
+    
     def test_get_bug_list_page(self):
     
         """Ensure that the bug list page loads correctly"""
@@ -30,10 +34,10 @@ class TestViews(TestCase):
         self.assertTemplateUsed(page, "view_bugs.html")
 
         
-    def test_get_bug_report_page(self):
+    def test_bug_report_requires_login(self):
     
-        """Ensure that the bug report form page loads correctly"""
+        """Ensure that the bug report form is only accessible to logged in users"""
     
         page = self.client.get("/bugs/report_bug/")
         self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "report_bug.html")                
+        self.assertTemplateUsed(page, "report_bug.html")

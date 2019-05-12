@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 from accounts.forms import UserLoginForm, UserRegistrationForm
 
 
@@ -27,7 +28,11 @@ def login(request):
 
             if user:
                 auth.login(user=user, request=request)
-                return redirect(reverse('index'))
+                next_url = request.GET.get('next')
+                if next_url:
+                    return HttpResponseRedirect(next_url)
+                else:
+                    return redirect(reverse('index'))
             else:
                 login_form.add_error(None, "Your username or password is incorrect")
     else:

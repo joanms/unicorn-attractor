@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
+@login_required()
 def report_bug(request):
     """
     Renders a form for reporting bugs and saves a bug with the currently 
@@ -42,6 +43,7 @@ def bug_detail(request, pk):
     return render(request, "bug_detail.html", {'bug': bug, 'comments': comments})
     
 
+@login_required()
 def comment(request, pk):
     """
     Renders a form for commenting on bugs and saves a bug with the currently 
@@ -62,6 +64,7 @@ def comment(request, pk):
     
 
 # The code for upvoting is based on this: https://www.quora.com/How-do-I-create-a-vote-button-in-Django/answer/Lakshmi-Suvvada
+@login_required()
 def upvote(request, bug_id):
     """
     Allows users to upvote bugs they didn't submit themselves 

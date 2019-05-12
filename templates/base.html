@@ -33,7 +33,7 @@
                     <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 
-                <!--If a user is registered and logged in, they can view and submit bugs and features-->
+                <!--If a user is registered and logged in, they can view their profile or log out-->
                 {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'profile' %}">Profile <span class="sr-only">(current)</span></a>
@@ -41,27 +41,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Log Out <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bugs</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'report bug' %}">Report a Bug</a>
-                            <a class="dropdown-item" href="{% url 'view bugs' %}">Reported Bugs</a>
-                        </div>
-                      </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Features</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Request a Feature</a>
-                            <a class="dropdown-item" href="#">Requested Features</a>
-                        </div>
-                      </li>  
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Statistics <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">  
-                        <a class="nav-link" href="#">Contact <span class="sr-only">(current)</span></a>
-                    </li>
-                
+
                 <!--If a user is not logged in, they can log in if already registered, or register if not-->
                 {%  else %}
                     <li class="nav-item">
@@ -71,6 +51,28 @@
                         <a class="nav-link" href="{% url 'login' %}">Log In <span class="sr-only">(current)</span></a>
                     </li>
                 {% endif %}
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bugs</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'report bug' %}">Report a Bug</a>
+                        <a class="dropdown-item" href="{% url 'view bugs' %}">Reported Bugs</a>
+                    </div>
+                  </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Features</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Request a Feature</a>
+                        <a class="dropdown-item" href="#">Requested Features</a>
+                    </div>
+                  </li>  
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Statistics <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">  
+                    <a class="nav-link" href="#">Contact <span class="sr-only">(current)</span></a>
+                </li>
+                
                 
             </ul>
         </div>

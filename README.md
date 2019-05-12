@@ -50,6 +50,39 @@ File "/home/travis/virtualenv/python3.4.3/lib/python3.4/site-packages/env.py", l
           ^
 SyntaxError: Missing parentheses in call to 'print'
 
+The build passes when I comment out 'import env' in settings.py.
+
+### Automated Testing
+Automated testing is carried out with Django's own testing framwork. To run the tests, run the following command in the CLI:
+
+python3 manage.py test
+
+### Manual testing
+#### Registration
+1. Navigate to registration page.
+2. Enter the email address of an already registered user and a new username.
+3. Ensure that an error message appears, saying that email addresses must be unique.
+4. Enter a unique email address and the username of an already registered user.
+5. Ensure that an error message appears saying that a user with that username already exists.
+2. Register several new users by filling in all fields correctly, and ensuring that all data entered is saved in the database.
+
+#### Login
+1. Navigate to the login page.
+2. Log in as each registered user in turn, entering correct username and password combinations.
+3. Ensure that the users are logged in successfuly.
+4. Attempt to log in as each registered user, entering incorrect usnername and password combinations.
+5. Ensure that an error message displays saying that the username or password is incorrect.
+
+#### Password reset
+1. Click on the password reset link on the login page.
+2. Ensure that a page appears inviting me to enter my email address.
+3. Enter my email address in the box and click the Reset Password button.
+4. Ensure that a page appears telling me that an email has been sent.
+5. Check my inbox for the email.
+6. Click on the link in the email and ensure that a page appears invting me to enter a new password.
+7. Ensure that a page appears confirming that the password has been reset, and inviting me to log in.
+8. Log in with the new password to ensure that it has been changed successfully.
+
 ## Acknowledgements
 ### Media
 The images were downloaded from [PixaBay](https://pixabay.com/). 

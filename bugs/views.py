@@ -5,7 +5,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
-@login_required()
 def report_bug(request):
     """
     Renders a form for reporting bugs and saves a bug with the currently 

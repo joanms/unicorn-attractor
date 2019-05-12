@@ -30,9 +30,6 @@ class TestViews(TestCase):
         self.assertTemplateUsed(page, "view_bugs.html")
 
         
-    # When I run the following test, it fails with this message: 'AssertionError: 302 != 200'
-    # This means that the requested resource resides temporarily under a different URI.
-    # The page always loads correctly when I test it manually.
     def test_get_bug_report_page(self):
     
         """Ensure that the bug report form page loads correctly"""

@@ -16,7 +16,7 @@
 
 .navbar-brand {
     font-family: "Milonga", cursive;
-    font-size: 2.5em;
+    font-size: 3em;
 }
 
 
@@ -24,18 +24,18 @@
 
 h1 {
     font-family: "Milonga", cursive;
-    font-size: 3em;
+    font-size: 2em;
     margin-bottom: 25px;
 }
 
 h2 {
     font-family: "Milonga", cursive;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 h3 {
     font-family: "Milonga", cursive;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 
@@ -64,15 +64,7 @@ a:hover {
 
 .small-container {
     display: block;
-    width: 600px;
-    margin-top: 50px;
-    padding: 25px;
-    background-color: rgba(212, 212, 247, 0.9);
-}
-
-.medium-container {
-    display: block;
-    width: 60vw;
+    width: 40vw;
     margin-top: 50px;
     padding: 25px;
     background-color: rgba(212, 212, 247, 0.9);
@@ -114,4 +106,18 @@ a:hover {
 .img-circle{
     width:100px;
     height: 100px; 
+}
+
+
+/*Media Queries*/
+
+@media only screen and (max-width: 992px) {
+    .small-container {
+        width: 80vw;
+        }
+        
+    .navbar-brand {
+    font-size: 2em;
+    }
+    
 }

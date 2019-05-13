@@ -3,9 +3,6 @@ from .forms import BugReportForm, CommentForm
 from django.contrib.auth.models import User
 
 
-c = Client()
-c.login(username='Jane', password='password')
-
 class TestForms(TestCase):
 
     def test_can_report_bug(self):
@@ -38,6 +35,21 @@ class TestViews(TestCase):
     
         """Ensure that the bug report form is only accessible to logged in users"""
     
-        page = self.client.get("/bugs/report_bug/")
-        self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "report_bug.html")
+        response = self.client.get("/bugs/report_bug/")
+        self.assertRedirects(response, '/accounts/login/?next=/bugs/report_bug/')
+
+        
+    def test_upvoting_requires_login(self):
+    
+        """Ensure that upvoting is only accessible to logged in users"""
+    
+        response = self.client.get("/bugs/upvote/1/")
+        self.assertRedirects(response, '/accounts/login/?next=/bugs/upvote/1/')
+        
+        
+    def test_commenting_requires_login(self):
+    
+        """Ensure that commenting is only accessible to logged in users"""
+    
+        response = self.client.get("/bugs/comment/1/")
+        self.assertRedirects(response, '/accounts/login/?next=/bugs/comment/1/')                

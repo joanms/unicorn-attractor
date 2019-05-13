@@ -5,6 +5,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+    
     <title>{% block page_title %}{% endblock %}</title>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 
@@ -30,25 +31,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
                 </li>
                 
                 <!--If a user is registered and logged in, they can view their profile or log out-->
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile' %}">{{ request.user}}'s Profile <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'profile' %}">{{ request.user}}'s Profile<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Log Out <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'logout' %}">Log Out<span class="sr-only">(current)</span></a>
                     </li>
 
                 <!--If a user is not logged in, they can log in if already registered, or register if not-->
                 {%  else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'registration' %}">Register <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'registration' %}">Register<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Log In <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'login' %}">Log In<span class="sr-only">(current)</span></a>
                     </li>
                 {% endif %}
                 

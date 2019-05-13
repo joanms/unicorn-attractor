@@ -10,7 +10,9 @@
 
 <!--Form for a user who is already registered to log in-->
 <div class="mx-auto small-container">
-    <h1>Log In</h1>
+    <h1>Please Log In</h1>
+    <p>You need to be logged in to submit, comment on and upvote tickets. If you don't 
+    already have an account, you can register <a href="{% url 'registration' %}">here</a>.</p>
     <form method="POST">
         {% csrf_token %} {{ login_form | as_bootstrap}}
         <input type="hidden" name="next" value="{{next}}"/>

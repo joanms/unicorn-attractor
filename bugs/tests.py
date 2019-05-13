@@ -1,6 +1,7 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from .forms import BugReportForm, CommentForm
 from django.contrib.auth.models import User
+from .models import Bug
 
 
 class TestForms(TestCase):
@@ -22,6 +23,43 @@ class TestForms(TestCase):
         
 class TestViews(TestCase):
     
+    def setUp(self):
+        
+        """
+        Set up temporary users and a bug for testing purposes. 
+        Code by Marcin Mrugacz: 
+        https://github.com/Migacz85/django_app/blob/master/bugs/tests.py
+        """
+        
+        self.user = User.objects.create(
+            username='admin',
+            password='asdfg',
+            is_active=True,
+            is_staff=True,
+            is_superuser=True
+        )
+        self.user.set_password("asdfg")
+        self.user.save()
+
+        self.user = User.objects.create(
+            username='John',
+            password='asdfg',
+            is_active=True,
+            is_staff=True,
+            is_superuser=False
+        )
+        self.user.set_password("asdfg")
+        self.user.save()
+        
+        self.client = Client()
+        self.bug = Bug.objects.create(
+            title='test',
+            description='this is a test',
+            submitter=self.user
+        )
+        self.bug.save()
+
+
     def test_get_bug_list_page(self):
     
         """Ensure that the bug list page loads correctly"""
@@ -53,3 +91,29 @@ class TestViews(TestCase):
     
         response = self.client.get("/bugs/comment/1/")
         self.assertRedirects(response, '/accounts/login/?next=/bugs/comment/1/')                
+        
+    def test_bug_report_form_loads_correctly(self):
+    
+        """Ensure that the bug report form loads correctly when a user is logged in"""
+    
+        self.client.login(username='John', password='asdfg')
+        response = self.client.get("/bugs/report_bug/")
+        self.assertEqual(response.status_code, 200)
+
+        
+    def test_upvoting_works(self):
+    
+        """Ensure that upvoting works when a user is logged in"""
+    
+        self.client.login(username='John', password='asdfg')
+        response = self.client.get("/bugs/upvote/{}/".format(self.bug.id))
+        self.assertEqual(response.status_code, 200)
+        
+        
+    def test_commenting_form_loads_correctly(self):
+    
+        """Ensure that the commenting form loads when a user is logged in"""
+    
+        self.client.login(username='John', password='asdfg')
+        response = self.client.get("/bugs/comment/{}/".format(self.bug.id))
+        self.assertEqual(response.status_code, 200)

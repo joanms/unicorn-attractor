@@ -70,14 +70,6 @@ a:hover {
     background-color: rgba(212, 212, 247, 0.9);
 }
 
-.medium-container {
-    display: block;
-    width: 50vw;
-    margin-top: 50px;
-    padding: 25px;
-    background-color: rgba(212, 212, 247, 0.9);
-}
-
 .large-container {
     display: block;
     width: 80vw;

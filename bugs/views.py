@@ -44,7 +44,7 @@ def bug_detail(request, pk):
     
 
 @login_required()
-def comment(request, pk):
+def bug_comment(request, pk):
     """
     Renders a form for commenting on bugs and saves a bug with the currently 
     logged-in user as the commenter if a valid form is submitted.

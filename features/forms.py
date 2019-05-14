@@ -1,5 +1,5 @@
 from django import forms
-from .models import Feature, Comment
+from .models import Feature, FeatureComment
 
 
 class FeatureReportForm(forms.ModelForm):
@@ -13,11 +13,11 @@ class FeatureReportForm(forms.ModelForm):
     description = forms.Textarea()
     
 
-class CommentForm(forms.ModelForm):
+class FeatureCommentForm(forms.ModelForm):
     """
     Form for users to comment on bugs
     """
     class Meta:
-        model = Comment
+        model = FeatureComment
         fields = ['text']
     text = forms.Textarea()

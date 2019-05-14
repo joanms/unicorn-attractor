@@ -17,7 +17,7 @@ class Feature(models.Model):
         return self.title
         
 
-class Upvote(models.Model):
+class FeatureUpvote(models.Model):
     """
     An upvote on a feature
     """
@@ -25,7 +25,7 @@ class Upvote(models.Model):
     feature = models.ForeignKey(Feature, on_delete=models.CASCADE, null=True)
         
 
-class Comment(models.Model):
+class FeatureComment(models.Model):
     """
     A comment on a feature
     """

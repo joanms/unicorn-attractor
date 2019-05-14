@@ -21,7 +21,7 @@ from bugs import urls as urls_bugs
 from features import urls as urls_features
 from django.views.static import serve
 from .settings import MEDIA_ROOT
-from bugs.views import report_bug, view_bugs, bug_detail
+from bugs.views import report_bug, list_bugs, bug_details
 
 urlpatterns = [
     url(r'^', include(urls_home)),

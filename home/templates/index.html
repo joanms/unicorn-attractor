@@ -13,8 +13,8 @@
         {% if user.is_authenticated %}
         
             <p>Thank you for being a part of the UnicornAttractor community. You 
-            can access the bug tracker <a href="{% url 'view bugs' %}">here</a> 
-            and the feature tracker <a href="#">here</a>.</p>
+            can access the bug tracker <a href="{% url 'list_bugs' %}">here</a> 
+            and the feature tracker <a href="{% url 'list_features' %}">here</a>.</p>
         
         {% else %}
         

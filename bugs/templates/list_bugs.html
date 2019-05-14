@@ -2,15 +2,15 @@
 
 {% load bootstrap_tags %} 
 
-{% block page_title %}View Features{% endblock %}
+{% block page_title %}List Bugs{% endblock %}
 
 {% block content %}
 
 <div class="mx-auto large-container">
-    <h1>Requested Features</h1>
+    <h1>Reported Bugs</h1>
     
-    <!--If there are feature reports in the database, they will be listed in a table here-->
-    {% if features %}
+    <!--If there are bug reports in the database, they will be listed in a table here-->
+    {% if bugs %}
     
         <div class="table-responsive">
             <table class="table">
@@ -28,17 +28,17 @@
                 </thead>
                 
                 <tbody>
-                    {% for feature in features %}
+                    {% for bug in bugs %}
                     <tr>
-                        <!--Users can click on the feature title to see its details, including comments from users-->
-                        <th scope="row">{{ feature.title }}</th>
-                        <td>{{ feature.description|truncatewords:20 }}</td>
-                        <td>{{ feature.submitter }}</td>
-                        <td>{{ feature.date_submitted }}</td>
+                        <!--Users can click on the bug title to see its details, including comments from users-->
+                        <th scope="row">{{ bug.title }}</th>
+                        <td>{{ bug.description|truncatewords:20 }}</td>
+                        <td>{{ bug.submitter }}</td>
+                        <td>{{ bug.date_submitted }}</td>
                         <!--The code for upvoting is based on this: https://www.quora.com/How-do-I-create-a-vote-button-in-Django/answer/Lakshmi-Suvvada-->
-                        <td>{{ feature.upvotes }}</td>
-                        <td>{{ feature.status }}</td>
-                        <td><a href="{% url 'feature detail' feature.id %}">
+                        <td>{{ bug.upvotes }}</td>
+                        <td>{{ bug.status }}</td>
+                        <td><a href="{% url 'bug_detail' bug.id %}">
                             <button class="btn btn-secondary btn-sm">View Details</button></a></td>
                     </tr>
                     {% endfor %}
@@ -48,13 +48,13 @@
         </div>
 
     {% else %}
-        <!--If there are no feature reports in the database, the following text will appear-->
-        <p>There are currently no features in the database.</p>
+        <!--If there are no bug reports in the database, the following text will appear-->
+        <p>There are currently no bugs in the database.</p>
         
     {% endif %}
     
-    <!--Link for a user to report a feature-->
-    <p><a href="{% url 'report feature' %}"><button type="submit" class="btn btn-secondary">Request a Feature</button></a></p>
+    <!--Link for a user to report a bug-->
+    <p><a href="{% url 'report_bug' %}"><button type="submit" class="btn btn-secondary">Report a Bug</button></a></p>
     
 </div>
 

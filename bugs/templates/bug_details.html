@@ -2,7 +2,7 @@
 
 {% load bootstrap_tags %} 
 
-{% block page_title %}Bug Details{% endblock %}
+{% block page_title %}Bug: {{ bug.title }}{% endblock %}
 
 {% block content %}
 
@@ -16,7 +16,7 @@
     Upvotes: {{ bug.upvotes }}<br>
     Status: {{ bug.status }}</strong>
     <p>{{ bug.description }}</p>
-    <em>If you also experience this bug, please click here: <a href="{% url 'upvote bug' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Upvote</i></button></a></td><br></em>
+    <em>If you also experience this bug, please click here: <a href="{% url 'upvote_bug' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Upvote</i></button></a></td><br></em>
     
     <!--If there are comments on the bug, they appear here-->
     <div class="comment-pane">
@@ -29,7 +29,7 @@
         {% endif %}
         
         <!--Link for users to make their own comments-->
-        <a href="{% url 'comment on a bug' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Add a Comment</i></button></a>
+        <a href="{% url 'bug_comment' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Add a Comment</i></button></a>
     </div>
     
 </div>

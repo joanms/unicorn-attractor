@@ -19,28 +19,28 @@ def report_bug(request):
             bug.save()
             request.user.profile.bugs_submitted += 1
             request.user.profile.save()
-            return redirect(view_bugs)
+            return redirect(list_bugs)
     else:
         bug_form = BugReportForm()
     return render(request, 'report_bug.html', {'bug_form': bug_form})
 
     
-def view_bugs(request):
+def list_bugs(request):
     """
     Displays a table listing all reported bugs
     """
     bugs = Bug.objects.all()
-    return render(request, 'view_bugs.html', {'bugs': bugs})
+    return render(request, 'list_bugs.html', {'bugs': bugs})
     
 
-def bug_detail(request, pk):
+def bug_details(request, pk):
     """
     Displays a single bug or returns a 404 error if the bug is not found, 
     and displays comments on the bug
     """
     bug = get_object_or_404(Bug, pk=pk)
     comments = BugComment.objects.filter(bug=bug)
-    return render(request, "bug_detail.html", {'bug': bug, 'comments': comments})
+    return render(request, "bug_details.html", {'bug': bug, 'comments': comments})
     
 
 @login_required()
@@ -57,7 +57,7 @@ def bug_comment(request, pk):
             comment.commenter = request.user
             comment.bug = bug
             comment.save()
-            return redirect(bug_detail, bug.pk)
+            return redirect(bug_details, bug.pk)
     else:
         comment_form = BugCommentForm()
     return render(request, 'bug_comment.html', {'bug': bug, 'comment_form': comment_form})
@@ -81,4 +81,4 @@ def upvote_bug(request, bug_id):
         bug.save()
         upvote = BugUpvote.objects.create(user=request.user, bug=bug)
 
-    return render(request, "bug_detail.html", {'bug': bug, 'comments': comments})
+    return render(request, "bug_details.html", {'bug': bug, 'comments': comments})

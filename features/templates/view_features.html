@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %} 
+
+{% block page_title %}View Bugs{% endblock %}
+
+{% block content %}
+
+<div class="mx-auto large-container">
+    <h1>Reported Bugs</h1>
+    
+    <!--If there are feature reports in the database, they will be listed in a table here-->
+    {% if features %}
+    
+        <div class="table-responsive">
+            <table class="table">
+                
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 15%">Title</th>
+                        <th scope="col" style="width: 30%">Description</th>
+                        <th scope="col" style="width: 10%">Submitter</th>
+                        <th scope="col" style="width: 15%">Date Submitted</th>
+                        <th scope="col" style="width: 10%">Upvotes</th>
+                        <th scope="col" style="width: 10%">Status</th>
+                        <th scope="col" style="width: 10%"></th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    {% for feature in features %}
+                    <tr>
+                        <!--Users can click on the feature title to see its details, including comments from users-->
+                        <th scope="row">{{ feature.title }}</th>
+                        <td>{{ feature.description|truncatewords:20 }}</td>
+                        <td>{{ feature.submitter }}</td>
+                        <td>{{ feature.date_submitted }}</td>
+                        <!--The code for upvoting is based on this: https://www.quora.com/How-do-I-create-a-vote-button-in-Django/answer/Lakshmi-Suvvada-->
+                        <td>{{ feature.upvotes }}</td>
+                        <td>{{ feature.status }}</td>
+                        <td><a href="{% url 'feature detail' feature.id %}">
+                            <button class="btn btn-secondary btn-sm">View Details</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+        </div>
+
+    {% else %}
+        <!--If there are no feature reports in the database, the following text will appear-->
+        <p>There are currently no features in the database.</p>
+        
+    {% endif %}
+    
+    <!--Link for a user to report a feature-->
+    <p><a href="{% url 'report feature' %}"><button type="submit" class="btn btn-secondary">Report a Bug</button></a></p>
+    
+</div>
+
+{% endblock %}

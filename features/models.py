@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from accounts.models import User
 
+
 class Feature(models.Model):
     """
     A single feature
@@ -14,3 +15,24 @@ class Feature(models.Model):
 
     def __str__(self):
         return self.title
+        
+
+class Upvote(models.Model):
+    """
+    An upvote on a feature
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    feature = models.ForeignKey(Feature, on_delete=models.CASCADE, null=True)
+        
+
+class Comment(models.Model):
+    """
+    A comment on a feature
+    """
+    feature = models.ForeignKey(Feature, on_delete=models.CASCADE, null=True)
+    comment_date = models.DateTimeField(auto_now_add=True)
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text        

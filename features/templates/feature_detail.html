@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %} 
+
+{% block page_title %}Bug Details{% endblock %}
+
+{% block content %}
+
+
+
+<div class="mx-auto small-container">
+    
+    <!--The details of an individual feature-->
+    <h1>{{ feature.title }}</h1>
+    <strong>Submitted by {{ feature.submitter }}, {{ feature.date_submitted }}<br>
+    Upvotes: {{ feature.upvotes }}<br>
+    Status: {{ feature.status }}</strong>
+    <p>{{ feature.description }}</p>
+    <em>If you also want this feature, please click here: <a href="{% url 'upvote' feature.id %}"><button type="submit" class="btn btn-secondary btn-sm">Upvote</i></button></a></td><br></em>
+    
+    <!--If there are comments on the feature, they appear here-->
+    <div class="comment-pane">
+        <h2>Comments</h2>
+        {% if comments %}
+            {% for comment in comments %}
+                <strong>Posted by {{ comment.commenter }}, {{ comment.comment_date }}</strong>
+                <p>{{ comment.text }}</p>
+            {% endfor %}
+        {% endif %}
+        
+        <!--Link for users to make their own comments-->
+        <a href="{% url 'comment on a feature' feature.id %}"><button type="submit" class="btn btn-secondary btn-sm">Add a Comment</i></button></a>
+    </div>
+    
+</div>
+
+{% endblock %}

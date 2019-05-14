@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %} 
+
+{% block page_title %}Comment on a Bug{% endblock %}
+
+{% block content %}
+
+<!--Form for users to comment on a feature-->
+<div class="mx-auto small-container">
+   <h1>Comment on &ldquo;{{ feature.title }}&rdquo;</h1>
+   <form method="POST">
+        {% csrf_token %} {{ comment_form | as_bootstrap }}
+        <button type="submit" class="btn btn-secondary">Submit Comment</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -201,7 +201,7 @@
 <p id="t1" class="stm run hide_run"><span class="key">from</span> <span class="nam">django</span><span class="op">.</span><span class="nam">test</span> <span class="key">import</span> <span class="nam">TestCase</span><span class="op">,</span> <span class="nam">Client</span><span class="strut">&nbsp;</span></p>
 <p id="t2" class="stm run hide_run"><span class="key">from</span> <span class="op">.</span><span class="nam">forms</span> <span class="key">import</span> <span class="nam">BugReportForm</span><span class="op">,</span> <span class="nam">CommentForm</span><span class="strut">&nbsp;</span></p>
 <p id="t3" class="stm run hide_run"><span class="key">from</span> <span class="nam">django</span><span class="op">.</span><span class="nam">contrib</span><span class="op">.</span><span class="nam">auth</span><span class="op">.</span><span class="nam">models</span> <span class="key">import</span> <span class="nam">User</span><span class="strut">&nbsp;</span></p>
-<p id="t4" class="stm run hide_run"><span class="key">from</span> <span class="op">.</span><span class="nam">models</span> <span class="key">import</span> <span class="nam">Bug</span><span class="strut">&nbsp;</span></p>
+<p id="t4" class="stm run hide_run"><span class="key">from</span> <span class="op">.</span><span class="nam">models</span> <span class="key">import</span> <span class="nam">Bug</span><span class="op">,</span> <span class="nam">Upvote</span><span class="strut">&nbsp;</span></p>
 <p id="t5" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t6" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t7" class="stm run hide_run"><span class="key">class</span> <span class="nam">TestForms</span><span class="op">(</span><span class="nam">TestCase</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
@@ -215,7 +215,7 @@
 <p id="t15" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t16" class="stm run hide_run">    <span class="key">def</span> <span class="nam">test_can_comment_on_a_bug</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t17" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t18" class="pln">        <span class="str">"""Ensure that a user can report a bug"""</span><span class="strut">&nbsp;</span></p>
+<p id="t18" class="pln">        <span class="str">"""Ensure that a user can comment on a bug"""</span><span class="strut">&nbsp;</span></p>
 <p id="t19" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t20" class="stm run hide_run">        <span class="nam">form</span> <span class="op">=</span> <span class="nam">CommentForm</span><span class="op">(</span><span class="op">{</span><span class="str">'text'</span><span class="op">:</span> <span class="str">'I like the unicorns.'</span><span class="op">}</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t21" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertTrue</span><span class="op">(</span><span class="nam">form</span><span class="op">.</span><span class="nam">is_valid</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -336,7 +336,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.3</a>,
-            created at 2019-05-14 08:02
+            created at 2019-05-14 12:00
         </p>
     </div>
 </div>

@@ -82,15 +82,15 @@
             </td>
             <td class="text">
 <p id="t1" class="stm run hide_run"><span class="key">from</span> <span class="nam">django</span><span class="op">.</span><span class="nam">conf</span><span class="op">.</span><span class="nam">urls</span> <span class="key">import</span> <span class="nam">url</span><span class="strut">&nbsp;</span></p>
-<p id="t2" class="stm run hide_run"><span class="key">from</span> <span class="op">.</span><span class="nam">views</span> <span class="key">import</span> <span class="nam">report_bug</span><span class="op">,</span> <span class="nam">bug_detail</span><span class="op">,</span> <span class="nam">view_bugs</span><span class="op">,</span> <span class="nam">upvote</span><span class="op">,</span> <span class="nam">comment</span><span class="strut">&nbsp;</span></p>
+<p id="t2" class="stm run hide_run"><span class="key">from</span> <span class="op">.</span><span class="nam">views</span> <span class="key">import</span> <span class="nam">report_bug</span><span class="op">,</span> <span class="nam">bug_detail</span><span class="op">,</span> <span class="nam">view_bugs</span><span class="op">,</span> <span class="nam">upvote_bug</span><span class="op">,</span> <span class="nam">bug_comment</span><span class="strut">&nbsp;</span></p>
 <p id="t3" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t4" class="stm run hide_run"><span class="nam">urlpatterns</span> <span class="op">=</span> <span class="op">[</span><span class="strut">&nbsp;</span></p>
 <p id="t5" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'^view_bugs/$'</span><span class="op">,</span> <span class="nam">view_bugs</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">"view bugs"</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'^(?P&lt;pk>\d+)/$'</span><span class="op">,</span> <span class="nam">bug_detail</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">"bug detail"</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t7" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'^report_bug/$'</span><span class="op">,</span> <span class="nam">report_bug</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">"report bug"</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="pln">    <span class="com"># The code for upvoting is based on this: https://www.quora.com/How-do-I-create-a-vote-button-in-Django/answer/Lakshmi-Suvvada</span><span class="strut">&nbsp;</span></p>
-<p id="t9" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'^upvote/(?P&lt;bug_id>[0-9]+)/$'</span><span class="op">,</span> <span class="nam">upvote</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'upvote'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t10" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'^comment/(?P&lt;pk>\d+)/$'</span><span class="op">,</span> <span class="nam">comment</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">"comment on a bug"</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t9" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'^upvote/(?P&lt;bug_id>[0-9]+)/$'</span><span class="op">,</span> <span class="nam">upvote_bug</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'upvote bug'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t10" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'^comment/(?P&lt;pk>\d+)/$'</span><span class="op">,</span> <span class="nam">bug_comment</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">"comment on a bug"</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t11" class="pln"><span class="op">]</span><span class="strut">&nbsp;</span></p>
 
             </td>
@@ -102,7 +102,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.3</a>,
-            created at 2019-05-14 07:44
+            created at 2019-05-14 12:00
         </p>
     </div>
 </div>

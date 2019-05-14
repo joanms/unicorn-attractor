@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
-from .forms import BugReportForm, CommentForm
+from .forms import BugReportForm, BugCommentForm
 from django.contrib.auth.models import User
-from .models import Bug, Upvote
+from .models import Bug, BugUpvote
 
 
 class TestForms(TestCase):
@@ -17,7 +17,7 @@ class TestForms(TestCase):
         
         """Ensure that a user can comment on a bug"""
 
-        form = CommentForm({'text': 'I like the unicorns.'})
+        form = BugCommentForm({'text': 'I like the unicorns.'})
         self.assertTrue(form.is_valid)
         
         

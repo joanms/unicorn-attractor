@@ -27,8 +27,8 @@ class FeatureUpvote(models.Model):
     fee = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
-        return self.feature, self.user
-        
+        return "{0} requested by {1}".format(
+            self.feature, self.user)        
 
 class FeatureComment(models.Model):
     """
@@ -40,4 +40,5 @@ class FeatureComment(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return self.text        
+        return "Comment on {0} by {1} on {3}".format(
+            self.feature, self.commenter, self.comment_date)        

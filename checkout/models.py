@@ -1,3 +1,5 @@
+# This code is copied from the e-commerce mini project
+
 from django.db import models
 from features.models import FeatureUpvote
 

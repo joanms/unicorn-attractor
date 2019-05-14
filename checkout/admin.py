@@ -1,3 +1,5 @@
+# This code is copied from the e-commerce mini project
+
 from django.contrib import admin
 from .models import Order, OrderLineItem
 

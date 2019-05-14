@@ -18,10 +18,8 @@
     <p>{{ feature.description }}</p>
     
     <div>
-        <form method="POST" action="#"> <!-- action will be "url 'add_to_cart' feature.id" -->
-            {% csrf_token %} 
-            <em>If you also want this feature, please click here: </em>
-            <button type="submit" class="btn btn-secondary btn-sm">Upvote</i></button>
+        <em>If you also want this feature, please click here: 
+        <a href="{% url 'upvote_bug' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Upvote</button></a>
         </form>    
     </div>
     

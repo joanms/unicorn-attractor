@@ -2,7 +2,7 @@
 
 {% load bootstrap_tags %} 
 
-{% block page_title %}List Bugs{% endblock %}
+{% block page_title %}Reported Bugs{% endblock %}
 
 {% block content %}
 
@@ -38,7 +38,7 @@
                         <!--The code for upvoting is based on this: https://www.quora.com/How-do-I-create-a-vote-button-in-Django/answer/Lakshmi-Suvvada-->
                         <td>{{ bug.upvotes }}</td>
                         <td>{{ bug.status }}</td>
-                        <td><a href="{% url 'bug_detail' bug.id %}">
+                        <td><a href="{% url 'bug_details' bug.id %}">
                             <button class="btn btn-secondary btn-sm">View Details</button></a></td>
                     </tr>
                     {% endfor %}

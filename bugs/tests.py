@@ -68,13 +68,13 @@ class TestViews(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "list_bugs.html")
 
-    def test_get_bug_detail_page(self):
+    def test_get_bug_details_page(self):
     
         """Ensure that the bug detail page loads correctly"""
     
         page = self.client.get("/bugs/{}/".format(self.bug.id))
         self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "bug_detail.html")
+        self.assertTemplateUsed(page, "bug_details.html")
 
         
     def test_bug_report_requires_login(self):

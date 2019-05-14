@@ -26,8 +26,7 @@ class TestViews(TestCase):
     def setUp(self):
         
         """
-        Set up temporary users and a feature for testing purposes. 
-        Code by Marcin Mrugacz: 
+        Set up temporary users and a feature for testing purposes. Code by Marcin Mrugacz: 
         https://github.com/Migacz85/django_app/blob/master/features/tests.py
         """
         

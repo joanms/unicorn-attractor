@@ -16,7 +16,16 @@
     Upvotes: {{ feature.upvotes }}<br>
     Status: {{ feature.status }}</strong>
     <p>{{ feature.description }}</p>
-    <em>If you also want this feature, please click here: <a href="{% url 'upvote feature' feature.id %}"><button type="submit" class="btn btn-secondary btn-sm">Upvote</i></button></a></td><br></em>
+    
+    <div>
+    <em>If you also want this feature, please enter at least €5 here and click "Upvote": </em> 
+        <form method="POST" action="#"> <!-- action will be "url 'add to cart' feature.id" -->
+            {% csrf_token %} 
+            <div class="input-group">
+                <input name="fee" type="decimal" min="5" max="999" class="form-control" placeholder="Fee">
+            <button type="submit" class="btn btn-secondary">Upvote</i></button>
+        </form>    
+    </div>
     
     <!--If there are comments on the feature, they appear here-->
     <div class="comment-pane">

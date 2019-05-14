@@ -23,6 +23,9 @@ class BugUpvote(models.Model):
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     bug = models.ForeignKey(Bug, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.bug, self.user
         
 
 class BugComment(models.Model):

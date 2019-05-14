@@ -25,6 +25,9 @@ class FeatureUpvote(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='feature_upvoter')
     feature = models.ForeignKey(Feature, on_delete=models.CASCADE)
     amount_paid = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return self.feature, self.user
         
 
 class FeatureComment(models.Model):

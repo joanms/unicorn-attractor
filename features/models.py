@@ -21,15 +21,16 @@ class FeatureUpvote(models.Model):
     """
     An upvote on a feature
     """
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='feature_upvoter')
-    feature = models.ForeignKey(Feature, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='feature_upvoter')
+    feature = models.ForeignKey(Feature, on_delete=models.CASCADE)
+    amount_paid = models.DecimalField(max_digits=6, decimal_places=2, null=True)
         
 
 class FeatureComment(models.Model):
     """
     A comment on a feature
     """
-    feature = models.ForeignKey(Feature, on_delete=models.CASCADE, null=True)
+    feature = models.ForeignKey(Feature, on_delete=models.CASCADE)
     comment_date = models.DateTimeField(auto_now_add=True)
     commenter = models.ForeignKey(User, on_delete=models.CASCADE, related_name='feature_commenter')
     text = models.TextField()

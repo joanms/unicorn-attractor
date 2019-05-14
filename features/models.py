@@ -12,6 +12,7 @@ class Feature(models.Model):
     submitter = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
+    amount_paid = models.DecimalField(max_digits=6, decimal_places=2, null=True)
 
     def __str__(self):
         return self.title
@@ -23,7 +24,7 @@ class FeatureUpvote(models.Model):
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='feature_upvoter')
     feature = models.ForeignKey(Feature, on_delete=models.CASCADE)
-    amount_paid = models.DecimalField(max_digits=6, decimal_places=2, null=True)
+    amount_paid = models.DecimalField(max_digits=6, decimal_places=2)
         
 
 class FeatureComment(models.Model):

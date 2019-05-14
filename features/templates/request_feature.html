@@ -2,16 +2,16 @@
 
 {% load bootstrap_tags %} 
 
-{% block page_title %}Report a Bug{% endblock %}
+{% block page_title %}Report a Feature{% endblock %}
 
 {% block content %}
 
 <!--A form for a user to report a feature-->
 <div class="mx-auto small-container">
-   <h1>Report a Bug</h1>
+   <h1>Request a Feature</h1>
    <form method="POST">
         {% csrf_token %} {{ feature_form | as_bootstrap}}
-        <button type="submit" class="btn btn-secondary">Submit Report</button>
+        <button type="submit" class="btn btn-secondary">Request Feature</button>
     </form>
 </div>
 

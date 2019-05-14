@@ -2,12 +2,12 @@
 
 {% load bootstrap_tags %} 
 
-{% block page_title %}View Bugs{% endblock %}
+{% block page_title %}View Features{% endblock %}
 
 {% block content %}
 
 <div class="mx-auto large-container">
-    <h1>Reported Bugs</h1>
+    <h1>Requested Features</h1>
     
     <!--If there are feature reports in the database, they will be listed in a table here-->
     {% if features %}
@@ -54,7 +54,7 @@
     {% endif %}
     
     <!--Link for a user to report a feature-->
-    <p><a href="{% url 'report feature' %}"><button type="submit" class="btn btn-secondary">Report a Bug</button></a></p>
+    <p><a href="{% url 'report feature' %}"><button type="submit" class="btn btn-secondary">Request a Feature</button></a></p>
     
 </div>
 

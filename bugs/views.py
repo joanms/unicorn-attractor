@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from bugs.forms import BugReportForm, CommentForm
-from .models import Bug, Comment, Upvote
+from bugs.forms import BugReportForm, BugCommentForm
+from .models import Bug, BugComment, BugUpvote
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -39,7 +39,7 @@ def bug_detail(request, pk):
     and displays comments on the bug
     """
     bug = get_object_or_404(Bug, pk=pk)
-    comments = Comment.objects.filter(bug=bug)
+    comments = BugComment.objects.filter(bug=bug)
     return render(request, "bug_detail.html", {'bug': bug, 'comments': comments})
     
 
@@ -51,7 +51,7 @@ def comment(request, pk):
     """
     bug = get_object_or_404(Bug, pk=pk)
     if request.method == 'POST':
-        comment_form = CommentForm(request.POST)
+        comment_form = BugCommentForm(request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.commenter = request.user
@@ -59,26 +59,26 @@ def comment(request, pk):
             comment.save()
             return redirect(bug_detail, bug.pk)
     else:
-        comment_form = CommentForm()
+        comment_form = BugCommentForm()
     return render(request, 'bug_comment.html', {'bug': bug, 'comment_form': comment_form})
     
 
 # The code for upvoting is based on this: https://www.quora.com/How-do-I-create-a-vote-button-in-Django/answer/Lakshmi-Suvvada
 @login_required()
-def upvote(request, bug_id):
+def upvote_bug(request, bug_id):
     """
     Allows users to upvote bugs they didn't submit themselves 
     and haven't already upvoted
     """
     bug = Bug.objects.get(pk=bug_id)
-    comments = Comment.objects.filter(bug=bug)
+    comments = BugComment.objects.filter(bug=bug)
     if request.user == bug.submitter:
         messages.error(request, "You can't upvote a bug that you submitted.")
-    elif Upvote.objects.filter(user=request.user, bug=bug):
+    elif BugUpvote.objects.filter(user=request.user, bug=bug):
         messages.error(request, "You have already upvoted this bug.")
     else:
         bug.upvotes += 1
         bug.save()
-        upvote = Upvote.objects.create(user=request.user, bug=bug)
+        upvote = BugUpvote.objects.create(user=request.user, bug=bug)
 
     return render(request, "bug_detail.html", {'bug': bug, 'comments': comments})

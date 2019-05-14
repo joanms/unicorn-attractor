@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Bug, Comment, Upvote
+from .models import Bug, BugComment, BugUpvote
 
 admin.site.register(Bug)
-admin.site.register(Comment)
-admin.site.register(Upvote)
+admin.site.register(BugComment)
+admin.site.register(BugUpvote)

@@ -17,7 +17,7 @@ class Bug(models.Model):
         return self.title
         
 
-class Upvote(models.Model):
+class BugUpvote(models.Model):
     """
     An upvote on a bug
     """
@@ -25,7 +25,7 @@ class Upvote(models.Model):
     bug = models.ForeignKey(Bug, on_delete=models.CASCADE, null=True)
         
 
-class Comment(models.Model):
+class BugComment(models.Model):
     """
     A comment on a bug
     """

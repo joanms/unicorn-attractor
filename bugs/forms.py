@@ -1,5 +1,5 @@
 from django import forms
-from .models import Bug, Comment
+from .models import Bug, BugComment
 
 
 class BugReportForm(forms.ModelForm):
@@ -13,11 +13,11 @@ class BugReportForm(forms.ModelForm):
     description = forms.Textarea()
     
 
-class CommentForm(forms.ModelForm):
+class BugCommentForm(forms.ModelForm):
     """
     Form for users to comment on bugs
     """
     class Meta:
-        model = Comment
+        model = BugComment
         fields = ['text']
     text = forms.Textarea()

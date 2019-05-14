@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from .forms import BugReportForm, CommentForm
 from django.contrib.auth.models import User
-from .models import Bug
+from .models import Bug, Upvote
 
 
 class TestForms(TestCase):
@@ -15,7 +15,7 @@ class TestForms(TestCase):
 
     def test_can_comment_on_a_bug(self):
         
-        """Ensure that a user can report a bug"""
+        """Ensure that a user can comment on a bug"""
 
         form = CommentForm({'text': 'I like the unicorns.'})
         self.assertTrue(form.is_valid)
@@ -68,6 +68,14 @@ class TestViews(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "view_bugs.html")
 
+    def test_get_bug_detail_page(self):
+    
+        """Ensure that the bug detail page loads correctly"""
+    
+        page = self.client.get("/bugs/{}/".format(self.bug.id))
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "bug_detail.html")
+
         
     def test_bug_report_requires_login(self):
     
@@ -91,6 +99,7 @@ class TestViews(TestCase):
     
         response = self.client.get("/bugs/comment/1/")
         self.assertRedirects(response, '/accounts/login/?next=/bugs/comment/1/')                
+
         
     def test_bug_report_form_loads_correctly(self):
     

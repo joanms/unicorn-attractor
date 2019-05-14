@@ -21,15 +21,15 @@ class BugUpvote(models.Model):
     """
     An upvote on a bug
     """
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    bug = models.ForeignKey(Bug, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    bug = models.ForeignKey(Bug, on_delete=models.CASCADE)
         
 
 class BugComment(models.Model):
     """
     A comment on a bug
     """
-    bug = models.ForeignKey(Bug, on_delete=models.CASCADE, null=True)
+    bug = models.ForeignKey(Bug, on_delete=models.CASCADE)
     comment_date = models.DateTimeField(auto_now_add=True)
     commenter = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField()

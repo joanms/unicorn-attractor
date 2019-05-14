@@ -21,7 +21,7 @@ class Upvote(models.Model):
     """
     An upvote on a feature
     """
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='feature_upvoter')
     feature = models.ForeignKey(Feature, on_delete=models.CASCADE, null=True)
         
 
@@ -31,7 +31,7 @@ class Comment(models.Model):
     """
     feature = models.ForeignKey(Feature, on_delete=models.CASCADE, null=True)
     comment_date = models.DateTimeField(auto_now_add=True)
-    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE, related_name='feature_commenter')
     text = models.TextField()
 
     def __str__(self):

@@ -1,3 +1,5 @@
+# This code is copied from the e-commerce mini project
+
 from django import forms
 from .models import Order
 
@@ -7,7 +9,6 @@ class MakePaymentForm(forms.Form):
     MONTH_CHOICES = [(i, i) for i in range(1, 12)]
     YEAR_CHOICES = [(i, i) for i in range(2019, 2036)]
 
-    fee = forms.DecimalField(min_value=5.00, max_decimal_places=2, required=True)
     credit_card_number = forms.CharField(label='Credit card number', required=False)
     cvv = forms.CharField(label='Security code (CVV)', required=False)
     expiry_month = forms.ChoiceField(label='Month', choices=MONTH_CHOICES, required=False)

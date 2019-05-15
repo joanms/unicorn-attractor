@@ -6,32 +6,43 @@
 
 {% block content %}
 
-<div class="mx-auto large-container">
+<div class="mx-auto medium-container">
     <h1>Cart</h1>
     
     {% if cart_items %}
         <!--If there are items in the cart, they will appear here-->
 
-        <h3>{{ item.feature.title }}</h3>
-            <p>{{ item.feature.description }}</p>
-            <p>
-                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">Qty</div>
-                            <input name="quantity" type="number" min="0" max="999" class="form-control">
-                            <div class="input-group-addon">{{item.quantity}}</div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-                </form>
-            </p>
-
+        <div class="table-responsive">
+            
+            <table class="table">
+                
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 30%">Title</th>
+                        <th scope="col" style="width: 50%">Description</th>
+                        <th scope="col" style="width: 20%">Upvotes</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    {% for item in cart_items %}
+                        <tr>
+                            <!--Users can click on the feature title to see its details, including comments from users-->
+                            <th scope="row">{{ item.feature.title }}</th>
+                            <td>{{ item.feature.description|truncatewords:20 }}</td>
+                            <td>{{ item.quantity }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+            
+            <strong>Total Fee: €{{ total }}</strong>
+                    
+        </div>
         
         <p><a href="{% url 'checkout' %}"><button type="submit" class="btn btn-secondary">Checkout</button></a></p>
-
+        
     {% else %}
     
         <!--If there are no items in the cart, the following text will appear-->

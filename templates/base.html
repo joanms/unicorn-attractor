@@ -36,11 +36,12 @@
                 
                 <!--If a user is registered and logged in, they can view their profile or log out-->
                 {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile' %}">Your Profile<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Log Out<span class="sr-only">(current)</span></a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logged in as {{ request.user }}</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'profile' %}">View Profile</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+                        </div>
                     </li>
 
                 <!--If a user is not logged in, they can log in if already registered, or register if not-->
@@ -58,7 +59,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bugs</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'report_bug' %}">Report a Bug</a>
-                        <a class="dropdown-item" href="{% url 'list_bugs' %}">Reported Bugs</a>
+                        <a class="dropdown-item" href="{% url 'list_bugs' %}">View List of Bugs</a>
                     </div>
                 </li>
 
@@ -67,7 +68,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Features</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'request_feature' %}">Request a Feature</a>
-                        <a class="dropdown-item" href="{% url 'list_features' %}">Requested Features</a>
+                        <a class="dropdown-item" href="{% url 'list_features' %}">View List of Features</a>
                     </div>
                 </li>
                 

@@ -17,15 +17,15 @@
     Amount Paid: €{{ feature.amount_paid }}<br>
     Status: {{ feature.status }}</strong>
     <p>{{ feature.description }}</p>
-    
+
     <em>If you also want this feature, please enter the quantity of upvotes you 
     want to purchase at a rate of €5 each and click "Upvote"</em>
     <form method="post" action="{% url 'add_to_cart' feature.id %}">
         {% csrf_token %}
         <div class="input-group">
-            <input name="quantity" type="decimal" min="1" max="999" class="form-control" placeholder="Quantity">
-            <span class="input-group-btn"> 
-                <button type="submit" class="btn btn-secondary">Upvote</button></a>
+            <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+            <span class="input-group-btn">
+                <button class="btn btn-secondary" type="submit">Upvote</button>
             </span>
         </div>
     </form>

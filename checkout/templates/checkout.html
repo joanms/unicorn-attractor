@@ -2,7 +2,8 @@
 
 {% extends "base.html" %}
 {% load static from staticfiles %}
-{% load bootstap_tags %}
+{% load bootstrap_tags %}
+{% block page_title %}Payment{% endblock %}
 
 {% block head_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
@@ -15,45 +16,29 @@
 {% endblock %}
 
 {% block content %}
-<div class="large-container">
-    <div class="row row-flex">
-        {% for item in cart_items %}
-            <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-                <div class="panel-body">
-                    <div class="caption">
-                        <h3>{{ item.product.name }}</h3>
-                        <p class="product-description">{{ item.product.description }}</p>
-                        <p>{{ item.quantity }}</p>
-                        <p>item.product.price</p>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="row">
-        <p>Total</p>
-        <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-    </div>
-    
+<div class="mx-auto medium-container">
+
     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-        <legend>Payment Details</legend>
-    
+        <h1>Payment Total: €{{ total }}</h1>
+        
         <div id="credit-card-errors" style="display: none;">
             <div id="alert-message block-message error" id="stripe-error-message"></div>
         </div>
     
-        <div class="form-group col-md-6">
-            {{ order_form | as_bootstrap }}
+        <div class="row">
+            
+            <div class="form-group col-md-6">
+                {{ order_form | as_bootstrap }}
+            </div>
+        
+            <div class="form-group col-md-6">
+                {{ payment_form | as_bootstrap }}
+                {% csrf_token %}
+                <input class=" btn btn-secondary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                
+            </div>
         </div>
     
-        <div class="form-group col-md-6">
-            {{ payment_form | as_bootstrap }}
-        </div>
-    
-        {% csrf_token %}
-        <div class="form-group col-md-12">
-            <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-        </div>
     </form>
 </div>
 {% endblock %}

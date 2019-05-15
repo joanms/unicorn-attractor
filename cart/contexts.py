@@ -4,8 +4,8 @@ from features.models import Feature
 
 def cart_contents(request):
     """
-    Ensures that the cart contents are available when rendering
-    every page
+    Ensures that the cart contents are 
+    available when rendering every page
     """
     cart = request.session.get('cart', {})
 

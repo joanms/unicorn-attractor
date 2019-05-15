@@ -14,20 +14,22 @@
     <h1>{{ feature.title }}</h1>
     <strong>Submitted by {{ feature.submitter }}, {{ feature.date_submitted }}<br>
     Upvotes: {{ feature.upvotes }}<br>
+    Amount Paid: €{{ feature.amount_paid }}<br>
     Status: {{ feature.status }}</strong>
     <p>{{ feature.description }}</p>
     
+    <em>If you also want this feature, please enter the fee you are willing to pay 
+    (at least €5) in the box and click "Upvote"</em>
     <form method="post" action="{% url 'add_to_cart' feature.id %}">
         {% csrf_token %}
         <div class="input-group">
-            <input name="fee" type="decimal" min="5.00" max="999" class="form-control" placeholder="Quantity">
+            <input name="fee" type="decimal" min="5.00" max="999" class="form-control" placeholder="Fee">
             <span class="input-group-btn"> 
-                <button type="submit" class="btn btn-secondary btn-sm">Upvote</button></a>
+                <button type="submit" class="btn btn-secondary">Upvote</button></a>
             </span>
         </div>
-    </form>    
-</div>
-    
+    </form>
+
     <!--If there are comments on the feature, they appear here-->
     <div class="comment-pane">
         <h2>Comments</h2>

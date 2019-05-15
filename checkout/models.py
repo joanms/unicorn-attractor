@@ -1,4 +1,4 @@
-# This code is copied from the e-commerce mini project
+# This code was copied and adapted for this project from the e-commerce mini project
 
 from django.db import models
 from features.models import Feature

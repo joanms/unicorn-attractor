@@ -21,13 +21,3 @@ class FeatureCommentForm(forms.ModelForm):
         model = FeatureComment
         fields = ['text']
     text = forms.Textarea()
-    
-
-# class FeatureUpvoteForm(forms.ModelForm):
-#     """
-#     Form for users to upvote features
-#     """
-#     class Meta:
-#         model = FeatureComment
-#         fields = ['text']
-#     text = forms.Textarea()

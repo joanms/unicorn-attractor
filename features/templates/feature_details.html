@@ -17,11 +17,16 @@
     Status: {{ feature.status }}</strong>
     <p>{{ feature.description }}</p>
     
-    <div>
-        <em>If you also want this feature, please click here: 
-        <a href="{% url 'upvote_bug' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Upvote</button></a>
-        </form>    
-    </div>
+    <form method="post" action="{% url 'add_to_cart' feature.id %}">
+        {% csrf_token %}
+        <div class="input-group">
+            <input name="fee" type="decimal" min="5.00" max="999" class="form-control" placeholder="Quantity">
+            <span class="input-group-btn"> 
+                <button type="submit" class="btn btn-secondary btn-sm">Upvote</button></a>
+            </span>
+        </div>
+    </form>    
+</div>
     
     <!--If there are comments on the feature, they appear here-->
     <div class="comment-pane">

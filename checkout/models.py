@@ -1,7 +1,7 @@
 # This code is copied from the e-commerce mini project
 
 from django.db import models
-from features.models import FeatureUpvote
+from features.models import Feature
 
 # Create your models here.
 class Order(models.Model):
@@ -21,7 +21,7 @@ class Order(models.Model):
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False)
-    product = models.ForeignKey(FeatureUpvote, null=False)
+    product = models.ForeignKey(Feature, null=False)
 
     def __str__(self):
         return "{0} {1} @ {2}".format(

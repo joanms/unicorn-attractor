@@ -23,7 +23,8 @@ from checkout import urls as urls_checkout
 from features import urls as urls_features
 from django.views.static import serve
 from .settings import MEDIA_ROOT
-from bugs.views import report_bug, all_bugs, bug_details
+from bugs.views import report_bug, list_bugs, bug_details
+from features.views import request_feature, list_features, feature_details
 
 urlpatterns = [
     url(r'^', include(urls_home)),

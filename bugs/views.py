@@ -19,18 +19,18 @@ def report_bug(request):
             bug.save()
             request.user.profile.bugs_submitted += 1
             request.user.profile.save()
-            return redirect(all_bugs)
+            return redirect(list_bugs)
     else:
         bug_form = BugReportForm()
     return render(request, 'report_bug.html', {'bug_form': bug_form})
 
     
-def all_bugs(request):
+def list_bugs(request):
     """
     Displays a table listing all reported bugs
     """
     bugs = Bug.objects.all()
-    return render(request, 'all_bugs.html', {'bugs': bugs})
+    return render(request, 'list_bugs.html', {'bugs': bugs})
     
 
 def bug_details(request, pk):

@@ -19,18 +19,18 @@ def request_feature(request):
             feature.save()
             request.user.profile.features_submitted += 1
             request.user.profile.save()
-            return redirect(all_features)
+            return redirect(list_features)
     else:
         feature_form = FeatureReportForm()
     return render(request, 'request_feature.html', {'feature_form': feature_form})
 
     
-def all_features(request):
+def list_features(request):
     """
     Displays a table listing all reported features
     """
     features = Feature.objects.all()
-    return render(request, 'all_features.html', {'features': features})
+    return render(request, 'list_features.html', {'features': features})
     
 
 def feature_details(request, pk):

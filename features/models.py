@@ -13,7 +13,7 @@ class Feature(models.Model):
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
     price = models.IntegerField(default=5)
-    amount_paid = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+    amount_paid = models.IntegerField(default=0)
     status = models.TextField(default="To do")
 
     def __str__(self):

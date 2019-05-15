@@ -1,5 +1,3 @@
-# This code was copied and adapted for this project from the e-commerce mini project
-
 from django.conf.urls import url
 from .views import view_cart, add_to_cart, adjust_cart
 

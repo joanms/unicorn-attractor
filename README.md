@@ -2,6 +2,7 @@
 
 The Full-Stack Frameworks milestone project for Code Institute's full-stack web development course.
 
+
 ## UX
  
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
@@ -10,6 +11,7 @@ In particular, as part of this section we recommend that you provide a list of U
 - As a user type, I want to perform an action, so that I can achieve a goal.
 
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+
 
 ## Features
 
@@ -26,6 +28,7 @@ In addition, you may also use this section to discuss plans for additional featu
 ### Features Left to Implement
 - Another feature idea
 
+
 ## Technologies Used
 
 - **[Balsamiq](https://balsamiq.com/)** was used to create the wireframes.
@@ -37,6 +40,7 @@ In addition, you may also use this section to discuss plans for additional featu
 - **[SendGrid](https://sendgrid.com/)** was used to send emails from the site.
 - **[Travis](https://travis-ci.org/)** was used to test the code.
 - **[Heroku](https://www.heroku.com/)** was used to deploy the project.
+
 
 ## Testing
 
@@ -98,8 +102,15 @@ I carried out manual testing as follows:
 2. Ensure that a page showing the details of that bug appears.
 3. Ensure that all comments made about that bug, and only that bug, appear at the bottom of the page.
 
-## Acknowledgements
+
+## Credits
+
 ### Media
 The images were downloaded from [PixaBay](https://pixabay.com/). 
 The logo is by [Clker-Free-Vector-Images](https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=310175). 
 The background image is by [M. Maggs](https://pixabay.com/users/Wild0ne-920941/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1158017).
+
+### Acknowledgements
+Haley Schafer and Chris Zielinski provided valuable help and advice on the project.
+
+[Marcin Mrugacz's project](https://github.com/Migacz85/django_app) gave me ideas about how to approach my own.

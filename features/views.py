@@ -61,24 +61,3 @@ def feature_comment(request, pk):
     else:
         comment_form = FeatureCommentForm()
     return render(request, 'feature_comment.html', {'feature': feature, 'comment_form': comment_form})
-    
-
-# The code for upvoting is based on this: https://www.quora.com/How-do-I-create-a-vote-button-in-Django/answer/Lakshmi-Suvvada
-@login_required()
-def upvote_feature(request, feature_id):
-    """
-    Allows users to upvote features they didn't submit themselves 
-    and haven't already upvoted
-    """
-    feature = Feature.objects.get(pk=feature_id)
-    comments = FeatureComment.objects.filter(feature=feature)
-    if request.user == feature.submitter:
-        messages.error(request, "You can't upvote a feature that you submitted.")
-    elif FeatureUpvote.objects.filter(user=request.user, feature=feature):
-        messages.error(request, "You have already upvoted this feature.")
-    else:
-        feature.upvotes += 1
-        feature.save()
-        upvote = FeatureUpvote.objects.create(user=request.user, feature=feature)
-
-    return render(request, "feature_details.html", {'feature': feature, 'comments': comments})

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %} 
+
+{% block page_title %}Cart{% endblock %}
+
+{% block content %}
+
+<div class="mx-auto large-container">
+    <h1>Cart</h1>
+    
+    {% if cart_items %}
+        <!--If there are items in the cart, they will appear here-->
+
+        <h3>{{ item.feature.title }}</h3>
+            <p>{{ item.feature.description }}</p>
+            <p>
+                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">Qty</div>
+                            <input name="quantity" type="number" min="0" max="999" class="form-control">
+                            <div class="input-group-addon">{{item.quantity}}</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
+                </form>
+            </p>
+
+        
+        <p><a href="{% url 'checkout' %}"><button type="submit" class="btn btn-secondary">Checkout</button></a></p>
+
+    {% else %}
+    
+        <!--If there are no items in the cart, the following text will appear-->
+        <p>Your cart is empty. Look for features to upvote <a href="{% url 'list_features' %}">here</a>.</p>
+        
+    {% endif %}
+    
+    
+</div>
+
+{% endblock %}

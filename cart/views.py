@@ -1,3 +1,5 @@
+# This code was copied and adapted for this project from the e-commerce mini project
+
 from django.shortcuts import render, redirect, reverse
 
 # Create your views here.

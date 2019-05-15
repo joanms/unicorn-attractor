@@ -1,3 +1,5 @@
+# This code was copied and adapted for this project from the e-commerce mini project
+
 from django.shortcuts import get_object_or_404
 from features.models import Feature
 

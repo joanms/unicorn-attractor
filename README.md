@@ -34,11 +34,12 @@ In addition, you may also use this section to discuss plans for additional featu
 - **[Balsamiq](https://balsamiq.com/)** was used to create the wireframes.
 - **[HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)** was used to set up the templates for the site.
 - **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)** was used to style the site content.
-- **[Bootstrap](https://getbootstrap.com/)** was used as the basis for the site's layout and responsiveness.
+- **[Bootstrap](https://getbootstrap.com/)** was used to facilitate the design and responsiveness of the site.
 - **[Python](https://www.python.org/)** was used to write the site's logic.
-- **[Django](https://www.djangoproject.com/)** was used as a framework to simplify the development of the site.
-- **[SendGrid](https://sendgrid.com/)** was used to send emails from the site.
+- **[Django](https://www.djangoproject.com/)** was used as a framework to facilitate the development of the site.
+- **[SendGrid](https://sendgrid.com/)** is used to send emails from the site.
 - **[Travis](https://travis-ci.org/)** was used to test the code.
+- **[Stripe](https://stripe.com/ie)** is used to process payments.
 - **[Heroku](https://www.heroku.com/)** was used to deploy the project.
 
 
@@ -111,6 +112,6 @@ The logo is by [Clker-Free-Vector-Images](https://pixabay.com/users/Clker-Free-V
 The background image is by [M. Maggs](https://pixabay.com/users/Wild0ne-920941/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1158017).
 
 ### Acknowledgements
-Haley Schafer and Chris Zielinski provided valuable help and advice on the project.
+Michael Park, Haley Schafer and Chris Zielinski provided valuable help and advice on the project.
 
 [Marcin Mrugacz's project](https://github.com/Migacz85/django_app) gave me ideas about how to approach my own.

@@ -15,18 +15,22 @@ This section is also where you would share links to any wireframes, mockups, dia
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
- 
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
-
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+- **Home Page** welcoming users to the site and explaining its purpose.
+- **Registration and Login Pages** allowing users to register and log into their accounts.
+- **Profile Page** where logged in users can view their account details.
+- **Bug Report Form** for users to report bugs they have experienced.
+- **Page Listing All Reported Bugs** where users can see which bugs have already been submitted and click on buttons for more details about each one.
+- **Bug Detail Page** giving all details for a single bug along with a button to upvote it and 
+- **Feature Request Form** for users to report features they want.
+- **Page Listing All Requested Features** where users can see which features have already been requested and click on buttons for more details about each one.
+- **Feature Detail Page** giving all details for a single feature along with a form to purchase upvotes and a comments panel where users can read comments from other users and make their own.
+- **Comments Panels** on the bug and feature detail pages where users can read comments from other users and make their own.
+- **Cart** where users can see which upvotes they have added to their order.
+- **Checkout** for users to pay for their upvotes.
 
 ### Features Left to Implement
-- Another feature idea
+- **Graphs** showing how many bugs or features are tended to on a daily, weekly and monthly basis, as well as the highest-voted bugs and features.
 
 
 ## Technologies Used

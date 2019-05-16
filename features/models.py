@@ -26,9 +26,10 @@ class FeatureUpvote(models.Model):
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='feature_upvoter')
     feature = models.ForeignKey(Feature, on_delete=models.CASCADE)
+    amount_paid = models.IntegerField()
 
     def __str__(self):
-        return "{0} requested by {1}".format(
+        return "{0}, upvoted by {1}".format(
             self.feature, self.user)        
 
 class FeatureComment(models.Model):

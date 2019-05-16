@@ -7,7 +7,7 @@ from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
 from django.conf import settings
 from django.utils import timezone
-from features.models import Feature
+from features.models import Feature, FeatureUpvote
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET
@@ -15,6 +15,10 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def checkout(request):
+    """
+    Check validity of order form and payment, 
+    and make payment if they are valid
+    """
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
@@ -57,8 +61,14 @@ def checkout(request):
             
             if customer.paid:
                 messages.error(request, "You have successfully paid")
+                # The quantity of upvotes purchased and amount paid are added to the feature object
+                feature.upvotes += quantity
+                feature.amount_paid += total
+                feature.save()
+                # An upvote object is created with the transaction details
+                upvote = FeatureUpvote.objects.create(user=request.user, feature=feature, amount_paid=total)
                 request.session['cart'] = {}
-                return redirect(reverse('index'))
+                return redirect(reverse('list_features'))
             else:
                 messages.error(request, "Unable to take payment")
         else:

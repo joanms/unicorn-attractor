@@ -14,8 +14,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bugs_submitted = models.IntegerField(default=0)
     features_submitted = models.IntegerField(default=0)
-    image = models.ImageField(upload_to="img", blank=True, null=True)
-    
+
     def __str__(self):
         return self.user.username
         

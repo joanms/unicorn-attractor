@@ -1,6 +1,9 @@
-# Unicorn Attractor
+# UnicornAttractor
 
-The Full-Stack Frameworks milestone project for Code Institute's full-stack web development course.
+The Full-Stack Frameworks milestone project for Code Institute's full-stack web development course. It is an issue tracker for a fantasy game called UnicornAttractor. Users can report bugs they have experienced 
+and request features they want added to the game. They can also upvote bugs and features. Upvoting bugs is free, but users can't upvote a bug they submitted, or upvote the same bug more than once. There are no 
+limits on upvoting features, but users need to pay a fee of €5 per upvote on a feature. The site developers will prioritise fixing the bugs with the most upvotes and spend at least 50% of their time implementing 
+the highest-paying features.
 
 
 ## UX
@@ -94,6 +97,11 @@ I carried out manual testing as follows:
 7. Ensure that a page appears confirming that the password has been reset, and inviting me to log in.
 8. Log in with the new password to ensure that it has been changed successfully.
 
+#### Viewing bug details
+1. Click on the "More Details" button of a bug on the page listing reported bugs.
+2. Ensure that a page showing the details of that bug appears.
+3. Ensure that all comments made about that bug, and only that bug, appear at the bottom of the page.
+
 #### Upvoting bugs
 1. Click on the upvote button for a bug not submitted or already upvoted by the logged in user.
 2. Ensure that the upvote count increases by one.
@@ -102,10 +110,22 @@ I carried out manual testing as follows:
 5. Click on the upvote button for a bug already upvoted by the currently logged in user.
 6. Ensure that a message displays saying 'You have already upvoted this bug'.
 
-#### Viewing bug details
-1. Click on the title of a bug on the page listing reported bugs.
-2. Ensure that a page showing the details of that bug appears.
-3. Ensure that all comments made about that bug, and only that bug, appear at the bottom of the page.
+#### Viewing feature details
+1. Click on the "More Details" button of a feature on the page listing reported bugs.
+2. Ensure that a page showing the details of that feature appears.
+3. Ensure that all comments made about that feature, and only that feature, appear at the bottom of the page.
+
+#### Upvoting Features
+1. Enter a quantity of upvotes to purchase in the field provided and click on "Upvote".
+2. Ensure that a page showing the cart appears.
+3. Change the quantity of upvotes in the field provided and click "Update".
+4. Ensure that the quantity is updated.
+5. Click on "Checkout".
+6. Ensure that a payment details form appears.
+7. Fill in the form with fake details and click "Submit Payment".
+8. Ensure that the payment is successful.
+9. Ensure that the number of upvotes and amount paid for that feature are updated in the database.
+10. Ensure that an upvote object with the details of the user, feature and amount paid is created in the database.
 
 
 ## Credits

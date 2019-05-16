@@ -46,12 +46,14 @@
                 
             </table>
             
+            <p><a href="{% url 'list_features' %}">Browse other features to upvote.</a></p>
+            
             <strong>Total Fee: €{{ total }}</strong>
                     
         </div>
         
         <p><a href="{% url 'checkout' %}"><button type="submit" class="btn btn-secondary">Checkout</button></a></p>
-        
+
     {% else %}
     
         <!--If there are no items in the cart, the following text will appear-->

@@ -5,11 +5,11 @@
 {% load bootstrap_tags %}
 {% block page_title %}Payment{% endblock %}
 
-{% block head_js %}
+{% block head_js %} <!--This block contains JavaScript required by Stripe-->
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript" src="">
+<script type="text/javascript">
     //<![CDATA[
-        Stripe.publishableKey = '{{ publishable }}';
+    Stripe.publishableKey = '{{ publishable }}';
     //]]>
 </script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
@@ -21,7 +21,7 @@
     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
         <h1>Payment Total: €{{ total }}</h1>
         
-        <div id="credit-card-errors" style="display: none;">
+        <div id="credit-card-errors">
             <div id="alert-message block-message error" id="stripe-error-message"></div>
         </div>
     

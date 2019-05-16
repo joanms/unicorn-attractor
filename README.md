@@ -1,9 +1,9 @@
 # UnicornAttractor
 
-The Full-Stack Frameworks milestone project for Code Institute's full-stack web development course. It is an issue tracker for a fantasy game called UnicornAttractor. Users can report bugs they have experienced 
-and request features they want added to the game. They can also upvote bugs and features. Upvoting bugs is free, but users can't upvote a bug they submitted, or upvote the same bug more than once. There are no 
-limits on upvoting features, but users need to pay a fee of €5 per upvote on a feature. The site developers will prioritise fixing the bugs with the most upvotes and spend at least 50% of their time implementing 
-the highest-paying features.
+This is the Full-Stack Frameworks milestone project for Code Institute's full-stack web development course. It is an issue tracker for a fantasy game called UnicornAttractor. Users can report bugs they have experienced 
+and request features they want added to the game. They can also upvote bugs and features. Upvoting bugs is free, but users can't upvote a bug they submitted, or upvote the same bug more than once. The only limit on 
+upvoting features is the user's budget. Users can upvote any features they like as often as they like, but they need to pay a fee of €5 per upvote. The site developers will prioritise fixing the bugs with the most 
+upvotes and spend at least 50% of their time implementing the highest-paying features.
 
 
 ## UX
@@ -87,7 +87,7 @@ I carried out manual testing as follows:
 4. Attempt to log in as each registered user, entering incorrect usnername and password combinations.
 5. Ensure that an error message displays saying that the username or password is incorrect.
 
-#### Password reset
+#### Password Reset
 1. Click on the password reset link on the login page.
 2. Ensure that a page appears inviting me to enter my email address.
 3. Enter my email address in the box and click the Reset Password button.
@@ -97,12 +97,12 @@ I carried out manual testing as follows:
 7. Ensure that a page appears confirming that the password has been reset, and inviting me to log in.
 8. Log in with the new password to ensure that it has been changed successfully.
 
-#### Viewing bug details
+#### Viewing Bug Details
 1. Click on the "More Details" button of a bug on the page listing reported bugs.
 2. Ensure that a page showing the details of that bug appears.
 3. Ensure that all comments made about that bug, and only that bug, appear at the bottom of the page.
 
-#### Upvoting bugs
+#### Upvoting Bugs
 1. Click on the upvote button for a bug not submitted or already upvoted by the logged in user.
 2. Ensure that the upvote count increases by one.
 3. Click on the upvote button for a bug submitted by the currently logged in user.
@@ -110,7 +110,7 @@ I carried out manual testing as follows:
 5. Click on the upvote button for a bug already upvoted by the currently logged in user.
 6. Ensure that a message displays saying 'You have already upvoted this bug'.
 
-#### Viewing feature details
+#### Viewing Feature Details
 1. Click on the "More Details" button of a feature on the page listing reported bugs.
 2. Ensure that a page showing the details of that feature appears.
 3. Ensure that all comments made about that feature, and only that feature, appear at the bottom of the page.

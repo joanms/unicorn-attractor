@@ -12,6 +12,7 @@ from accounts.forms import UserLoginForm, UserRegistrationForm
 def logout(request):
     """Log the user out"""
     auth.logout(request)
+    request.session['cart'] = {}
     return redirect(reverse('index'))
 
 

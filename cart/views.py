@@ -1,8 +1,10 @@
 # This code was copied and adapted for this project from the e-commerce mini project
 
 from django.shortcuts import render, redirect, reverse
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
+@login_required()
 def view_cart(request):
     """A View that renders the cart contents page"""
     return render(request, "cart.html")

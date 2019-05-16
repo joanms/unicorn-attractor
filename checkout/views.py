@@ -52,10 +52,16 @@ def checkout(request):
             
             if customer.paid:
                 messages.error(request, "You have successfully paid")
-                # The quantity of upvotes purchased and amount paid are added to the feature object
-                feature.upvotes += quantity
-                feature.amount_paid += total
-                feature.save()
+                # The quantity of upvotes purchased and amount paid are added to each feature in the cart.
+                # I adapted this code from Marcin Mrugacz's project. 
+                upvote_list = []
+                for id, quantity in cart.items():
+                    upvote_list.append(id)
+                for id in upvote_list:
+                    feature = get_object_or_404(Feature, id=id)
+                    feature.upvotes += quantity
+                    feature.amount_paid += quantity * feature.price
+                    feature.save()
                 # An upvote object is created with the transaction details
                 upvote = FeatureUpvote.objects.create(user=request.user, feature=feature, amount_paid=total)
                 request.session['cart'] = {}

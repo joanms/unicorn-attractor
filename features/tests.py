@@ -80,17 +80,9 @@ class TestViews(TestCase):
     
         """Ensure that the feature report form is only accessible to logged in users"""
     
-        response = self.client.get("/features/report_feature/")
-        self.assertRedirects(response, '/accounts/login/?next=/features/report_feature/')
+        response = self.client.get("/features/request_feature/")
+        self.assertRedirects(response, '/accounts/login/?next=/features/request_feature/')
 
-        
-    def test_upvoting_requires_login(self):
-    
-        """Ensure that upvoting is only accessible to logged in users"""
-    
-        response = self.client.get("/features/upvote/1/")
-        self.assertRedirects(response, '/accounts/login/?next=/features/upvote/1/')
-        
         
     def test_commenting_requires_login(self):
     
@@ -105,18 +97,9 @@ class TestViews(TestCase):
         """Ensure that the feature report form loads correctly when a user is logged in"""
     
         self.client.login(username='John', password='asdfg')
-        response = self.client.get("/features/report_feature/")
+        response = self.client.get("/features/request_feature/")
         self.assertEqual(response.status_code, 200)
 
-        
-    def test_upvoting_works(self):
-    
-        """Ensure that upvoting works when a user is logged in"""
-    
-        self.client.login(username='John', password='asdfg')
-        response = self.client.get("/features/upvote/{}/".format(self.feature.id))
-        self.assertEqual(response.status_code, 200)
-        
         
     def test_commenting_form_loads_correctly(self):
     

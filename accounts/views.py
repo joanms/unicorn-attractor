@@ -10,7 +10,7 @@ from accounts.forms import UserLoginForm, UserRegistrationForm
 
 @login_required
 def logout(request):
-    """Log the user out"""
+    """Log the user out and empty the shopping cart"""
     auth.logout(request)
     request.session['cart'] = {}
     return redirect(reverse('index'))

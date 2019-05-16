@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from features.forms import FeatureReportForm, FeatureCommentForm
-from .models import Feature, FeatureComment, FeatureUpvote
+from .models import Feature, FeatureComment
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 

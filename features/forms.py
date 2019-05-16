@@ -1,5 +1,5 @@
 from django import forms
-from .models import Feature, FeatureComment, FeatureUpvote
+from .models import Feature, FeatureComment
 
 
 class FeatureReportForm(forms.ModelForm):

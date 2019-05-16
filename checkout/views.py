@@ -7,7 +7,7 @@ from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
 from django.conf import settings
 from django.utils import timezone
-from features.models import Feature, FeatureUpvote
+from features.models import Feature
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET
@@ -52,7 +52,7 @@ def checkout(request):
             
             if customer.paid:
                 messages.error(request, "You have successfully paid")
-                # The quantity of upvotes purchased and amount paid are added to each feature in the cart.
+                # The quantities of upvotes purchased and amounts paid are added to each feature in the cart.
                 # I adapted this code from Marcin Mrugacz's project. 
                 upvote_list = []
                 for id, quantity in cart.items():
@@ -62,9 +62,6 @@ def checkout(request):
                     feature.upvotes += quantity
                     feature.amount_paid += quantity * feature.price
                     feature.save()
-                # An upvote object is created with the transaction details
-                upvote = FeatureUpvote.objects.create(user=request.user, feature=feature, amount_paid=total)
-                request.session['cart'] = {}
                 return redirect(reverse('list_features'))
             else:
                 messages.error(request, "Unable to take payment")

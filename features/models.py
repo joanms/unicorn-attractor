@@ -20,18 +20,6 @@ class Feature(models.Model):
         return self.title
         
 
-class FeatureUpvote(models.Model):
-    """
-    An upvote on a feature
-    """
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='feature_upvoter')
-    feature = models.ForeignKey(Feature, on_delete=models.CASCADE)
-    amount_paid = models.IntegerField()
-
-    def __str__(self):
-        return "{0}, upvoted by {1}".format(
-            self.feature, self.user)        
-
 class FeatureComment(models.Model):
     """
     A comment on a feature

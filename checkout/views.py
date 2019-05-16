@@ -16,22 +16,13 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 def checkout(request):
     """
-    Check validity of order form and payment, 
-    and make payment if they are valid
+    Check validity of order form and payment, and make 
+    payment and update database if they are valid
     """
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
         
-        if order_form.is_valid():
-            print("Order form is valid")
-        else:
-            print("Order form is NOT valid")
-        if payment_form.is_valid():
-            print("Payment form is valid")
-        else:
-            print("Payment form is NOT valid")
-
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
             order.date = timezone.now()

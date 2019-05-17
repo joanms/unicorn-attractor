@@ -2,6 +2,8 @@
 
 {% load bootstrap_tags %} 
 
+{% load mathfilters %}
+
 {% block page_title %}Cart{% endblock %}
 
 {% block content %}
@@ -41,17 +43,21 @@
                                     <button type="submit" class="btn btn-secondary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</button>
                                 </form>
                             </td>
-                            <td>@€{{ item.feature.price }}</td>
+                            <td>€{{ item.feature.price|mul:item.quantity }}</td>
                         </tr>
                     {% endfor %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="text-right"><strong>Total:</strong></td>
+                            <td><strong>€{{ total }}</strong></td>
+                        </tr>
                 </tbody>
                 
             </table>
             
             <p><a href="{% url 'list_features' %}">Browse other features to upvote.</a></p>
             
-            <strong>Total Fee: €{{ total }}</strong>
-                    
         </div>
         
         <p><a href="{% url 'checkout' %}"><button type="submit" class="btn btn-secondary">Checkout</button></a></p>

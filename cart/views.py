@@ -24,10 +24,10 @@ def add_to_cart(request, id):
 def add_one(request, id):
     """
     Increment quantity of an item in the cart. 
-    Code by Marcin Mrugacz.
+    Adpated from code by Marcin Mrugacz.
     """
     cart = request.session.get('cart', {})
-    if cart[id] > 0:
+    if cart[id] >= 0:
         cart[id] = cart[id] + 1
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
@@ -36,10 +36,10 @@ def add_one(request, id):
 def remove_one(request, id):
     """
     Decrement quantity of an item in the cart. 
-    Code by Marcin Mrugacz.
+    Adapted from code by Marcin Mrugacz.
     """
     cart = request.session.get('cart', {})
-    if cart[id] > 1:
+    if cart[id] > 0:
         cart[id] = cart[id] - 1
 
     request.session['cart'] = cart

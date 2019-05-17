@@ -21,8 +21,9 @@
                 <thead>
                     <tr>
                         <th scope="col" style="width: 20%">Title</th>
-                        <th scope="col" style="width: 45%">Description</th>
-                        <th scope="col" style="width: 25%">Upvotes</th>
+                        <th scope="col" style="width: 50%">Description</th>
+                        <th scope="col" style="width: 10%">Upvotes</th>
+                        <th scope="col" style="width: 15%"></th>
                         <th scope="col" style="width: 10%">Price</th>
                     </tr>
                 </thead>
@@ -32,21 +33,24 @@
                         <tr>
                             <th scope="row">{{ item.feature.title }}</th>
                             <td>{{ item.feature.description|truncatewords:20 }}</td>
+                            <td>{{ item.quantity }}</td>
                             <td>
-                                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-                                    {% csrf_token %}
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <input name="quantity" type="number" min="0" max="999" class="form-control" placeholder="{{ item.quantity }}">
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-secondary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</button>
-                                </form>
+                                <span class="form-inline">
+                                    <form class="form-inline" method="post" action="{% url 'add_one' item.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="badge badge-secondary"><i class="fas fa-plus"></i></button>
+                                    </form>
+                                    <form class="form-inline" method="post" action="{% url 'remove_one' item.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="badge badge-secondary"><i class="fas fa-minus"></i></button>
+                                    </form>
+                                </span>
                             </td>
                             <td>€{{ item.feature.price|mul:item.quantity }}</td>
                         </tr>
                     {% endfor %}
                         <tr>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td class="text-right"><strong>Total:</strong></td>

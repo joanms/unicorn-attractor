@@ -21,18 +21,26 @@ def add_to_cart(request, id):
     return redirect(reverse('view_cart'))
 
 
-def adjust_cart(request, id):
+def add_one(request, id):
     """
-    Adjust the quantity of the specified feature to the specified
-    amount
+    Increment quantity of an item in the cart. 
+    Code by Marcin Mrugacz.
     """
-    quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
+    if cart[id] > 0:
+        cart[id] = cart[id] + 1
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))
 
-    if quantity > 0:
-        cart[id] = quantity
-    else:
-        cart.pop(id)
-    
+
+def remove_one(request, id):
+    """
+    Decrement quantity of an item in the cart. 
+    Code by Marcin Mrugacz.
+    """
+    cart = request.session.get('cart', {})
+    if cart[id] > 1:
+        cart[id] = cart[id] - 1
+
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))

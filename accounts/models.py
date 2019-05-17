@@ -21,9 +21,11 @@ class Profile(models.Model):
 # The following code is from https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
+    """Create a user profile"""
     if created:
         Profile.objects.create(user=instance)
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
+    """Save the user profile after creation"""
     instance.profile.save()

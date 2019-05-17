@@ -38,6 +38,7 @@
                         <td>{{ feature.upvotes }}</td>
                         <td>€{{ feature.amount_paid }}</td>
                         <td>{{ feature.status }}</td>
+                        <!--The user can view all details of the feature by clicking on the following button-->
                         <td><a href="{% url 'feature_details' feature.id %}">
                             <button class="btn btn-secondary btn-sm">View Details</button></a></td>
                     </tr>

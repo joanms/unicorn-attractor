@@ -18,6 +18,7 @@
     Status: {{ feature.status }}</strong>
     <p>{{ feature.description }}</p>
 
+    <!--The user can purchase upvotes on the feature starting here-->
     <em>If you also want this feature, please enter the quantity of upvotes you 
     want to purchase at a rate of €5 each and click "Upvote"</em>
     <form method="post" action="{% url 'add_to_cart' feature.id %}">

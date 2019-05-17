@@ -52,8 +52,11 @@ def checkout(request):
             
             if customer.paid:
                 messages.error(request, "You have successfully paid")
-                # The quantities of upvotes purchased and amounts paid are added to each feature in the cart.
-                # I adapted this code from Marcin Mrugacz's project. 
+                """
+                The quantities of upvotes purchased and amounts paid are 
+                added to each feature in the cart. I adapted this code 
+                from Marcin Mrugacz's project. 
+                """
                 upvote_list = []
                 for id, quantity in cart.items():
                     upvote_list.append(id)

@@ -97,15 +97,13 @@ a:hover {
 
 .btn-secondary {
     background-color: #583870;
+    margin-right: 10px;
 }
 
 .btn-secondary:hover {
     background-color: #AE0D7A;
 }
 
-.badge {
-    margin-right: 10px;
-}
 
 /*Images*/
 

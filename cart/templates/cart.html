@@ -21,7 +21,7 @@
                 <thead>
                     <tr>
                         <th scope="col" style="width: 20%">Title</th>
-                        <th scope="col" style="width: 50%">Description</th>
+                        <th scope="col" style="width: 45%">Description</th>
                         <th scope="col" style="width: 10%">Upvotes</th>
                         <th scope="col" style="width: 15%"></th>
                         <th scope="col" style="width: 10%">Price</th>
@@ -38,11 +38,11 @@
                                 <span class="form-inline">
                                     <form class="form-inline" method="post" action="{% url 'add_one' item.id %}">
                                         {% csrf_token %}
-                                        <button type="submit" class="badge badge-secondary"><i class="fas fa-plus"></i></button>
+                                        <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-plus"></i></button>
                                     </form>
                                     <form class="form-inline" method="post" action="{% url 'remove_one' item.id %}">
                                         {% csrf_token %}
-                                        <button type="submit" class="badge badge-secondary"><i class="fas fa-minus"></i></button>
+                                        <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-minus"></i></button>
                                     </form>
                                 </span>
                             </td>

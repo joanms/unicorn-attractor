@@ -62,6 +62,7 @@ def checkout(request):
                     feature.upvotes += quantity
                     feature.amount_paid += quantity * feature.price
                     feature.save()
+                request.session['cart'] = {}    
                 return redirect(reverse('list_features'))
             else:
                 messages.error(request, "Unable to take payment")

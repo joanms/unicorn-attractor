@@ -18,9 +18,10 @@
                 
                 <thead>
                     <tr>
-                        <th scope="col" style="width: 25%">Title</th>
-                        <th scope="col" style="width: 50%">Description</th>
+                        <th scope="col" style="width: 20%">Title</th>
+                        <th scope="col" style="width: 45%">Description</th>
                         <th scope="col" style="width: 25%">Upvotes</th>
+                        <th scope="col" style="width: 10%">Price</th>
                     </tr>
                 </thead>
                 
@@ -40,6 +41,7 @@
                                     <button type="submit" class="btn btn-secondary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</button>
                                 </form>
                             </td>
+                            <td>@€{{ item.feature.price }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>

@@ -39,7 +39,7 @@ def add_one(request, id):
     return redirect(reverse('view_cart'))
 
 
-def remove_one(request, id):
+def subtract_one(request, id):
     """
     Decrement price of an item in the cart. 
     Adapted from code by Marcin Mrugacz.

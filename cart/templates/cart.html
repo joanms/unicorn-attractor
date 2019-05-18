@@ -39,7 +39,7 @@
                                         {% csrf_token %}
                                         <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-plus"></i></button>
                                     </form>
-                                    <form class="form-inline" method="post" action="{% url 'remove_one' item.id %}">
+                                    <form class="form-inline" method="post" action="{% url 'subtract_one' item.id %}">
                                         {% csrf_token %}
                                         <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-minus"></i></button>
                                     </form>

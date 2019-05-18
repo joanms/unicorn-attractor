@@ -34,8 +34,7 @@ def add_one(request, id):
     Adpated from code by Marcin Mrugacz.
     """
     cart = request.session.get('cart', {})
-    if cart[id] >= 0:
-        cart[id] = cart[id] + 1
+    cart[id] = cart[id] + 1
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 

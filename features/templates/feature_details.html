@@ -19,12 +19,12 @@
     <p>{{ feature.description }}</p>
 
     <!--The user can purchase upvotes on the feature starting here-->
-    <em>If you also want this feature, please enter the quantity of upvotes you 
-    want to purchase at a rate of €5 each and click "Upvote"</em>
+    <em>If you also want this feature, please enter the amount you are willing 
+    to pay (at least €5) and click "Upvote"</em>
     <form method="post" action="{% url 'add_to_cart' feature.id %}">
         {% csrf_token %}
         <div class="input-group">
-            <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" Required>
+            <input name="price" type="number" min="5" max="999" class="form-control" placeholder="Price" Required>
             <span class="input-group-btn">
                 <button class="btn btn-secondary" type="submit">Upvote</button>
             </span>

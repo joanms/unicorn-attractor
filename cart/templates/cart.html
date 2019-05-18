@@ -20,11 +20,10 @@
                 
                 <thead>
                     <tr>
-                        <th scope="col" style="width: 20%">Title</th>
-                        <th scope="col" style="width: 45%">Description</th>
-                        <th scope="col" style="width: 10%">Upvotes</th>
+                        <th scope="col" style="width: 25%">Title</th>
+                        <th scope="col" style="width: 40%">Description</th>
+                        <th scope="col" style="width: 20%" class="text-right">Price</th>
                         <th scope="col" style="width: 15%"></th>
-                        <th scope="col" style="width: 10%">Price</th>
                     </tr>
                 </thead>
                 
@@ -33,7 +32,7 @@
                         <tr>
                             <th scope="row">{{ item.feature.title }}</th>
                             <td>{{ item.feature.description|truncatewords:20 }}</td>
-                            <td>{{ item.quantity }}</td>
+                            <td class="text-right">€{{ item.price }}</td>
                             <td>
                                 <span class="form-inline">
                                     <form class="form-inline" method="post" action="{% url 'add_one' item.id %}">
@@ -46,15 +45,13 @@
                                     </form>
                                 </span>
                             </td>
-                            <td>€{{ item.feature.price|mul:item.quantity }}</td>
                         </tr>
                     {% endfor %}
                         <tr>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td class="text-right"><strong>Total:</strong></td>
-                            <td><strong>€{{ total }}</strong></td>
+                            <td class="text-right"><strong>Total: €{{ total }}</strong></td>
+                            <td><a href="{% url 'checkout' %}"><button type="submit" class="btn btn-secondary">Checkout</button></a></td>
                         </tr>
                 </tbody>
                 
@@ -64,8 +61,6 @@
             
         </div>
         
-        <p><a href="{% url 'checkout' %}"><button type="submit" class="btn btn-secondary">Checkout</button></a></p>
-
     {% else %}
     
         <!--If there are no items in the cart, the following text will appear-->

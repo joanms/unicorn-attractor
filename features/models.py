@@ -12,7 +12,6 @@ class Feature(models.Model):
     submitter = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
-    price = models.IntegerField(default=5)
     amount_paid = models.IntegerField(default=0)
     status = models.TextField(default="To do")
 

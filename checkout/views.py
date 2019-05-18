@@ -30,13 +30,13 @@ def checkout(request):
 
             cart = request.session.get('cart', {})
             total = 0
-            for id, quantity in cart.items():
+            for id, price in cart.items():
                 feature = get_object_or_404(Feature, pk=id)
-                total += quantity * feature.price
+                total += price
                 order_line_item = OrderLineItem(
                     order=order,
                     feature=feature,
-                    quantity=quantity
+                    price=price
                 )
                 order_line_item.save()
             
@@ -58,12 +58,12 @@ def checkout(request):
                 from Marcin Mrugacz's project. 
                 """
                 upvote_list = []
-                for id, quantity in cart.items():
+                for id, price in cart.items():
                     upvote_list.append(id)
                 for id in upvote_list:
                     feature = get_object_or_404(Feature, id=id)
-                    feature.upvotes += quantity
-                    feature.amount_paid += quantity * feature.price
+                    feature.upvotes += 1
+                    feature.amount_paid += price
                     feature.save()
                 request.session['cart'] = {}    
                 return redirect(reverse('list_features'))

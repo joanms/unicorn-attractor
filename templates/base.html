@@ -77,10 +77,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'view_cart' %}">Cart 
-                    {% if feature_count > 0 %}
-                        <label class="badge badge-light">{{ feature_count }}</label>
-                    {% endif %}
+                    <a class="nav-link" href="{% url 'view_cart' %}">Cart <label class="badge badge-light">€{{ total }}</label>
                     <span class="sr-only">(current)</span></a>
                 </li>
                 

@@ -46,8 +46,10 @@ def remove_one(request, id):
     Adapted from code by Marcin Mrugacz.
     """
     cart = request.session.get('cart', {})
-    if cart[id] > 0:
+    if cart[id] > 5:
         cart[id] = cart[id] - 1
+    else:
+        messages.error(request, "The minimum fee is €5.")
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))

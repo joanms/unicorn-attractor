@@ -8,27 +8,51 @@
 
 <!--A registered user's profile details-->
 <div class="mx-auto small-container">
+    
     <h1>Your Profile</h1>
-    <div class="row">
-        <div class="col-md-3">
-            <a class="profile-img" href="#">
-                <img src="/static/img/unicorn-100.png" class="img-circle" alt="default avatar">
-            </a>
-        </div>
-        <div class="col-md-9">
-            <h3>{{ post.title }}</h3>
-            <div class="row">
-                <div class="col-xs-9">
-                    <p><strong>Username:</strong> {{ user.username }} </p>
-                    <p><strong>Date Joined:</strong> {{ user.date_joined }} </p>
-                    <p><strong>Email Address:</strong> {{ user.email }} </p>
-                    <p><strong>Bugs Submitted:</strong> {{user.profile.bugs_submitted}}</p>
-                    <p><strong>Features Requested:</strong> {{ user.profile.features_submitted }}</p>
-                    <p>{{ user.profile.bugs_upvoted }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <p><strong>Username:</strong> {{ user.username }} </p>
+    <p><strong>Date Joined:</strong> {{ user.date_joined }} </p>
+    <p><strong>Email Address:</strong> {{ user.email }} </p>
+    <p><strong>Bugs Submitted:</strong> {{user.profile.bugs_submitted}}</p>
+    <p><strong>Features Requested:</strong> {{ user.profile.features_submitted }}</p>
+    <p>{{ user.profile.bugs_upvoted }}</p>
+    
+    <h2>Bugs Reported</h2>
+    {% if bugs_reported %}
+        {% for bug in bugs_reported %}
+            <p>{{ bug }}</p>
+        {% endfor %}
+    {% else %}
+        <p>You haven't reported any bugs. <a href="{% url 'report_bug' %}">Click here</a> to report one.</p>
+    {% endif %}    
+
+    <h2>Features Requested</h2>
+    {% if bugs_reported %}
+        {% for feature in features_requested %}
+            <p>{{ feature }}</p>
+        {% endfor %}
+    {% else %}
+        <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Click here</a> to request one.</p>
+    {% endif %}    
+
+    <h2>Bugs Upvoted</h2>
+    {% if bugs_upvoted %}
+        {% for bug in bugs_upvoted %}
+            {{ bug }}<br>
+        {% endfor %}
+    {% else %}
+        <p>You haven't upvoted any bugs. <a href="{% url 'list_bugs' %}">Click here</a> to select a bug to upvote.</p>
+    {% endif %}    
+
+    <h2>Features Upvoted</h2>
+    {% if features_upvoted %}
+        {% for feature in features_upvoted %}
+            <p>{{ feature }}</p>
+        {% endfor %}
+    {% else %}
+        <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Click here</a> to request one.</p>
+    {% endif %}    
+    
 </div>
 
 {% endblock %}

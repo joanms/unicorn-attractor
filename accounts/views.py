@@ -6,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from accounts.forms import UserLoginForm, UserRegistrationForm
+from bugs.models import Bug, BugUpvote
+from features.models import Feature
+from checkout.models import Order, OrderLineItem
 
 
 @login_required
@@ -74,4 +77,9 @@ def registration(request):
 def user_profile(request):
     """The user's profile page"""
     user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
+    bugs_reported = Bug.objects.filter(submitter=user)
+    features_requested = Feature.objects.filter(submitter=user)
+    bugs_upvoted = BugUpvote.objects.filter(user=user)
+    orders = Order.objects.filter(upvoter=user)
+    features_upvoted = OrderLineItem.objects.filter(order=orders)
+    return render(request, 'profile.html', {"profile": user, "bugs_reported": bugs_reported, "features_requested": features_requested, "bugs_upvoted": bugs_upvoted, "features_upvoted": features_upvoted})

@@ -25,8 +25,7 @@ class BugUpvote(models.Model):
     bug = models.ForeignKey(Bug, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "{0} reported by {1}".format(
-            self.bug, self.user)        
+        return self.bug.title        
         
 
 class BugComment(models.Model):
@@ -39,5 +38,5 @@ class BugComment(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return "Comment on {0} by {1} on {3}".format(
-            self.bug, self.commenter, self.comment_date)        
+        return "{0}: {1}".format(
+            self.bug, self.text)        

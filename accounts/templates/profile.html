@@ -13,8 +13,24 @@
     <strong>Username:</strong> {{ user.username }} <br>
     <strong>Date Joined:</strong> {{ user.date_joined }} <br>
     <strong>Email Address:</strong> {{ user.email }} <br>
-    <strong>Bugs Submitted:</strong> {{user.profile.bugs_submitted}}<br>
-    <strong>Features Requested:</strong> {{ user.profile.features_submitted }}<br>
+
+    <h2>Bugs Reported</h2>
+    {% if bugs_reported %}
+        {% for bug in bugs_reported %}
+            <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a><br>
+        {% endfor %}
+    {% else %}
+        <p>You haven't reported any bugs. <a href="{% url 'report_bug' %}">Click here</a> to report one.</p>
+    {% endif %}    
+
+    <h2>Features Requested</h2>
+    {% if features_requested %}
+        {% for feature in features_requested %}
+            <p><a href="{% url 'feature_details' feature.id %}">{{ feature }}</a></p>
+        {% endfor %}
+    {% else %}
+        <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Click here</a> to request one.</p>
+    {% endif %}    
 
     <h2>Bugs Upvoted</h2>
     {% if bugs_upvoted %}
@@ -22,7 +38,7 @@
             <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a><br>
         {% endfor %}
     {% else %}
-        <p>You haven't upvoted any bugs. <a href="{% url 'list_bugs' %}">Click here</a> to select a bug to upvote.</p>
+        <p>You haven't upvoted any bugs. <a href="{% url 'list_bugs' %}">Click here</a> to view the list of bugs.</p>
     {% endif %}    
 
     <h2>Features Upvoted</h2>
@@ -31,7 +47,7 @@
             <p>{{feature.date }} {{ feature }}</p>
         {% endfor %}
     {% else %}
-        <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Click here</a> to request one.</p>
+        <p>You haven't upvoted any features. <a href="{% url 'list_features' %}">Click here</a> to view the list of features.</p>
     {% endif %}    
     
 </div>

@@ -24,6 +24,10 @@ def checkout(request):
         payment_form = MakePaymentForm(request.POST)
         
         if order_form.is_valid() and payment_form.is_valid():
+            """
+            If the order form and payment are valid, the 
+            order object is created and saved in the database
+            """
             order = order_form.save(commit=False)
             order.date = timezone.now()
             order.upvoter = request.user

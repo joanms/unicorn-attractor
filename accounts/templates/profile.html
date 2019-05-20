@@ -10,35 +10,16 @@
 <div class="mx-auto small-container">
     
     <h1>Your Profile</h1>
-    <p><strong>Username:</strong> {{ user.username }} </p>
-    <p><strong>Date Joined:</strong> {{ user.date_joined }} </p>
-    <p><strong>Email Address:</strong> {{ user.email }} </p>
-    <p><strong>Bugs Submitted:</strong> {{user.profile.bugs_submitted}}</p>
-    <p><strong>Features Requested:</strong> {{ user.profile.features_submitted }}</p>
-    <p>{{ user.profile.bugs_upvoted }}</p>
-    
-    <h2>Bugs Reported</h2>
-    {% if bugs_reported %}
-        {% for bug in bugs_reported %}
-            <p>{{ bug }}</p>
-        {% endfor %}
-    {% else %}
-        <p>You haven't reported any bugs. <a href="{% url 'report_bug' %}">Click here</a> to report one.</p>
-    {% endif %}    
-
-    <h2>Features Requested</h2>
-    {% if bugs_reported %}
-        {% for feature in features_requested %}
-            <p>{{ feature }}</p>
-        {% endfor %}
-    {% else %}
-        <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Click here</a> to request one.</p>
-    {% endif %}    
+    <strong>Username:</strong> {{ user.username }} <br>
+    <strong>Date Joined:</strong> {{ user.date_joined }} <br>
+    <strong>Email Address:</strong> {{ user.email }} <br>
+    <strong>Bugs Submitted:</strong> {{user.profile.bugs_submitted}}<br>
+    <strong>Features Requested:</strong> {{ user.profile.features_submitted }}<br>
 
     <h2>Bugs Upvoted</h2>
     {% if bugs_upvoted %}
         {% for bug in bugs_upvoted %}
-            {{ bug }}<br>
+            <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a><br>
         {% endfor %}
     {% else %}
         <p>You haven't upvoted any bugs. <a href="{% url 'list_bugs' %}">Click here</a> to select a bug to upvote.</p>
@@ -47,7 +28,7 @@
     <h2>Features Upvoted</h2>
     {% if features_upvoted %}
         {% for feature in features_upvoted %}
-            <p>{{ feature }}</p>
+            <p>{{feature.date }} {{ feature }}</p>
         {% endfor %}
     {% else %}
         <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Click here</a> to request one.</p>

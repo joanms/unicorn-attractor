@@ -15,10 +15,10 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=40, blank=True)
     county = models.CharField(max_length=40, blank=False)
     date = models.DateField()
-    upvoter = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    upvoter = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
+        return self.date
 
 
 class OrderLineItem(models.Model):

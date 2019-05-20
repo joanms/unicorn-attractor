@@ -1,9 +1,8 @@
-# This code was copied and adapted for this project from the e-commerce mini project
+""" This code was copied from the e-commerce mini project"""
 
 from django.db import models
 from features.models import Feature
 
-# Create your models here.
 class Order(models.Model):
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
@@ -20,6 +19,10 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+    I modified this model from the course material to include the price instead 
+    of the quantity because the quantity is always 1 and the user sets the price
+    """
     order = models.ForeignKey(Order, null=False)
     feature = models.ForeignKey(Feature, null=False)
     price = models.IntegerField(blank=False, default=0)

@@ -18,10 +18,12 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
         
-# The following code is from https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone
+        
+"""The following code is from https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone"""
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
-    """Create a user profile"""
+    """Create a user profile. """
     if created:
         Profile.objects.create(user=instance)
 

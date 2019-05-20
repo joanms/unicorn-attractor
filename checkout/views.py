@@ -1,4 +1,4 @@
-# This code was copied and adapted for this project from the e-commerce mini project
+""" This code was copied and adapted for this project from the e-commerce mini project"""
 
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
@@ -53,9 +53,10 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "You have successfully paid")
                 """
-                The quantities of upvotes purchased and amounts paid are 
-                added to each feature in the cart. I adapted this code 
-                from Marcin Mrugacz's project. 
+                The quantities of upvotes purchased and amounts paid are added to 
+                the Features table in the database. This code is not from the 
+                e-commerce mini-project. I adapted it from Marcin Mrugacz's project: 
+                https://github.com/Migacz85/django_app/blob/master/checkout/views.py. 
                 """
                 upvote_list = []
                 for id, price in cart.items():

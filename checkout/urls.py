@@ -1,4 +1,4 @@
-# This code was copied and adapted for this project from the e-commerce mini project
+""" This code was copied from the e-commerce mini project"""
 
 from django.conf.urls import url
 from .views import checkout

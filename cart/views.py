@@ -1,4 +1,4 @@
-# This code was copied and adapted for this project from the e-commerce mini project
+""" This code was copied and adapted for this project from the e-commerce mini project"""
 
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
@@ -13,12 +13,18 @@ def view_cart(request):
 
 
 def add_to_cart(request, id):
-    """Set the price of a feature to add to the cart"""
+    """
+    Set the price of a feature to add to the cart. Modified from course 
+    material to allow the user to select a price instead of a quantity
+    """
     price = int(request.POST.get('price'))
     cart = request.session.get('cart', {})
     feature = get_object_or_404(Feature, id=id)
     feature_id = str(feature.id)
 
+    """
+    I added the following code to prevent users from duplicating items in the cart
+    """
     if feature_id in cart:
         messages.error(request, "That feature is already in your cart. To change the price, please click or tap the buttons next to the feature price.")
     else:    
@@ -30,8 +36,8 @@ def add_to_cart(request, id):
 
 def add_one(request, id):
     """
-    Increment price of an item in the cart. 
-    Adpated from code by Marcin Mrugacz.
+    Increment price of an item in the cart. Adpated from code by Marcin Mrugacz:
+    https://github.com/Migacz85/django_app/blob/master/cart/views.py
     """
     cart = request.session.get('cart', {})
     cart[id] = cart[id] + 1
@@ -41,8 +47,8 @@ def add_one(request, id):
 
 def subtract_one(request, id):
     """
-    Decrement price of an item in the cart. 
-    Adapted from code by Marcin Mrugacz.
+    Decrement price of an item in the cart. Adapted from code by Marcin Mrugacz: 
+    https://github.com/Migacz85/django_app/blob/master/cart/views.py
     """
     cart = request.session.get('cart', {})
     if cart[id] > 5:

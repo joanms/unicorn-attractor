@@ -1,4 +1,4 @@
-"""This is based on code from the Authentication and Authorisation unit of the course."""
+"""This was copied and adapted for this project from the Authentication and Authorisation unit of the course."""
 
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
@@ -29,6 +29,12 @@ def login(request):
 
             if user:
                 auth.login(user=user, request=request)
+                """
+                If the user was redirected to the login page when they tried to 
+                do something that requires login, the following 3 lines of code 
+                redirect them back to the page they were on once they log in. I 
+                added the code to the code copied from the course material.
+                """
                 next_url = request.GET.get('next')
                 if next_url:
                     return HttpResponseRedirect(next_url)

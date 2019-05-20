@@ -1,4 +1,4 @@
-# This code was copied and adapted for this project from the e-commerce mini project
+""" This code was copied and adapted for this project from the e-commerce mini project"""
 
 from django.shortcuts import get_object_or_404
 from features.models import Feature
@@ -6,8 +6,8 @@ from features.models import Feature
 
 def cart_contents(request):
     """
-    Ensures that the cart contents are 
-    available when rendering every page
+    Ensures that the cart contents are available when rendering every page. 
+    Modified from course material to allow users to set their own price.
     """
     cart = request.session.get('cart', {})
 

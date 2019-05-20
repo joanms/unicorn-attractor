@@ -18,8 +18,8 @@ class Order(models.Model):
     upvoter = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.date
-
+        return "{0} on {1}".format(
+            self.upvoter, self.date)
 
 class OrderLineItem(models.Model):
     """

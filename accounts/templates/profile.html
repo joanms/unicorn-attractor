@@ -20,7 +20,7 @@
             <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a><br>
         {% endfor %}
     {% else %}
-        <p>You haven't reported any bugs. <a href="{% url 'report_bug' %}">Click here</a> to report one.</p>
+        <p>You haven't reported any bugs. <a href="{% url 'report_bug' %}">Report one</a>.</p>
     {% endif %}    
 
     <h2>Features Requested</h2>
@@ -29,7 +29,7 @@
             <p><a href="{% url 'feature_details' feature.id %}">{{ feature }}</a></p>
         {% endfor %}
     {% else %}
-        <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Click here</a> to request one.</p>
+        <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Request one</a>.</p>
     {% endif %}    
 
     <h2>Bugs Upvoted</h2>
@@ -38,16 +38,16 @@
             <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a><br>
         {% endfor %}
     {% else %}
-        <p>You haven't upvoted any bugs. <a href="{% url 'list_bugs' %}">Click here</a> to view the list of bugs.</p>
+        <p>You haven't upvoted any bugs. <a href="{% url 'list_bugs' %}">View the list of bugs</a>.</p>
     {% endif %}    
 
     <h2>Features Upvoted</h2>
-    {% if features_upvoted %}
-        {% for feature in features_upvoted %}
-            <p>{{feature.date }} {{ feature }}</p>
+    {% if orders %}
+        {% for order in orders %}
+            {{ order.date }}<br>
         {% endfor %}
     {% else %}
-        <p>You haven't upvoted any features. <a href="{% url 'list_features' %}">Click here</a> to view the list of features.</p>
+        <p>You haven't upvoted any features. <a href="{% url 'list_features' %}">View the list of features</a>.</p>
     {% endif %}    
     
 </div>

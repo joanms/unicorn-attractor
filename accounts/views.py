@@ -81,5 +81,7 @@ def user_profile(request):
     features_requested = Feature.objects.filter(submitter=user)
     bugs_upvoted = BugUpvote.objects.filter(user=user)
     orders = Order.objects.filter(upvoter=user)
-    features_upvoted = OrderLineItem.objects.filter(order=orders)
-    return render(request, 'profile.html', {"profile": user, "bugs_reported": bugs_reported, "features_requested": features_requested, "bugs_upvoted": bugs_upvoted, "features_upvoted": features_upvoted})
+    order_item = OrderLineItem.objects.filter(order=orders)
+    return render(request, 'profile.html', {"profile": user, "bugs_reported": bugs_reported, 
+    "features_requested": features_requested, "bugs_upvoted": bugs_upvoted, "orders": orders, 
+    "order_item": order_item})

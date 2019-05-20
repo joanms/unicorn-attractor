@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <div class="mx-auto small-container">
+    <div class="mx-auto medium-container">
         
         <!--Logged in users are greeted by name and thanked for registering-->
         <h1>Welcome{% if user.is_authenticated %}, {{request.user}}{% endif %}!</h1>

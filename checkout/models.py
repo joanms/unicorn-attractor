@@ -1,9 +1,11 @@
-""" This code was copied from the e-commerce mini project"""
+""" This code was copied from the e-commerce mini project except where noted. """
 
 from django.db import models
+from accounts.models import User
 from features.models import Feature
 
 class Order(models.Model):
+    """I added upvoter to this model"""
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
     country = models.CharField(max_length=40, blank=False)
@@ -13,6 +15,7 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=40, blank=True)
     county = models.CharField(max_length=40, blank=False)
     date = models.DateField()
+    upvoter = models.ForeignKey(User, default="admin", on_delete=models.CASCADE)
 
     def __str__(self):
         return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)

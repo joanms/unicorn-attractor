@@ -133,7 +133,7 @@ I carried out manual testing as follows:
 ### Media
 The images were downloaded from [PixaBay](https://pixabay.com/). 
 The logo is by [Clker-Free-Vector-Images](https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=310175). 
-The background image is by [M. Maggs](https://pixabay.com/users/Wild0ne-920941/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1158017).
+The background image is by [Anna Soppe](https://pixabay.com/users/beautifulugly-3087213/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2262633).
 
 ### Acknowledgements
 Michael Park, Haley Schafer and Chris Zielinski provided valuable help and advice on the project.

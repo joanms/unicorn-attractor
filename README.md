@@ -55,14 +55,7 @@ This section is also where you would share links to any wireframes, mockups, dia
 ### Travis Continuous Integration
 [![Build Status](https://travis-ci.org/joanms/unicorn-attractor.svg?branch=master)](https://travis-ci.org/joanms/unicorn-attractor)
 
-The Travis build is failing because of a syntax error in Travis' own env.py file:
-
-File "/home/travis/virtualenv/python3.4.3/lib/python3.4/site-packages/env.py", line 51
-    print k
-          ^
-SyntaxError: Missing parentheses in call to 'print'
-
-The build passes when I comment out 'import env' in settings.py.
+The Travis build fails unless I comment out 'import env' in settings.py.
 
 ### Automated Testing
 Automated testing is carried out with Django's own testing framwork. To run the tests, run the following command in the CLI:

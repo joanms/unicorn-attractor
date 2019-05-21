@@ -42,9 +42,9 @@
     {% endif %}    
 
     <h2>Features Upvoted</h2>
-    {% if order_item %}
-        {% for item in order_item %}
-            {{ item }}, {{ item.order.date }}<br>
+    {% if order_items %}
+        {% for item in order_items %}
+            <a href="{% url 'feature_details' item.feature.id %}">{{ item.feature }}</a>: €{{ item.price }}, {{ item.order.date }}<br>
         {% endfor %}
     {% else %}
         <p>You haven't upvoted any features. <a href="{% url 'list_features' %}">View the list of features</a>.</p>

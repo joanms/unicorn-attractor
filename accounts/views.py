@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from accounts.forms import UserLoginForm, UserRegistrationForm
 from bugs.models import Bug, BugUpvote
 from features.models import Feature
-from checkout.models import Order, OrderLineItem
+from checkout.models import OrderLineItem
 
 
 @login_required
@@ -80,8 +80,6 @@ def user_profile(request):
     bugs_reported = Bug.objects.filter(submitter=user)
     features_requested = Feature.objects.filter(submitter=user)
     bugs_upvoted = BugUpvote.objects.filter(user=user)
-    orders = Order.objects.filter(upvoter=user)
-    order_item = OrderLineItem.objects.filter(order=orders)
+    order_items = OrderLineItem.objects.filter(order__upvoter=user)
     return render(request, 'profile.html', {"profile": user, "bugs_reported": bugs_reported, 
-    "features_requested": features_requested, "bugs_upvoted": bugs_upvoted, "orders": orders, 
-    "order_item": order_item})
+    "features_requested": features_requested, "bugs_upvoted": bugs_upvoted, "order_items": order_items})

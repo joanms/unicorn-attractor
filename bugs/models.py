@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils import timezone
+from datetime import date
 from django.contrib.auth.models import User
 
 class Bug(models.Model):
@@ -7,7 +7,7 @@ class Bug(models.Model):
     A single bug
     """
     title = models.CharField(max_length=50)
-    date_submitted = models.DateTimeField(auto_now_add=True)
+    date_submitted = models.DateField(auto_now_add=True)
     submitter = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
@@ -23,6 +23,7 @@ class BugUpvote(models.Model):
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     bug = models.ForeignKey(Bug, on_delete=models.CASCADE)
+    date = models.DateField(default=date.today)
 
     def __str__(self):
         return self.bug.title        

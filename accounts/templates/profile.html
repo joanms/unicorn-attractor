@@ -17,7 +17,7 @@
     <h2>Bugs Reported</h2>
     {% if bug_reports %}
         {% for bug in bug_reports %}
-            <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a><br>
+            <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a>, {{ bug.date_submitted }}<br>
         {% endfor %}
     {% else %}
         <p>You haven't reported any bugs. <a href="{% url 'report_bug' %}">Report one</a>.</p>
@@ -26,7 +26,7 @@
     <h2>Features Requested</h2>
     {% if feature_requests %}
         {% for feature in feature_requests %}
-            <a href="{% url 'feature_details' feature.id %}">{{ feature }}</a><br>
+            <a href="{% url 'feature_details' feature.id %}">{{ feature }}</a>, {{ feature.date_submitted }}<br>
         {% endfor %}
     {% else %}
         <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Request one</a>.</p>
@@ -34,8 +34,8 @@
 
     <h2>Bugs Upvoted</h2>
     {% if bug_upvotes %}
-        {% for bug in bug_upvotes %}
-            <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a><br>
+        {% for upvote in bug_upvotes %}
+            <a href="{% url 'bug_details' upvote.bug.id %}">{{ upvote.bug }}</a>, {{ upvote.date }}<br>
         {% endfor %}
     {% else %}
         <p>You haven't upvoted any bugs. <a href="{% url 'list_bugs' %}">View the list of bugs</a>.</p>

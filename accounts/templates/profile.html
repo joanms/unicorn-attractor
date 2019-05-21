@@ -14,7 +14,7 @@
     <strong>Date Joined:</strong> {{ user.date_joined }} <br>
     <strong>Email Address:</strong> {{ user.email }} <br>
 
-    <h2>Bugs Reported</h2>
+    <h2>Bug Reports</h2>
     {% if bug_reports %}
         {% for bug in bug_reports %}
             <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a>, {{ bug.date_submitted }}<br>
@@ -23,7 +23,7 @@
         <p>You haven't reported any bugs. <a href="{% url 'report_bug' %}">Report one</a>.</p>
     {% endif %}    
 
-    <h2>Features Requested</h2>
+    <h2>Feature Requests</h2>
     {% if feature_requests %}
         {% for feature in feature_requests %}
             <a href="{% url 'feature_details' feature.id %}">{{ feature }}</a>, {{ feature.date_submitted }}<br>
@@ -32,7 +32,7 @@
         <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Request one</a>.</p>
     {% endif %}    
 
-    <h2>Bugs Upvoted</h2>
+    <h2>Bug Upvotes</h2>
     {% if bug_upvotes %}
         {% for upvote in bug_upvotes %}
             <a href="{% url 'bug_details' upvote.bug.id %}">{{ upvote.bug }}</a>, {{ upvote.date }}<br>
@@ -41,7 +41,7 @@
         <p>You haven't upvoted any bugs. <a href="{% url 'list_bugs' %}">View the list of bugs</a>.</p>
     {% endif %}    
 
-    <h2>Features Upvoted</h2>
+    <h2>Feature Upvotes</h2>
     {% if feature_upvotes %}
         {% for item in feature_upvotes %}
             <a href="{% url 'feature_details' item.feature.id %}">{{ item.feature }}</a>: €{{ item.price }}, {{ item.order.date }}<br>

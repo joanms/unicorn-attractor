@@ -72,7 +72,9 @@ python3 manage.py test
 ### Manual testing
 I carried out manual testing as follows:
 
-#### Registration
+#### Accounts
+
+##### Registration
 1. Navigate to registration page.
 2. Enter the email address of an already registered user and a new username.
 3. Ensure that an error message appears, saying that email addresses must be unique.
@@ -80,14 +82,14 @@ I carried out manual testing as follows:
 5. Ensure that an error message appears saying that a user with that username already exists.
 6. Register several new users by filling in all fields correctly, and ensuring that all data entered is saved in the database.
 
-#### Login
+##### Login
 1. Navigate to the login page.
 2. Log in as each registered user in turn, entering correct username and password combinations.
 3. Ensure that the users are logged in successfuly.
 4. Attempt to log in as each registered user, entering incorrect usnername and password combinations.
 5. Ensure that an error message displays saying that the username or password is incorrect.
 
-#### Password Reset
+##### Password Reset
 1. Click on the password reset link on the login page.
 2. Ensure that a page appears inviting me to enter my email address.
 3. Enter my email address in the box and click the Reset Password button.
@@ -97,35 +99,68 @@ I carried out manual testing as follows:
 7. Ensure that a page appears confirming that the password has been reset, and inviting me to log in.
 8. Log in with the new password to ensure that it has been changed successfully.
 
-#### Viewing Bug Details
+
+#### Bugs
+
+##### Reporting Bugs
+1. Navigate to bug report form.
+2. Enter text in the title field only and click "Submit Report".
+3. Ensure that a message appears saying that the description field is required.
+4. Enter text in the description field only and click "Submit Report".
+5. Ensure that a message appears saying that the title field is required.
+6. Enter text in both fields and click "Submit Report".
+7. Ensure that the bug appears in list_bugs.html.
+8. Click on "View Details" for the bug in list_bugs.html and ensure that a page with its details appears.
+9. Ensure that the bug is listed on the profile page of the user that submitted it.
+
+##### Viewing Bug Details
 1. Click on the "More Details" button of a bug on the page listing reported bugs.
 2. Ensure that a page showing the details of that bug appears.
 3. Ensure that all comments made about that bug, and only that bug, appear at the bottom of the page.
 
-#### Upvoting Bugs
+##### Upvoting Bugs
 1. Click on the upvote button for a bug not submitted or already upvoted by the logged in user.
 2. Ensure that the upvote count increases by one.
 3. Click on the upvote button for a bug submitted by the currently logged in user.
 4. Ensure that a message displays saying 'You can't upvote a bug that you submitted'.
 5. Click on the upvote button for a bug already upvoted by the currently logged in user.
 6. Ensure that a message displays saying 'You have already upvoted this bug'.
+7. Ensure that the upvote is listed on the user's profile page.
 
-#### Viewing Feature Details
+
+#### Features
+
+##### Reporting Features
+1. Navigate to feature report form.
+2. Enter text in the title field only and click "Request Feature".
+3. Ensure that a message appears saying that the description field is required.
+4. Enter text in the description field only and click "Request Feature".
+5. Ensure that a message appears saying that the title field is required.
+6. Enter text in both fields and click "Request Feature".
+7. Ensure that the feature appears in list_features.html.
+8. Click on "View Details" for the bug in list_features.html and ensure that a page with its details appears.
+9. Ensure that the feature is listed on the profile page of the user that submitted it.
+
+
+##### Viewing Feature Details
 1. Click on the "More Details" button of a feature on the page listing reported bugs.
 2. Ensure that a page showing the details of that feature appears.
 3. Ensure that all comments made about that feature, and only that feature, appear at the bottom of the page.
 
-#### Upvoting Features
-1. Enter a quantity of upvotes to purchase in the field provided and click on "Upvote".
+##### Upvoting Features
+1. On a feature details page, enter a price for an upvote in the field provided and click on "Upvote".
 2. Ensure that a page showing the cart appears.
-3. Change the quantity of upvotes in the field provided and click "Update".
-4. Ensure that the quantity is updated.
-5. Click on "Checkout".
-6. Ensure that a payment details form appears.
-7. Fill in the form with fake details and click "Submit Payment".
-8. Ensure that the payment is successful.
-9. Ensure that the number of upvotes and amount paid for that feature are updated in the database.
-10. Ensure that an upvote object with the details of the user, feature and amount paid is created in the database.
+3. Change the price of the upvote by clicking on the plus and minus buttons.
+4. Ensure that the price is updated.
+5. Click on "Browse other features to upvote".
+6. Select another feature from the list to upvote, click on "View Details" and upvote it by repeating step 1 above.
+7. Ensure that the correct feature and price are added to the cart.
+8. Click on "Checkout".
+9. Ensure that a payment details form appears.
+10. Fill in the form with fake details and click "Submit Payment".
+11. Ensure that the payment is successful.
+12. Ensure that the order is added to the database with all correct details.
+13. Ensure that the upvotes are listed on the user's profile page.
 
 
 ## Credits

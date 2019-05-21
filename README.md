@@ -104,14 +104,10 @@ I carried out manual testing as follows:
 
 ##### Reporting Bugs
 1. Navigate to bug report form.
-2. Enter text in the title field only and click "Submit Report".
-3. Ensure that a message appears saying that the description field is required.
-4. Enter text in the description field only and click "Submit Report".
-5. Ensure that a message appears saying that the title field is required.
-6. Enter text in both fields and click "Submit Report".
-7. Ensure that the bug appears in list_bugs.html.
-8. Click on "View Details" for the bug in list_bugs.html and ensure that a page with its details appears.
-9. Ensure that the bug is listed on the profile page of the user that submitted it.
+2. Enter text in both fields and click "Submit Report".
+3. Ensure that the bug appears in list_bugs.html.
+4. Click on "View Details" for the bug in list_bugs.html and ensure that a page with its details appears.
+5. Ensure that the bug is listed on the profile page of the user that submitted it.
 
 ##### Viewing Bug Details
 1. Click on the "More Details" button of a bug on the page listing reported bugs.
@@ -130,16 +126,12 @@ I carried out manual testing as follows:
 
 #### Features
 
-##### Reporting Features
+##### Requesting Features
 1. Navigate to feature report form.
-2. Enter text in the title field only and click "Request Feature".
-3. Ensure that a message appears saying that the description field is required.
-4. Enter text in the description field only and click "Request Feature".
-5. Ensure that a message appears saying that the title field is required.
-6. Enter text in both fields and click "Request Feature".
-7. Ensure that the feature appears in list_features.html.
-8. Click on "View Details" for the bug in list_features.html and ensure that a page with its details appears.
-9. Ensure that the feature is listed on the profile page of the user that submitted it.
+2. Enter text in both fields and click "Request Feature".
+3. Ensure that the feature appears in list_features.html.
+4. Click on "View Details" for the bug in list_features.html and ensure that a page with its details appears.
+5. Ensure that the feature is listed on the profile page of the user that submitted it.
 
 
 ##### Viewing Feature Details

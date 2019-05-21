@@ -77,9 +77,9 @@ def registration(request):
 def user_profile(request):
     """The user's profile page"""
     user = User.objects.get(email=request.user.email)
-    bugs_reported = Bug.objects.filter(submitter=user)
-    features_requested = Feature.objects.filter(submitter=user)
-    bugs_upvoted = BugUpvote.objects.filter(user=user)
-    order_items = OrderLineItem.objects.filter(order__upvoter=user)
-    return render(request, 'profile.html', {"profile": user, "bugs_reported": bugs_reported, 
-    "features_requested": features_requested, "bugs_upvoted": bugs_upvoted, "order_items": order_items})
+    bug_reports = Bug.objects.filter(submitter=user)
+    feature_requests = Feature.objects.filter(submitter=user)
+    bug_upvotes = BugUpvote.objects.filter(user=user)
+    feature_upvotes = OrderLineItem.objects.filter(order__upvoter=user)
+    return render(request, 'profile.html', {"profile": user, "bug_reports": bug_reports, 
+    "feature_requests": feature_requests, "bug_upvotes": bug_upvotes, "feature_upvotes": feature_upvotes})

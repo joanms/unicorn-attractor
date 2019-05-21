@@ -15,8 +15,8 @@
     <strong>Email Address:</strong> {{ user.email }} <br>
 
     <h2>Bugs Reported</h2>
-    {% if bugs_reported %}
-        {% for bug in bugs_reported %}
+    {% if bug_reports %}
+        {% for bug in bug_reports %}
             <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a><br>
         {% endfor %}
     {% else %}
@@ -24,17 +24,17 @@
     {% endif %}    
 
     <h2>Features Requested</h2>
-    {% if features_requested %}
-        {% for feature in features_requested %}
-            <p><a href="{% url 'feature_details' feature.id %}">{{ feature }}</a></p>
+    {% if feature_requests %}
+        {% for feature in feature_requests %}
+            <a href="{% url 'feature_details' feature.id %}">{{ feature }}</a><br>
         {% endfor %}
     {% else %}
         <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Request one</a>.</p>
     {% endif %}    
 
     <h2>Bugs Upvoted</h2>
-    {% if bugs_upvoted %}
-        {% for bug in bugs_upvoted %}
+    {% if bug_upvotes %}
+        {% for bug in bug_upvotes %}
             <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a><br>
         {% endfor %}
     {% else %}
@@ -42,8 +42,8 @@
     {% endif %}    
 
     <h2>Features Upvoted</h2>
-    {% if order_items %}
-        {% for item in order_items %}
+    {% if feature_upvotes %}
+        {% for item in feature_upvotes %}
             <a href="{% url 'feature_details' item.feature.id %}">{{ item.feature }}</a>: €{{ item.price }}, {{ item.order.date }}<br>
         {% endfor %}
     {% else %}

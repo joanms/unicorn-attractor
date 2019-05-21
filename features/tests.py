@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from .forms import FeatureReportForm, FeatureCommentForm
 from django.contrib.auth.models import User
-from .models import Feature, FeatureUpvote
+from .models import Feature
 
 
 class TestForms(TestCase):
@@ -13,12 +13,31 @@ class TestForms(TestCase):
         form = FeatureReportForm({'title': 'Unicorns', 'description': 'Too many unicorns.'})
         self.assertTrue(form.is_valid)
 
+
     def test_can_comment_on_a_feature(self):
         
         """Ensure that a user can comment on a feature"""
 
         form = FeatureCommentForm({'text': 'I like the unicorns.'})
         self.assertTrue(form.is_valid)
+
+
+    def test_title_is_required(self):
+
+        """Ensure that the feature report form requires a title"""
+
+        form = FeatureReportForm({'title': ''})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['title'], [u'This field is required.'])
+
+        
+    def test_description_is_required(self):
+        
+        """Ensure that the bug report form requires a description"""
+
+        form = FeatureReportForm({'description': ''})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['description'], [u'This field is required.'])
         
         
 class TestViews(TestCase):

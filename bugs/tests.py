@@ -19,6 +19,24 @@ class TestForms(TestCase):
 
         form = BugCommentForm({'text': 'I like the unicorns.'})
         self.assertTrue(form.is_valid)
+
+
+    def test_title_is_required(self):
+        
+        """Ensure that the bug report form requires a title"""
+
+        form = BugReportForm({'title': ''})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['title'], [u'This field is required.'])
+
+        
+    def test_description_is_required(self):
+        
+        """Ensure that the bug report form requires a description"""
+
+        form = BugReportForm({'description': ''})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['description'], [u'This field is required.'])
         
         
 class TestViews(TestCase):

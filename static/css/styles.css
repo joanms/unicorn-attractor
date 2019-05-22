@@ -31,7 +31,6 @@ h1 {
 h2 {
     font-family: "Milonga", cursive;
     font-size: 1.5em;
-    margin-top: 20px;
 }
 
 h3 {
@@ -93,8 +92,9 @@ a:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-.card {
-    float: left;
+.panel {
+    display: inline-block;
+    vertical-align: top;
 }
 
 /*Buttons*/

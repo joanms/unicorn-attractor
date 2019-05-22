@@ -12,14 +12,15 @@
     <h1>Cart</h1>
     
     {% if cart_items %}
+    
         <!--If there are items in the cart, they will appear here-->
         {% for item in cart_items %}
-            <div class="panel" style="width: 18rem;">
+            <div class="card" style="width: 18rem;">
+                
                 <div class="card-body">
-                    
-                    <h2 class="card-title">{{ item.feature.title }}</h2>
-                    <p class="card-text"> {{ item.feature.description|truncatewords:20 }}</p>
-                    <p class="card-text"><strong>Price:</strong> €{{ item.price }}</p>
+                    <h2>{{ item.feature.title }}</h2>
+                    <p> {{ item.feature.description|truncatewords:20 }}</p>
+                    <p><strong>Price:</strong> €{{ item.price }}</p>
                     <form class="price-change" method="post" action="{% url 'add_one' item.id %}">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-plus"></i></button>
@@ -28,25 +29,23 @@
                         {% csrf_token %}
                         <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-minus"></i></button>
                     </form>
-                    
-                 </div>
+                </div>
+                
             </div>
 
         {% endfor %}
+        
         <p><strong>Total: €{{ total }}</strong></p>
         <a href="{% url 'checkout' %}"><button type="submit" class="btn btn-secondary">Checkout</button></a>
 
         <a href="{% url 'all_features' %}"><button class="btn btn-secondary">Browse Other Features to Upvote</button></a>
             
-        </div>
-        
     {% else %}
     
         <!--If there are no items in the cart, the following text will appear-->
         <p>Your cart is empty. Look for features to upvote <a href="{% url 'all_features' %}">here</a>.</p>
         
     {% endif %}
-    
     
 </div>
 

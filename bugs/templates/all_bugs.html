@@ -15,7 +15,7 @@
     
         {% for bug in bugs %}
         
-            <div class="panel" style="width: 18rem;">
+            <div class="card" col-xs-12>
                 <div class="card-body">
                     <h2 class="card-title">{{ bug.title }}</h2>
                     <strong>Submitted by:</strong> {{ bug.submitter }}<br>
@@ -32,9 +32,11 @@
 
     {% else %}
         <!--If there are no bug reports in the database, the following text will appear-->
-        <p>There are currently no bugs in the database. <a href="{% url 'report_bug' %}">report one</a>.</p>
+        <p>There are currently no bugs in the database.</p>
         
     {% endif %}
+    
+    <div><a href="{% url 'report_bug' %}"><button class="btn btn-secondary">Report a Bug</button></a></div>
     
 </div>
 

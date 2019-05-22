@@ -15,7 +15,7 @@
     
         {% for feature in features %}
         
-            <div class="panel" style="width: 18rem;">
+            <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h2 class="card-title">{{ feature.title }}</h2>
                     <strong>Submitted by:</strong> {{ feature.submitter }}<br>
@@ -33,9 +33,11 @@
 
     {% else %}
         <!--If there are no feature reports in the database, the following text will appear-->
-        <p>There are currently no features in the database. <a href="{% url 'request_feature' %}">Request one</a>.</p>
+        <p>There are currently no features in the database.</p>
         
     {% endif %}
+    
+    <div><a href="{% url 'request_feature' %}"><button class="btn btn-secondary">Request a Feature</button></a></div>
     
 </div>
 

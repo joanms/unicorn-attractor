@@ -108,6 +108,9 @@ a:hover {
     background-color: #AE0D7A;
 }
 
+.price-change {
+    display: inline-block
+}
 
 /*Images*/
 

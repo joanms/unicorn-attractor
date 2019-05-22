@@ -13,58 +13,37 @@
     
     {% if cart_items %}
         <!--If there are items in the cart, they will appear here-->
+        {% for item in cart_items %}
+            <div class="panel" style="width: 18rem;">
+                <div class="card-body">
+                    
+                    <h2 class="card-title">{{ item.feature.title }}</h2>
+                    <p class="card-text"> {{ item.feature.description|truncatewords:20 }}</p>
+                    <p class="card-text"><strong>Price:</strong> €{{ item.price }}</p>
+                    <form class="price-change" method="post" action="{% url 'add_one' item.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-plus"></i></button>
+                    </form>
+                    <form class="price-change" method="post" action="{% url 'subtract_one' item.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-minus"></i></button>
+                    </form>
+                    
+                 </div>
+            </div>
 
-        <div class="table-responsive">
-            
-            <table class="table">
-                
-                <thead>
-                    <tr>
-                        <th scope="col" style="width: 25%">Title</th>
-                        <th scope="col" style="width: 40%">Description</th>
-                        <th scope="col" style="width: 20%" class="text-right">Price</th>
-                        <th scope="col" style="width: 15%"></th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    {% for item in cart_items %}
-                        <tr>
-                            <th scope="row">{{ item.feature.title }}</th>
-                            <td>{{ item.feature.description|truncatewords:20 }}</td>
-                            <td class="text-right">€{{ item.price }}</td>
-                            <td>
-                                <span class="form-inline">
-                                    <form class="form-inline" method="post" action="{% url 'add_one' item.id %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-plus"></i></button>
-                                    </form>
-                                    <form class="form-inline" method="post" action="{% url 'subtract_one' item.id %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-minus"></i></button>
-                                    </form>
-                                </span>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td class="text-right"><strong>Total: €{{ total }}</strong></td>
-                            <td><a href="{% url 'checkout' %}"><button type="submit" class="btn btn-secondary">Checkout</button></a></td>
-                        </tr>
-                </tbody>
-                
-            </table>
-            
-            <p><a href="{% url 'list_features' %}">Browse other features to upvote.</a></p>
+        {% endfor %}
+        <p><strong>Total: €{{ total }}</strong></p>
+        <a href="{% url 'checkout' %}"><button type="submit" class="btn btn-secondary">Checkout</button></a>
+
+        <a href="{% url 'all_features' %}"><button class="btn btn-secondary">Browse Other Features to Upvote</button></a>
             
         </div>
         
     {% else %}
     
         <!--If there are no items in the cart, the following text will appear-->
-        <p>Your cart is empty. Look for features to upvote <a href="{% url 'list_features' %}">here</a>.</p>
+        <p>Your cart is empty. Look for features to upvote <a href="{% url 'all_features' %}">here</a>.</p>
         
     {% endif %}
     

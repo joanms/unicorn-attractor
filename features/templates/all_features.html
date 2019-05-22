@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class="mx-auto medium-container">
+<div class="mx-auto regular-container">
     
     <h1>Requested Features</h1>
     
@@ -14,8 +14,7 @@
     {% if features %}
     
         {% for feature in features %}
-        
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <div class="card-body">
                     <h2 class="card-title">{{ feature.title }}</h2>
                     <strong>Submitted by:</strong> {{ feature.submitter }}<br>
@@ -28,7 +27,7 @@
                             <button class="btn btn-secondary btn-sm">View Details</button></a>
                   </div>
             </div>
-        
+
         {% endfor %}
 
     {% else %}

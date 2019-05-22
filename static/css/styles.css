@@ -31,7 +31,6 @@ h1 {
 h2 {
     font-family: "Milonga", cursive;
     font-size: 1.5em;
-    margin-top: 15px;
 }
 
 h3 {
@@ -49,6 +48,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    overflow: scroll;
 }
 
 a {
@@ -70,19 +70,12 @@ a:hover {
     background-color: rgba(212, 212, 247, 0.9);
 }
 
-.medium-container {
+.regular-container {
     display: block;
     width: 50vw;
     height: auto;
     margin-top: 50px;
-    padding: 25px;
-    background-color: rgba(212, 212, 247, 0.9);
-}
-
-.large-container {
-    display: block;
-    width: 80vw;
-    margin-top: 50px;
+    margin-bottom: 50px;
     padding: 25px;
     background-color: rgba(212, 212, 247, 0.9);
 }
@@ -96,7 +89,7 @@ a:hover {
 .card {
     display: inline-block;
     vertical-align: top;
-    margin-right: 10px;
+    width: 33%;
     margin-bottom: 30px;
 }
 

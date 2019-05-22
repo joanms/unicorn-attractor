@@ -6,56 +6,36 @@
 
 {% block content %}
 
-<div class="mx-auto large-container">
+<div class="mx-auto medium-container">
+    
     <h1>Requested Features</h1>
     
     <!--If there are feature reports in the database, they will be listed in a table here-->
     {% if features %}
     
-        <div class="table-responsive">
-            <table class="table">
-                
-                <thead>
-                    <tr>
-                        <th scope="col" style="width: 10%">Title</th>
-                        <th scope="col" style="width: 25%">Description</th>
-                        <th scope="col" style="width: 10%">Submitter</th>
-                        <th scope="col" style="width: 15%">Date Submitted</th>
-                        <th scope="col" style="width: 10%">Upvotes</th>
-                        <th scope="col" style="width: 10%">Amount Paid</th>
-                        <th scope="col" style="width: 10%">Status</th>
-                        <th scope="col" style="width: 10%"></th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    {% for feature in features %}
-                    <tr>
-                        <th scope="row">{{ feature.title }}</th>
-                        <td>{{ feature.description|truncatewords:20 }}</td>
-                        <td>{{ feature.submitter }}</td>
-                        <td>{{ feature.date_submitted }}</td>
-                        <td>{{ feature.upvotes }}</td>
-                        <td>€{{ feature.amount_paid }}</td>
-                        <td>{{ feature.status }}</td>
-                        <!--The user can view all details of the feature by clicking on the following button-->
-                        <td><a href="{% url 'feature_details' feature.id %}">
-                            <button class="btn btn-secondary btn-sm">View Details</button></a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-                
-            </table>
-        </div>
+        {% for feature in features %}
+        
+            <div class="panel" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">{{ feature.title }}</h2>
+                    <strong>Submitted by:</strong> {{ feature.submitter }}<br>
+                    <strong>Date:</strong> {{ feature.date_submitted }}<br>
+                    <strong>Upvotes:</strong> {{ feature.upvotes }}<br>
+                    <strong>Amount Paid:</strong> €{{ feature.amount_paid }}<br>
+                    <strong>Status:</strong> {{ feature.status }}<br>
+                    <p class="card-text"> {{ feature.description|truncatewords:20 }}<br>
+                    <a href="{% url 'feature_details' feature.id %}">
+                            <button class="btn btn-secondary btn-sm">View Details</button></a>
+                  </div>
+            </div>
+        
+        {% endfor %}
 
     {% else %}
         <!--If there are no feature reports in the database, the following text will appear-->
-        <p>There are currently no features in the database.</p>
+        <p>There are currently no features in the database. <a href="{% url 'request_feature' %}">Request one</a>.</p>
         
     {% endif %}
-    
-    <!--Link for a user to report a feature-->
-    <p><a href="{% url 'request_feature' %}"><button type="submit" class="btn btn-secondary">Request a Feature</button></a></p>
     
 </div>
 

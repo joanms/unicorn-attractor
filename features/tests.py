@@ -82,9 +82,9 @@ class TestViews(TestCase):
     
         """Ensure that the feature list page loads correctly"""
     
-        page = self.client.get("/features/list_features/")
+        page = self.client.get("/features/all_features/")
         self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "list_features.html")
+        self.assertTemplateUsed(page, "all_features.html")
 
     def test_get_feature_detail_page(self):
     

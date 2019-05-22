@@ -82,9 +82,9 @@ class TestViews(TestCase):
     
         """Ensure that the bug list page loads correctly"""
     
-        page = self.client.get("/bugs/list_bugs/")
+        page = self.client.get("/bugs/all_bugs/")
         self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "list_bugs.html")
+        self.assertTemplateUsed(page, "all_bugs.html")
 
     def test_get_bug_details_page(self):
     

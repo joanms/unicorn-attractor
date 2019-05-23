@@ -81,6 +81,15 @@ python3 manage.py test
 ### Manual testing
 I carried out manual testing as follows:
 
+#### Cross-Browser and Device Compatibility
+1. Test the app on Chrome, Edge, Firefox and Opera browsers to ensure that it works on all of them.
+2. Test the app on a desktop, laptop, tablet and smartphone to ensure that it works on all devices.
+
+#### Responsiveness
+1. View the app in responsive mode with Chrome Developer Tools to ensure that the size and position of elements adjusts correctly.
+2. View the app on a desktop, laptop, tablet and smartphone to ensure that it displays correctly.
+
+
 #### Accounts
 
 ##### Registration

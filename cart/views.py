@@ -54,7 +54,7 @@ def subtract_one(request, id):
     if cart[id] > 5:
         cart[id] = cart[id] - 1
     else:
-        cart.pop(id)
+        messages.error(request, "The minimum price is €5. To remove the item from the cart, please click Delete.")
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))

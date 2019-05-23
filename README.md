@@ -27,7 +27,9 @@ This is the Full-Stack Frameworks milestone project for Code Institute's full-st
 - **I want the payment process to be clear and efficient.**This last button takes them to the page listing all the features. If they don't want to alter the cart contents, or if they have finished doing so, they can click the checkout button, which takes them straight to the payment page. When they enter their details and click the Submit Payment button, they see a message telling them whether or not the payment was succesful.
 
 ### Design
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+Please [click here](static/plans/wireframes.pdf) to view the wireframes.
+
+The site is for a fantasy game, and the colour scheme, fonts and background image were chosen with this in mind. Because the site is supposed to serve a practical purpose, I made it as straightforward and streamlined as possible to avoid confusing or frustrating users, but still visually interesting so that it would be pleasant to use.
 
 
 ## Features
@@ -112,9 +114,9 @@ I carried out manual testing as follows:
 ##### Reporting Bugs
 1. Navigate to bug report form.
 2. Enter text in both fields and click "Submit Report".
-3. Ensure that the bug appears in list_bugs.html.
-4. Click on "View Details" for the bug in list_bugs.html and ensure that a page with its details appears.
-5. Ensure that the bug is listed on the profile page of the user that submitted it.
+3. Ensure that the bug appears on the page listing all reported bugs.
+4. Click on "View Details" for the bug on the page listing all reported bugs and ensure that a page with its details appears.
+5. Ensure that the bug is listed on the profile page of the user who submitted it.
 
 ##### Viewing Bug Details
 1. Click on the "More Details" button of a bug on the page listing reported bugs.
@@ -130,16 +132,22 @@ I carried out manual testing as follows:
 6. Ensure that a message displays saying 'You have already upvoted this bug'.
 7. Ensure that the upvote is listed on the user's profile page.
 
+##### Commenting on Bugs
+1. Navigate to the page giving details of a single bug.
+2. Click on the Add a Comment button.
+3. Enter a comment in the form that appears.
+4. Click the Submit Comment button.
+5. Ensure that the comment appears in the Comments panel with the correct user and date details.
+
 
 #### Features
 
 ##### Requesting Features
 1. Navigate to feature report form.
 2. Enter text in both fields and click "Request Feature".
-3. Ensure that the feature appears in list_features.html.
-4. Click on "View Details" for the bug in list_features.html and ensure that a page with its details appears.
-5. Ensure that the feature is listed on the profile page of the user that submitted it.
-
+3. Ensure that the feature appears on the page listing all requested features.
+4. Click on "View Details" for the bug on the page listing all requested features and ensure that a page with its details appears.
+5. Ensure that the feature is listed on the profile page of the user who submitted it.
 
 ##### Viewing Feature Details
 1. Click on the "More Details" button of a feature on the page listing reported bugs.
@@ -154,12 +162,21 @@ I carried out manual testing as follows:
 5. Click on "Browse other features to upvote".
 6. Select another feature from the list to upvote, click on "View Details" and upvote it by repeating step 1 above.
 7. Ensure that the correct feature and price are added to the cart.
-8. Click on "Checkout".
-9. Ensure that a payment details form appears.
-10. Fill in the form with fake details and click "Submit Payment".
-11. Ensure that the payment is successful.
-12. Ensure that the order is added to the database with all correct details.
-13. Ensure that the upvotes are listed on the user's profile page.
+8. Click on the Delete button for a feature.
+9. Ensure that the feature is deleted from the cart.
+10. Click on "Checkout".
+11. Ensure that a payment details form appears.
+12. Fill in the form with fake details and click "Submit Payment".
+13. Ensure that the payment is successful.
+14. Ensure that the order is added to the database with all correct details.
+15. Ensure that the upvotes are listed on the user's profile page.
+
+##### Commenting on Features
+1. Navigate to the page giving details of a single feature.
+2. Click on the Add a Comment button.
+3. Enter a comment in the form that appears.
+4. Click the Submit Comment button.
+5. Ensure that the comment appears in the Comments panel with the correct user and date details.
 
 
 ## Credits

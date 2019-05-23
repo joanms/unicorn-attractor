@@ -1,18 +1,32 @@
 # UnicornAttractor
 
-This is the Full-Stack Frameworks milestone project for Code Institute's full-stack web development course. It is an issue tracker for a fantasy game called UnicornAttractor. Users can report bugs they have experienced 
-and request features they want added to the game. They can also upvote bugs and features. Upvoting bugs is free, but users can't upvote a bug they submitted, or upvote the same bug more than once. The only limit on 
-upvoting features is the user's budget. Users can upvote any features they like as often as they like, but they need to pay a fee of €5 per upvote. The site developers will prioritise fixing the bugs with the most 
-upvotes and spend at least 50% of their time implementing the highest-paying features.
+This is the Full-Stack Frameworks milestone project for Code Institute's full-stack web development course. It is an issue tracker for a fantasy game called UnicornAttractor. Users can report bugs they have experienced and request features they want added to the game. They can also upvote bugs and features. Upvoting bugs is free, but users can't upvote a bug they submitted, or upvote the same bug more than once. The only limit on upvoting features is the user's budget. Users can upvote any features they like as often as they like, but they need to pay a fee of €5 per upvote. The site developers will prioritise fixing the bugs with the most upvotes and spend at least 50% of their time implementing the highest-paying features.
 
 
 ## UX
  
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+### User Stories
+- **As a new user, I want clear information about the site's purpose.** There is a welcome message on the home page, clearly explaining the site's purpose. When a new user registers, they are taken to a profile page with links to pages where they can submit or upvote tickets.
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+- **As a returning user, I want a history of my interactions with the site.** As soon as the user logs in, they see a profile page listing the bugs and features that they have submitted and upvoted, with links to those bugs and features. If they haven't submitted or upvoted tickets in a given category, they see links to pages where they can do so.
 
+- **I want to be able to navigate easily around the site.** The navbar has clearly labelled links to all pages on the site, grouped in dropdown menus where appropriate. There are also buttons throughout the site linking users to pages to which they are most likely
+
+- **I want to be able to communicate with other users.** Each page giving details of a bug or featur has a comments panel where users can read comments about it from other users, and add their own comments.
+
+- **I want to be able to communicate with the site's admin.** There is a link in the navbar and in the welcome text on the home page enabling users to email the site's admin. Please note that since this is a site for a fictional game, the email address is fake.
+
+- **I want the process of submitting tickets to be clear and intuitive.** There are links in the navbar to forms where users can report bugs and request features. These links also appear as buttons on the pages listing all reported bugs and all requested features.
+
+- **I want the process of upvoting bugs to be clear and intuitive.** There is a clearly labelled upvote button on each page giving the details of a single bug. If the user can't upvote the bug because they submitted it or have alredy upvoted it, they see a message stating this if they click the upvote button.
+
+- **I want the process of upvoting features to be clear and intuitive.** On each page giving the details of a single feature, there is a box where users can enter their chosen price and an upvote button beside it. The box will not accept any value below the minimum price of €5, and if the user attempts to enter a value below €5, they see a message reminding them of this.
+
+     When the user enters a valid price for upvoting a feature and clicks the upvote button, the upvote is added to their cart, and they are taken to a page showing the cart contents. They can adjust the cart contents by clicking the plus or minus buttons to change the price, the delete button to remove an item or the button inviting them to view other features to upvote. 
+
+- **I want the payment process to be clear and efficient.**This last button takes them to the page listing all the features. If they don't want to alter the cart contents, or if they have finished doing so, they can click the checkout button, which takes them straight to the payment page. When they enter their details and click the Submit Payment button, they see a message telling them whether or not the payment was succesful.
+
+### Design
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
 
@@ -24,12 +38,12 @@ This section is also where you would share links to any wireframes, mockups, dia
 - **Profile Page** where logged in users can view their account details.
 - **Bug Report Form** for users to report bugs they have experienced.
 - **Page Listing All Reported Bugs** where users can see which bugs have already been submitted and click on buttons for more details about each one.
-- **Bug Detail Page** giving all details for a single bug along with a button to upvote it and 
+- **Bug Detail Page** giving all details for a single bug along with a button to upvote it and a comments panel where users can read comments about the bug from other users and make their own.
 - **Feature Request Form** for users to report features they want.
 - **Page Listing All Requested Features** where users can see which features have already been requested and click on buttons for more details about each one.
 - **Feature Detail Page** giving all details for a single feature along with a form to purchase upvotes and a comments panel where users can read comments from other users and make their own.
-- **Comments Panels** on the bug and feature detail pages where users can read comments from other users and make their own.
-- **Cart** where users can see which upvotes they have added to their order.
+- **Comments Panels** on the bug and feature detail pages where users can read comments about the feature from other users and make their own.
+- **Cart** where users can see which upvotes they have added to their order. They can also adjust the price of their order, add items by clicking the button linking them to the page listing all features, and delete them by clicking the delete button for the feature they want to delete.
 - **Checkout** for users to pay for their upvotes.
 
 ### Features Left to Implement

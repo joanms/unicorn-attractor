@@ -9,13 +9,7 @@
     <div class="mx-auto regular-container">
         
         <!--Logged in users are greeted by name and thanked for registering-->
-        <h1>Welcome{% if user.is_authenticated %}, {{request.user}}{% endif %}!</h1>
-        
-        {% if user.is_authenticated %}
-        
-            <p>Thank you for being a part of the UnicornAttractor community.</p>
-        
-        {% endif %}
+        <h1>Welcome!</h1>
         
         <p>We hope that you enjoy playing UnicornAttractor. We're very proud of 
         our game, but we know that there's always room for improvement, and we're 

@@ -73,11 +73,17 @@ a:hover {
 .regular-container {
     display: block;
     width: 80vw;
-    height: auto;
     margin-top: 50px;
     margin-bottom: 50px;
     padding: 25px;
     background-color: rgba(212, 212, 247, 0.9);
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .comment-pane {
@@ -90,7 +96,7 @@ a:hover {
     display: inline-block;
     vertical-align: top;
     margin-bottom: 30px;
-    width: 33%;
+    width: 15rem;
 }
 
 /*Buttons*/
@@ -131,6 +137,6 @@ a:hover {
 
 @media screen and (min-width: 1200px) {
     .regular-container {
-        width: 50vw;
+        width: 60vw;
     }
 }

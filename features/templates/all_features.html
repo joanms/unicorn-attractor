@@ -13,22 +13,26 @@
     <!--If there are feature reports in the database, they will be listed in a table here-->
     {% if features %}
     
-        {% for feature in features %}
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title">{{ feature.title }}</h2>
-                    <strong>Submitted by:</strong> {{ feature.submitter }}<br>
-                    <strong>Date:</strong> {{ feature.date_submitted }}<br>
-                    <strong>Upvotes:</strong> {{ feature.upvotes }}<br>
-                    <strong>Amount Paid:</strong> €{{ feature.amount_paid }}<br>
-                    <strong>Status:</strong> {{ feature.status }}<br>
-                    <p class="card-text"> {{ feature.description|truncatewords:20 }}<br>
-                    <a href="{% url 'feature_details' feature.id %}">
-                            <button class="btn btn-secondary btn-sm">View Details</button></a>
-                  </div>
-            </div>
-
-        {% endfor %}
+        <div class="flex-container">
+        
+            {% for feature in features %}
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ feature.title }}</h2>
+                        <strong>Submitted by:</strong> {{ feature.submitter }}<br>
+                        <strong>Date:</strong> {{ feature.date_submitted }}<br>
+                        <strong>Upvotes:</strong> {{ feature.upvotes }}<br>
+                        <strong>Amount Paid:</strong> €{{ feature.amount_paid }}<br>
+                        <strong>Status:</strong> {{ feature.status }}<br>
+                        <p class="card-text"> {{ feature.description|truncatewords:20 }}<br>
+                        <a href="{% url 'feature_details' feature.id %}">
+                                <button class="btn btn-secondary btn-sm">View Details</button></a>
+                      </div>
+                </div>
+    
+            {% endfor %}
+        
+        </div>
 
     {% else %}
         <!--If there are no feature reports in the database, the following text will appear-->

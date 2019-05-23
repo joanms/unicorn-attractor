@@ -9,7 +9,7 @@
 {% block content %}
 
 <div class="mx-auto regular-container">
-    <h1>Cart</h1>
+    <h1>Cart Total: €{{ total }}</h1>
     
     {% if cart_items %}
     
@@ -43,7 +43,6 @@
         
         </div>
         
-        <p><strong>Total: €{{ total }}</strong></p>
         <a href="{% url 'checkout' %}"><button type="submit" class="btn btn-secondary">Checkout</button></a>
 
         <a href="{% url 'all_features' %}"><button class="btn btn-secondary">Add Another Feature</button></a>

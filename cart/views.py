@@ -58,3 +58,16 @@ def subtract_one(request, id):
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
+
+
+def delete_item(request, id):
+    """
+    Decrement price of an item in the cart. Adapted from code by Marcin Mrugacz: 
+    https://github.com/Migacz85/django_app/blob/master/cart/views.py
+    """
+    cart = request.session.get('cart', {})
+    if cart[id] > 0:
+        cart.pop(id)
+
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))

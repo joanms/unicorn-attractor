@@ -31,6 +31,10 @@
                             {% csrf_token %}
                             <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-minus"></i></button>
                         </form>
+                        <form class="price-change" method="post" action="{% url 'delete_item' item.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
+                        </form>
                     </div>
                     
                 </div>

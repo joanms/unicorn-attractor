@@ -188,6 +188,27 @@ I carried out manual testing as follows:
 5. Ensure that the comment appears in the Comments panel with the correct user and date details.
 
 
+## Deployment
+
+This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+
+In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
+- Different values for environment variables (Heroku Config Vars)?
+- Different configuration files?
+- Separate git branch?
+
+### Running the Code Locally
+Steps 1-6 were copied from [here](https://help.github.com/en/articles/cloning-a-repository)
+1. Under the repository name on GitHub, click Clone or download.
+2. In the Clone with HTTPs section, click the icon beside the URL to copy the clone URL for the repository.
+3. Open Git Bash.
+4. Change the current working directory to the location where you want the cloned directory to be made.
+5. Type git clone, and then paste the URL you copied in Step 2.
+6. Press Enter. Your local clone will be created.
+7. Create a virtual environment in which to run the code.
+8. In that virtual environment, install the packages in requirements.txt by typing pip install -r requirements.txt in the CLI.
+9. Set environment variables.
+
 ## Credits
 
 ### Media

@@ -16,6 +16,7 @@ class Bug(models.Model):
         ('To do', 'To do'),
         ('In progress', 'In progress'),
         ('Done', 'Done'),
+        ('Cancelled', 'Cancelled')
     )
     status = models.CharField(
         max_length=20,

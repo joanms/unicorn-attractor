@@ -28,6 +28,8 @@
                             <span class="badge badge-pill badge-primary">TO DO</span><br>
                         {% elif bug.status == "In progress" %}
                             <span class="badge badge-pill badge-info">IN PROGRESS</span><br>
+                        {% elif bug.status == "Cancelled" %}
+                            <span class="badge badge-pill badge-dark">CANCELLED</span><br>
                         {% else %}
                             <span class="badge badge-pill badge-success">DONE</span><br>
                         {% endif %}    

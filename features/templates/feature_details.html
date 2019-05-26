@@ -20,29 +20,37 @@
         <span class="badge badge-pill badge-primary">TO DO</span><br>
     {% elif feature.status == "In progress" %}
         <span class="badge badge-pill badge-info">IN PROGRESS</span><br>
+    {% elif feature.status == "Cancelled" %}
+        <span class="badge badge-pill badge-dark">CANCELLED</span><br>
     {% else %}
         <span class="badge badge-pill badge-success">DONE</span><br>
     {% endif %}
     <p>{{ feature.description }}</p>
 
-    <!--The user can purchase upvotes on the feature starting here-->
-    <em>If you also want this feature, please enter the amount you are willing 
-    to pay (at least €5, whole euro amounts only) and click "Upvote".</em>
-    <form method="post" action="{% url 'add_to_cart' feature.id %}">
-        {% csrf_token %}
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">€</span>
+    
+    {% if feature.status == "Cancelled" %}
+        <em>This feature has been cancelled, so upvoting has been disabled. 
+        All fees paid for upvoting it will be refunded within 10 working days.</em>
+    {% else %}    
+        <!--This form is used to set the price for an upvote on the featre-->
+        <em>If you also want this feature, please enter the amount you are willing 
+        to pay (at least €5, whole euro amounts only) and click "Upvote".</em>
+        <form method="post" action="{% url 'add_to_cart' feature.id %}">
+            {% csrf_token %}
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">€</span>
+                </div>
+                <input name="price" type="number" min="5" max="999" class="form-control" Required>
+                <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                </div>
             </div>
-            <input name="price" type="number" min="5" max="999" class="form-control" Required>
-            <div class="input-group-append">
-                <span class="input-group-text">.00</span>
-            </div>
-            <span class="input-group-btn">
+            <div class="input-group-btn">
                 <button class="btn btn-secondary" type="submit">Upvote</button>
-            </span>
-        </div>
-    </form>
+            </div>
+        </form>
+    {% endif %}    
 
     <!--If there are comments on the feature, they appear here-->
     <div class="comment-pane">

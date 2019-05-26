@@ -25,13 +25,13 @@
                         <strong>Upvotes:</strong> {{ bug.upvotes }}<br>
                         <strong>Status:</strong> 
                         {% if bug.status == "To do" %}
-                            <span class="badge badge-pill badge-primary">TO DO</span><br>
+                            <span class="badge badge-primary">TO DO</span><br>
                         {% elif bug.status == "In progress" %}
-                            <span class="badge badge-pill badge-info">IN PROGRESS</span><br>
+                            <span class="badge badge-info">IN PROGRESS</span><br>
                         {% elif bug.status == "Cancelled" %}
-                            <span class="badge badge-pill badge-dark">CANCELLED</span><br>
+                            <span class="badge badge-dark">CANCELLED</span><br>
                         {% else %}
-                            <span class="badge badge-pill badge-success">DONE</span><br>
+                            <span class="badge badge-success">DONE</span><br>
                         {% endif %}    
                         <a href="{% url 'bug_details' bug.id %}">
                                 <button class="btn btn-secondary btn-sm">View Details</button></a>

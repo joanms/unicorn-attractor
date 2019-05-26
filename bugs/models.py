@@ -11,7 +11,17 @@ class Bug(models.Model):
     submitter = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
-    status = models.TextField(default="To do")
+    
+    STATUS_CHOICES = (
+        ('To do', 'To do'),
+        ('In progress', 'In progress'),
+        ('Done', 'Done'),
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='To do'
+    )
 
     def __str__(self):
         return self.title

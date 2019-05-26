@@ -14,7 +14,15 @@
     <h1>{{ bug.title }}</h1>
     <strong>Submitted by {{ bug.submitter }}, {{ bug.date_submitted }}<br>
     Upvotes: {{ bug.upvotes }}<br>
-    Status: {{ bug.status }}</strong>
+    Status: </strong>
+    <!--One of three badges will be displayed, indicating the bug's status-->
+    {% if bug.status == "To do" %}
+        <span class="badge badge-pill badge-primary">TO DO</span><br>
+    {% elif bug.status == "In progress" %}
+        <span class="badge badge-pill badge-info">IN PROGRESS</span><br>
+    {% else %}
+        <span class="badge badge-pill badge-success">DONE</span><br>
+    {% endif %}    
     <p>{{ bug.description }}</p>
     
     <!--The user sees an upvote button and text inviting them to upvote if they wish, 

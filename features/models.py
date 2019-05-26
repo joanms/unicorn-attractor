@@ -13,7 +13,17 @@ class Feature(models.Model):
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
     amount_paid = models.IntegerField(default=0)
-    status = models.TextField(default="To do")
+
+    STATUS_CHOICES = (
+        ('To do', 'To do'),
+        ('In progress', 'In progress'),
+        ('Done', 'Done'),
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='To do'
+    )
 
     def __str__(self):
         return self.title
@@ -29,5 +39,5 @@ class FeatureComment(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return "Comment on {0} by {1} on {3}".format(
-            self.feature, self.commenter, self.comment_date)        
+        return "{0}: {1}".format(
+            self.feature, self.text)        

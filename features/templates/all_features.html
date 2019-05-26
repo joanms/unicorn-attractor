@@ -23,7 +23,14 @@
                         <strong>Date:</strong> {{ feature.date_submitted }}<br>
                         <strong>Upvotes:</strong> {{ feature.upvotes }}<br>
                         <strong>Amount Paid:</strong> €{{ feature.amount_paid }}<br>
-                        <strong>Status:</strong> {{ feature.status }}<br>
+                        <strong>Status:</strong> 
+                        {% if feature.status == "To do" %}
+                            <span class="badge badge-pill badge-primary">TO DO</span><br>
+                        {% elif feature.status == "In progress" %}
+                            <span class="badge badge-pill badge-info">IN PROGRESS</span><br>
+                        {% else %}
+                            <span class="badge badge-pill badge-success">DONE</span><br>
+                        {% endif %}
                         <a href="{% url 'feature_details' feature.id %}">
                                 <button class="btn btn-secondary btn-sm">View Details</button></a>
                       </div>

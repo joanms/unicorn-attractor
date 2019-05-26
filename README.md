@@ -135,9 +135,7 @@ I carried out manual testing as follows:
 ##### Upvoting Bugs
 1. Click on the upvote button for a bug not submitted or already upvoted by the logged in user.
 2. Ensure that the upvote count increases by one.
-3. Click on the upvote button for a bug submitted by the currently logged in user.
-4. Ensure that a message displays saying 'You can't upvote a bug that you submitted'.
-5. Click on the upvote button for a bug already upvoted by the currently logged in user.
+5. Click on the upvote button again.
 6. Ensure that a message displays saying 'You have already upvoted this bug'.
 7. Ensure that the upvote is listed on the user's profile page.
 

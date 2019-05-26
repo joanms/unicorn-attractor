@@ -33,6 +33,8 @@ The site is for a fantasy game, and the colour scheme, fonts and background imag
 
 The pages displaying all reported bugs, all requested features and the cart comprise cards with summaries of the bugs or features. I considered using tables for these pages, but tables do not work very well on small screens. The content can look squashed, or have horizontal scrollbars because the columns don't all fit on the screen. Cards in a flexbox container are much more suitable for a responsive website. They can be displayed in a single column on the smallest screens, with the number of columns increasing with the width of the screen.
 
+The buttons are prominently displayed and clearly labelled to make it easy for users to see what they have to click to progress through the site.
+
 
 ## Features
 
@@ -211,14 +213,23 @@ Steps 1-6 were copied from [here](https://help.github.com/en/articles/cloning-a-
 10. Set an environment variable for the SECRET_KEY.
 11. Run the following command in the CLI: python manage.py runserver.
 
+
 ## Credits
 
+### Code
+
+Much of the code for the accounts, cart and checkout apps was copied from course material and adapted for this project. The main change to the accounts app was to add a custom user model that included fields for tickets submitted by the user. The main changes to the cart and checkout apps were to enable users to select a price instead of a quantity, and to link the users to their orders with a foreign key in the Order model. Please refer to the comments in the files for details.
+
+
 ### Media
+
 The images were downloaded from [PixaBay](https://pixabay.com/). 
 The logo is by [Clker-Free-Vector-Images](https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=310175). 
 The background image is by [Anna Soppe](https://pixabay.com/users/beautifulugly-3087213/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2262633).
 
+
 ### Acknowledgements
+
 Michael Park, Haley Schafer and Chris Zielinski provided valuable help and advice on the project.
 
 [Marcin Mrugacz's project](https://github.com/Migacz85/django_app) gave me ideas about how to approach my own.

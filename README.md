@@ -206,8 +206,10 @@ Steps 1-6 were copied from [here](https://help.github.com/en/articles/cloning-a-
 5. Type git clone, and then paste the URL you copied in Step 2.
 6. Press Enter. Your local clone will be created.
 7. Create a virtual environment in which to run the code.
-8. In that virtual environment, install the packages in requirements.txt by typing pip install -r requirements.txt in the CLI.
-9. Set environment variables.
+8. Install Django in the virtual environment by entering the following in the CLI: pip install django==1.11.
+9. Install the packages in requirements.txt by typing pip install -r requirements.txt in the CLI.
+10. Set an environment variable for the SECRET_KEY.
+11. Run the following command in the CLI: python manage.py runserver.
 
 ## Credits
 

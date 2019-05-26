@@ -39,8 +39,9 @@ def bug_details(request, pk):
     and displays comments on the bug
     """
     bug = get_object_or_404(Bug, pk=pk)
+    user_upvoted = BugUpvote.objects.filter(user=request.user, bug=bug)
     comments = BugComment.objects.filter(bug=bug)
-    return render(request, "bug_details.html", {'bug': bug, 'comments': comments})
+    return render(request, "bug_details.html", {'bug': bug, 'comments': comments, 'user_upvoted': user_upvoted})
     
 
 @login_required()
@@ -67,14 +68,11 @@ def bug_comment(request, pk):
 @login_required()
 def upvote_bug(request, bug_id):
     """
-    Allows users to upvote bugs they didn't submit themselves 
-    and haven't already upvoted
+    Allows users to upvote bugs they haven't already upvoted
     """
     bug = Bug.objects.get(pk=bug_id)
     comments = BugComment.objects.filter(bug=bug)
-    if request.user == bug.submitter:
-        messages.error(request, "You can't upvote a bug that you submitted.")
-    elif BugUpvote.objects.filter(user=request.user, bug=bug):
+    if BugUpvote.objects.filter(user=request.user, bug=bug):
         messages.error(request, "You have already upvoted this bug.")
     else:
         bug.upvotes += 1

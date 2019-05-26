@@ -16,7 +16,18 @@
     Upvotes: {{ bug.upvotes }}<br>
     Status: {{ bug.status }}</strong>
     <p>{{ bug.description }}</p>
-    <em>If you also experience this bug, please click here: <a href="{% url 'upvote_bug' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Upvote</button></a></em>
+    
+    <!--The user sees an upvote button and text inviting them to upvote if they wish, 
+    unless they submitted the bug or have already upvoted it.-->
+    {% if request.user == bug.submitter %}
+        <em>You can't upvote a bug you submitted.</em>
+    {% elif user_upvoted %}
+        {% for upvote in user_upvoted %}
+            <em>You upvoted this bug on {{ upvote.date }}.</em>
+        {% endfor %}    
+    {% else %}    
+        <em>If you also experience this bug, please click here: <a href="{% url 'upvote_bug' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Upvote</button></a></em>
+    {% endif %}    
     
     <!--If there are comments on the bug, they appear here-->
     <div class="comment-pane">

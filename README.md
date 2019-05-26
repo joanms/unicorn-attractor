@@ -10,26 +10,28 @@ This is the Full-Stack Frameworks milestone project for Code Institute's full-st
 
 - **As a returning user, I want a history of my interactions with the site.** As soon as the user logs in, they see a profile page listing the bugs and features that they have submitted and upvoted, with links to those bugs and features. If they haven't submitted or upvoted tickets in a given category, they see links to pages where they can do so.
 
-- **I want to be able to navigate easily around the site.** The navbar has clearly labelled links to all pages on the site, grouped in dropdown menus where appropriate. There are also buttons throughout the site linking users to pages to which they are most likely
+- **I want to be able to navigate easily around the site.** The navbar has clearly labelled links to all pages on the site, grouped in dropdown menus where appropriate. There are also buttons and text links throughout the site linking users to pages directly related to the page they are on.
 
-- **I want to be able to communicate with other users.** Each page giving details of a bug or featur has a comments panel where users can read comments about it from other users, and add their own comments.
+- **I want to be able to communicate with other users.** Each page giving details of a bug or feature has a comments panel where users can read comments about it from other users, and add their own comments.
 
 - **I want to be able to communicate with the site's admin.** There is a link in the navbar and in the welcome text on the home page enabling users to email the site's admin. Please note that since this is a site for a fictional game, the email address is fake.
 
 - **I want the process of submitting tickets to be clear and intuitive.** There are links in the navbar to forms where users can report bugs and request features. These links also appear as buttons on the pages listing all reported bugs and all requested features.
 
-- **I want the process of upvoting bugs to be clear and intuitive.** There is a clearly labelled upvote button on each page giving the details of a single bug. If the user can't upvote the bug because they submitted it or have alredy upvoted it, they see a message stating this if they click the upvote button.
+- **I want the process of upvoting bugs to be clear and intuitive.** There is a clearly labelled upvote button on each page giving the details of a single bug. If the user submitted the bug or upvoted it on a previous occasion, they see a message telling them they can't upvote it instead of the upvote button. If the clicks the upvote button again after upvoting, they see a message telling them they have already upvoted.
 
 - **I want the process of upvoting features to be clear and intuitive.** On each page giving the details of a single feature, there is a box where users can enter their chosen price and an upvote button beside it. The box will not accept any value below the minimum price of €5, and if the user attempts to enter a value below €5, they see a message reminding them of this.
 
      When the user enters a valid price for upvoting a feature and clicks the upvote button, the upvote is added to their cart, and they are taken to a page showing the cart contents. They can adjust the cart contents by clicking the plus or minus buttons to change the price, the delete button to remove an item or the button inviting them to view other features to upvote. 
 
-- **I want the payment process to be clear and efficient.**This last button takes them to the page listing all the features. If they don't want to alter the cart contents, or if they have finished doing so, they can click the checkout button, which takes them straight to the payment page. When they enter their details and click the Submit Payment button, they see a message telling them whether or not the payment was succesful.
+- **I want the payment process to be clear and efficient.**If the user doesn't want to alter the cart contents, or if they have finished doing so, they can click the checkout button, which takes them straight to the payment page. When they enter their details and click the Submit Payment button, they see a message telling them whether or not the payment was succesful.
 
 ### Design
 Please [click here](static/plans/wireframes.pdf) to view the wireframes.
 
 The site is for a fantasy game, and the colour scheme, fonts and background image were chosen with this in mind. Because the site is supposed to serve a practical purpose, I made it as straightforward and streamlined as possible to avoid confusing or frustrating users, but still visually interesting so that it would be pleasant to use.
+
+The pages displaying all reported bugs, all requested features and the cart comprise cards with summaries of the bugs or features. I considered using tables for these pages, but tables do not work very well on small screens. The content can look squashed, or have horizontal scrollbars because the columns don't all fit on the screen. Cards in a flexbox container are much more suitable for a responsive website. They can be displayed in a single column on the smallest screens, with the number of columns increasing with the width of the screen.
 
 
 ## Features

@@ -9,7 +9,9 @@ custom_style = Style(
     plot_background = 'transparent',
     font_family = 'Roboto',
     legend_font_size = 25,
-    value_font_size=25)
+    value_font_size=25, 
+    label_font_size=25,
+    major_label_font_size=25)
 
 def bug_pie_chart():
     """Show status of bugs"""
@@ -60,8 +62,10 @@ def bug_bar_chart():
     """Show commonness of bugs"""
 
     bugs = Bug.objects.all()
-    line_chart = pygal.HorizontalBar(
-        print_values=True, 
+    line_chart = pygal.Bar(
+        show_minor_y_labels=False,
+        print_values=True,
+        print_zeroes=False,
         style=custom_style
     )
 
@@ -79,8 +83,9 @@ def feature_bar_chart():
     """Show popularity of features"""
 
     features = Feature.objects.all()
-    line_chart = pygal.HorizontalBar(
-        print_values=True, 
+    line_chart = pygal.Bar(
+        print_values=True,
+        print_zeroes=False,
         style=custom_style
     )
 

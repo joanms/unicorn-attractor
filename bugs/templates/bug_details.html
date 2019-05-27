@@ -30,6 +30,8 @@
     unless they submitted the bug or have already upvoted it.-->
     {% if bug.status == "Cancelled" %}
         <em>This bug report has been cancelled, so upvoting is disabled.</em>
+    {% elif bug.status == "Done" %}
+        <em>This bug has been fixed, so upvoting is disabled.</em>
     {% elif request.user == bug.submitter %}
         <em>You can't upvote a bug you submitted.</em>
     {% elif user_upvoted %}

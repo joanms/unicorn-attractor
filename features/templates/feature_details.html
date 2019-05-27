@@ -30,6 +30,9 @@
     {% if feature.status == "Cancelled" %}
         <em>This feature has been cancelled, so upvoting has been disabled. 
         All fees paid for upvoting it will be refunded within 10 working days.</em>
+    {% elif feature.status == "Done" %}
+        <em>This feature has been implemented, so upvoting has been disabled. Any 
+        fees paid after it was completed will be refunded within 10 working days.</em>
     {% else %}    
         <!--This form is used to set the price for an upvote on the featre-->
         <em>If you also want this feature, please enter the amount you are willing 

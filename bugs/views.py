@@ -39,9 +39,13 @@ def bug_details(request, pk):
     and displays comments on the bug
     """
     bug = get_object_or_404(Bug, pk=pk)
-    user_upvoted = BugUpvote.objects.filter(user=request.user, bug=bug)
+    user = request.user
     comments = BugComment.objects.filter(bug=bug)
-    return render(request, "bug_details.html", {'bug': bug, 'comments': comments, 'user_upvoted': user_upvoted})
+    if user.is_authenticated():
+        """Checks whether the logged-in user has already upvoted the bug"""
+        user_upvoted = BugUpvote.objects.filter(user=request.user, bug=bug)
+        return render(request, "bug_details.html", {'bug': bug, 'comments': comments, 'user_upvoted': user_upvoted})
+    return render(request, "bug_details.html", {'bug': bug, 'comments': comments})    
     
 
 @login_required()

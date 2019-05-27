@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def graphs(request):
+    """A view that displays the graphs page"""
+    return render(request, "graphs.html")

@@ -42,7 +42,7 @@
         {% endfor %}
         </ul>
     {% else %}
-        <p>You haven't upvoted any bugs. <a href="{% url 'list_bugs' %}">View the list of bugs</a>.</p>
+        <p>You haven't upvoted any bugs. <a href="{% url 'all_bugs' %}">View the list of bugs</a>.</p>
     {% endif %}    
 
     <h2>Feature Upvotes</h2>
@@ -53,7 +53,7 @@
         {% endfor %}
         </ul>
     {% else %}
-        <p>You haven't upvoted any features. <a href="{% url 'list_features' %}">View the list of features</a>.</p>
+        <p>You haven't upvoted any features. <a href="{% url 'all_features' %}">View the list of features</a>.</p>
     {% endif %}    
     
 </div>

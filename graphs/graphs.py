@@ -3,6 +3,13 @@ from bugs.models import Bug
 from features.models import Feature
 from pygal.style import Style
 
+custom_style = Style(
+    background = 'transparent',
+    plot_background = 'transparent',
+    font_family = 'Roboto',
+    legend_font_size = 25,
+    value_font_size=25)
+
 def bug_pie_chart():
     """Show summary for features"""
 
@@ -11,7 +18,8 @@ def bug_pie_chart():
     done = Bug.objects.filter(status='Done').count()
     cancelled = Bug.objects.filter(status='Cancelled').count()
     p_chart = pygal.Pie(
-        print_values=True,
+        print_values=True, 
+        style=custom_style
     )
 
     p_chart.add('To Do', todo)
@@ -33,6 +41,7 @@ def feature_pie_chart():
     cancelled = Feature.objects.filter(status='Cancelled').count()
     p_chart = pygal.Pie(
         print_values=True,
+        style=custom_style
     )
 
     p_chart.add('To Do', todo)

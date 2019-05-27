@@ -23,7 +23,6 @@
                         <strong>Submitted by:</strong> {{ bug.submitter }}<br>
                         <strong>Date:</strong> {{ bug.date_submitted }}<br>
                         <strong>Upvotes:</strong> {{ bug.upvotes }}<br>
-                        <strong>Status:</strong> 
                         {% if bug.status == "To do" %}
                             <span class="badge badge-primary">TO DO</span><br>
                         {% elif bug.status == "In progress" %}

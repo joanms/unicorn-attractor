@@ -23,7 +23,6 @@
                         <strong>Date:</strong> {{ feature.date_submitted }}<br>
                         <strong>Upvotes:</strong> {{ feature.upvotes }}<br>
                         <strong>Amount Paid:</strong> €{{ feature.amount_paid }}<br>
-                        <strong>Status:</strong> 
                         {% if feature.status == "To do" %}
                             <span class="badge badge-primary">TO DO</span><br>
                         {% elif feature.status == "In progress" %}

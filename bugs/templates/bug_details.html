@@ -12,19 +12,18 @@
     
     <!--The details of an individual bug-->
     <h1>{{ bug.title }}</h1>
-    <strong>Submitted by {{ bug.submitter }}, {{ bug.date_submitted }}<br>
-    Upvotes: {{ bug.upvotes }}<br>
-    Status: </strong>
+    <p><strong>Submitted by {{ bug.submitter }}, {{ bug.date_submitted }}<br>
+    Upvotes: {{ bug.upvotes }}</strong><br>
     <!--One of three badges will be displayed, indicating the bug's status-->
     {% if bug.status == "To do" %}
-        <span class="badge badge-primary">TO DO</span><br>
+        <span class="badge badge-primary">TO DO</span>
     {% elif bug.status == "In progress" %}
-        <span class="badge badge-info">IN PROGRESS</span><br>
+        <span class="badge badge-info">IN PROGRESS</span>
     {% elif bug.status == "Cancelled" %}
-        <span class="badge badge-dark">CANCELLED</span><br>    
+        <span class="badge badge-dark">CANCELLED</span>   
     {% else %}
-        <span class="badge badge-success">DONE</span><br>
-    {% endif %}    
+        <span class="badge badge-success">DONE</span>
+    {% endif %}</p>    
     <p>{{ bug.description }}</p>
     
     <!--The user sees an upvote button and text inviting them to upvote if they wish, 

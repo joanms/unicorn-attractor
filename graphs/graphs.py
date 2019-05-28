@@ -62,7 +62,7 @@ def bug_bar_chart():
     """Show commonness of bugs"""
 
     bugs = Bug.objects.all()
-    line_chart = pygal.HorizontalBar(
+    bar_chart = pygal.HorizontalBar(
         show_minor_x_labels=False,
         print_values=True,
         print_zeroes=False,
@@ -70,9 +70,9 @@ def bug_bar_chart():
     )
 
     for bug in bugs:
-        line_chart.add(bug.title, bug.upvotes)
+        bar_chart.add(bug.title, bug.upvotes)
 
-    return line_chart.render()
+    return bar_chart.render()
 
 def BugBarChart():
     chart = bug_bar_chart()
@@ -83,16 +83,16 @@ def feature_bar_chart():
     """Show popularity of features"""
 
     features = Feature.objects.all()
-    line_chart = pygal.HorizontalBar(
+    bar_chart = pygal.HorizontalBar(
         print_values=True,
         print_zeroes=False,
         style=custom_style
     )
 
     for feature in features:
-        line_chart.add(feature.title, feature.amount_paid)
+        bar_chart.add(feature.title, feature.amount_paid)
 
-    return line_chart.render()
+    return bar_chart.render()
 
 def FeatureBarChart():
     chart = feature_bar_chart()

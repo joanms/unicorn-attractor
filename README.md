@@ -67,6 +67,7 @@ The buttons are prominently displayed and clearly labelled to make it easy for u
 - **[SendGrid](https://sendgrid.com/)** is used to send emails from the site.
 - **[Travis](https://travis-ci.org/)** was used to test the code.
 - **[Stripe](https://stripe.com/ie)** is used to process payments.
+- **[Pygal](http://pygal.org/en/stable/)** was used to create the graphs.
 - **[Heroku](https://www.heroku.com/)** was used to deploy the project.
 
 

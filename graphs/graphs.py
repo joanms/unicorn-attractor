@@ -4,6 +4,7 @@ from features.models import Feature
 from pygal.style import Style
 from django.core import serializers
 
+
 custom_style = Style(
     background = 'transparent',
     plot_background = 'transparent',
@@ -13,7 +14,9 @@ custom_style = Style(
     label_font_size=25,
     major_label_font_size=25)
 
+
 def bug_pie_chart():
+    
     """Show status of bugs"""
 
     todo = Bug.objects.filter(status='To do').count()
@@ -34,8 +37,10 @@ def bug_pie_chart():
 def BugPieChart():
     chart = bug_pie_chart()
     return chart
+
     
 def feature_pie_chart():
+    
     """Show status of features"""
 
     todo = Feature.objects.filter(status='To do').count()
@@ -59,7 +64,8 @@ def FeaturePieChart():
     
     
 def bug_bar_chart():
-    """Show commonness of bugs"""
+    
+    """Show 5 most upvoted bugs in descending order"""
 
     bugs = Bug.objects.order_by('-upvotes')[:5]
     bar_chart = pygal.Bar(
@@ -80,7 +86,8 @@ def BugBarChart():
 
 
 def feature_bar_chart():
-    """Show popularity of features"""
+    
+    """Show 5 highest-paid features in descending order"""
 
     features = Feature.objects.order_by('-amount_paid')[:5]
     bar_chart = pygal.Bar(
@@ -97,4 +104,3 @@ def feature_bar_chart():
 def FeatureBarChart():
     chart = feature_bar_chart()
     return chart
-    

@@ -62,7 +62,7 @@ def bug_bar_chart():
     """Show commonness of bugs"""
 
     bugs = Bug.objects.order_by('-upvotes')[:5]
-    bar_chart = pygal.HorizontalBar(
+    bar_chart = pygal.Bar(
         show_minor_x_labels=False,
         print_values=True,
         print_zeroes=False,
@@ -83,7 +83,7 @@ def feature_bar_chart():
     """Show popularity of features"""
 
     features = Feature.objects.order_by('-amount_paid')[:5]
-    bar_chart = pygal.HorizontalBar(
+    bar_chart = pygal.Bar(
         print_values=True,
         print_zeroes=False,
         style=custom_style

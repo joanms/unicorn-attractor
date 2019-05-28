@@ -61,7 +61,7 @@ def FeaturePieChart():
 def bug_bar_chart():
     """Show commonness of bugs"""
 
-    bugs = Bug.objects.all()
+    bugs = Bug.objects.order_by('-upvotes')[:5]
     bar_chart = pygal.HorizontalBar(
         show_minor_x_labels=False,
         print_values=True,
@@ -82,7 +82,7 @@ def BugBarChart():
 def feature_bar_chart():
     """Show popularity of features"""
 
-    features = Feature.objects.all()
+    features = Feature.objects.order_by('-amount_paid')[:5]
     bar_chart = pygal.HorizontalBar(
         print_values=True,
         print_zeroes=False,

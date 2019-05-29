@@ -78,6 +78,9 @@ The buttons are prominently displayed and clearly labelled to make it easy for u
 
 The Travis build fails unless I comment out 'import env' in settings.py.
 
+### Code Validation
+I validated the HTML with the [W3C Markup Validation Service](https://validator.w3.org/) and the CSS with the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).
+
 ### Automated Testing
 Automated testing is carried out with Django's own testing framwork. To run the tests, run the following command in the CLI:
 

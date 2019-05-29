@@ -17,7 +17,7 @@
         
             {% for bug in bugs %}
             
-                <div class="card" col-xs-12>
+                <div class="card">
                     <div class="card-body">
                         <h2 class="card-title">{{ bug.title }}</h2>
                         <strong>Submitted by:</strong> {{ bug.submitter }}<br>
@@ -32,8 +32,7 @@
                         {% else %}
                             <span class="badge badge-success">DONE</span><br>
                         {% endif %}    
-                        <a href="{% url 'bug_details' bug.id %}">
-                                <button class="btn btn-secondary btn-sm">View Details</button></a>
+                        <a class="btn btn-secondary btn-sm" href="{% url 'bug_details' bug.id %}">View Details</a>
                       </div>
                 </div>
             
@@ -47,7 +46,7 @@
         
     {% endif %}
     
-    <div><a href="{% url 'report_bug' %}"><button class="btn btn-secondary">Report a Bug</button></a></div>
+    <div><a class="btn btn-secondary" href="{% url 'report_bug' %}">Report a Bug</a></div>
     
 </div>
 

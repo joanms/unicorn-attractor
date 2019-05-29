@@ -39,7 +39,7 @@
             <em>You upvoted this bug on {{ upvote.date }}.</em>
         {% endfor %}    
     {% else %}    
-        <em>If you also experience this bug, please click here: <a href="{% url 'upvote_bug' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Upvote</button></a></em>
+        <em>If you also experience this bug, please click here: <a class="btn btn-secondary btn-sm" href="{% url 'upvote_bug' bug.id %}">Upvote</a></em>
     {% endif %}    
     
     <!--If there are comments on the bug, they appear here-->
@@ -53,7 +53,7 @@
         {% endif %}
         
         <!--Link for users to make their own comments-->
-        <a href="{% url 'bug_comment' bug.id %}"><button type="submit" class="btn btn-secondary btn-sm">Add a Comment</i></button></a>
+        <a class="btn btn-secondary btn-sm" href="{% url 'bug_comment' bug.id %}">Add a Comment</a>
     </div>
     
 </div>

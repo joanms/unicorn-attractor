@@ -32,8 +32,7 @@
                         {% else %}
                             <span class="badge badge-success">DONE</span><br>
                         {% endif %}
-                        <a href="{% url 'feature_details' feature.id %}">
-                                <button class="btn btn-secondary btn-sm">View Details</button></a>
+                        <a class="btn btn-secondary btn-sm" href="{% url 'feature_details' feature.id %}">View Details</a>
                       </div>
                 </div>
     
@@ -47,7 +46,7 @@
         
     {% endif %}
     
-    <div><a href="{% url 'request_feature' %}"><button class="btn btn-secondary">Request a Feature</button></a></div>
+    <div><a class="btn btn-secondary" href="{% url 'request_feature' %}">Request a Feature</a></div>
     
 </div>
 

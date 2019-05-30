@@ -5,6 +5,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from features.models import Feature
 
+from django.http import HttpResponse
+import json
+
 
 @login_required()
 def view_cart(request):
@@ -42,6 +45,13 @@ def add_one(request, id):
     cart = request.session.get('cart', {})
     cart[id] = cart[id] + 1
     request.session['cart'] = cart
+    
+    # response = {
+    #     'new_price': str(cart[id] + 1),
+    #     'item_updated': 'Item # {}'.format(id)
+    # }
+    
+    # return HttpResponse(json.dumps(response))
     return redirect(reverse('view_cart'))
 
 

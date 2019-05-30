@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <h2>{{ item.feature.title }}</h2>
                         <p> {{ item.feature.description|truncatewords:20 }}</p>
-                        <p><strong>Price:</strong> €{{ item.price }}</p>
+                        <p><strong>Price:</strong> €<span id='price'>{{ item.price }}</span></p>
                         <form class="price-change" method="post" action="{% url 'add_one' item.id %}">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-plus"></i></button>
@@ -55,5 +55,19 @@
     {% endif %}
     
 </div>
+
+<script type="text/javascript">
+    $('#inc_donation').click(function() {
+        $.get('/cart/add_one/').done(function(response) {
+            // result goes here
+            console.log(response);
+            // response = {
+            //     'new_price': '6'
+            // }
+            
+            // $('#price').text(response.new_price);
+        })
+    })
+</script>
 
 {% endblock %}

@@ -2,7 +2,6 @@ import pygal
 from bugs.models import Bug
 from features.models import Feature
 from pygal.style import Style
-from django.core import serializers
 
 
 custom_style = Style(
@@ -17,7 +16,7 @@ custom_style = Style(
 
 def bug_pie_chart():
     
-    """Show status of bugs"""
+    """A pie chart showing the status of bugs"""
 
     todo = Bug.objects.filter(status='To do').count()
     inprogress = Bug.objects.filter(status='In progress').count()
@@ -35,13 +34,16 @@ def bug_pie_chart():
     return p_chart.render()
 
 def BugPieChart():
+    
+    """Enable importing the graph into a view"""
+    
     chart = bug_pie_chart()
     return chart
 
     
 def feature_pie_chart():
     
-    """Show status of features"""
+    """A pie chart showing the status of features"""
 
     todo = Feature.objects.filter(status='To do').count()
     inprogress = Feature.objects.filter(status='In progress').count()
@@ -59,13 +61,16 @@ def feature_pie_chart():
     return p_chart.render()
 
 def FeaturePieChart():
+    
+    """Enable importing the graph into a view"""
+    
     chart = feature_pie_chart()
     return chart    
     
     
 def bug_bar_chart():
     
-    """Show 5 most upvoted bugs in descending order"""
+    """A bar chart showing the 5 most upvoted bugs in descending order"""
 
     bugs = Bug.objects.order_by('-upvotes')[:5]
     bar_chart = pygal.Bar(
@@ -81,13 +86,16 @@ def bug_bar_chart():
     return bar_chart.render()
 
 def BugBarChart():
+    
+    """Enable importing the graph into a view"""
+    
     chart = bug_bar_chart()
     return chart
 
 
 def feature_bar_chart():
     
-    """Show 5 highest-paid features in descending order"""
+    """A bar chart showing the 5 highest-paid features in descending order"""
 
     features = Feature.objects.order_by('-amount_paid')[:5]
     bar_chart = pygal.Bar(
@@ -102,5 +110,8 @@ def feature_bar_chart():
     return bar_chart.render()
 
 def FeatureBarChart():
+    
+    """Enable importing the graph into a view"""
+    
     chart = feature_bar_chart()
     return chart

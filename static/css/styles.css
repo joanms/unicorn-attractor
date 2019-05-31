@@ -94,8 +94,7 @@ a:hover {
 
 .btn-secondary {
     background-color: #583870;
-    margin-right: 10px;
-    margin-top: 10px;
+    margin: 10px;
 }
 
 .btn-secondary:hover {

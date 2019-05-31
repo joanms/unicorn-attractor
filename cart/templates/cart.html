@@ -23,14 +23,8 @@
                         <h2>{{ item.feature.title }}</h2>
                         <p> {{ item.feature.description|truncatewords:20 }}</p>
                         <p><strong>Price:</strong> €<span id='price'>{{ item.price }}</span></p>
-                        <form class="price-change" method="post" action="{% url 'add_one' item.id %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-plus"></i></button>
-                        </form>
-                        <form class="price-change" method="post" action="{% url 'subtract_one' item.id %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-minus"></i></button>
-                        </form>
+                        <button type="submit" class="btn btn-secondary btn-sm" id="plus-one"><i class="fas fa-plus"></i></button>
+                        <button type="submit" class="btn btn-secondary btn-sm" id="minus-one"><i class="fas fa-minus"></i></button>
                         <form class="price-change" method="post" action="{% url 'delete_item' item.id %}">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
@@ -57,7 +51,7 @@
 </div>
 
 <script type="text/javascript">
-    $('#inc_donation').click(function() {
+    $('#plus-one').click(function() {
         $.get('/cart/add_one/').done(function(response) {
             // result goes here
             console.log(response);

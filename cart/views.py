@@ -46,6 +46,7 @@ def add_one(request, id):
     cart[id] = cart[id] + 1
     request.session['cart'] = cart
     
+    # CODE FOR JAVASCRIPT ALTERNATIVE
     # response = {
     #     'new_price': str(cart[id] + 1),
     #     'item_updated': 'Item # {}'.format(id)

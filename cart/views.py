@@ -29,7 +29,7 @@ def add_to_cart(request, id):
     I added the following code to prevent users from duplicating items in the cart
     """
     if feature_id in cart:
-        messages.error(request, "That feature is already in your cart. To change the price, please click or tap the buttons next to the feature price.")
+        messages.error(request, "That feature is already in your cart. To change the price, please click or tap the plus or minus symbols next to the feature price.")
     else:    
         cart[id] = cart.get(id, price)
 

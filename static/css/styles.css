@@ -106,7 +106,11 @@ a:hover {
 }
 
 .price-change {
-    display: inline-block
+    display: inline-block;
+}
+
+#price,.price-change {
+    vertical-align: bottom;
 }
 
 /*Images*/

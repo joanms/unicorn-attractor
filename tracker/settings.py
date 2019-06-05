@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'features',
     'graphs',
     'home',
-    'mathfilters',
 ]
 
 MIDDLEWARE = [

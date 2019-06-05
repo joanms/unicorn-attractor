@@ -74,7 +74,7 @@ def bug_bar_chart():
 
     bugs = Bug.objects.order_by('-upvotes')[:5]
     bar_chart = pygal.Bar(
-        show_minor_x_labels=False,
+        show_minor_y_labels=False,
         print_values=True,
         print_zeroes=False,
         style=custom_style

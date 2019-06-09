@@ -6,23 +6,44 @@
 
 <div class="mx-auto regular-container">
     
-    <canvas id="myChart"></canvas>
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <h1>Most Upvoted Bugs</h1>
+            <canvas id="bug-upvotes"></canvas>
+        </div>
+    
+        <div class="col-xs-12 col-md-6">
+            <h1>Most Upvoted Features</h1>
+            <canvas id="feature-upvotes"></canvas>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <h1>Bug Status</h1>
+            <canvas id="bug-status"></canvas>
+        </div>
+    
+        <div class="col-xs-12 col-md-6">
+            <h1>Feature Status</h1>
+            <canvas id="feature-status"></canvas>
+        </div>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     
     <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('bug-upvotes').getContext('2d');
     var chart = new Chart(ctx, {
         // The type of chart we want to create
-        type: 'bar',
+        type: 'horizontalBar',
     
         // The data for our dataset
         data: {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
+                label: 'Bugs',
+                backgroundColor: '#583870',
                 data: [0, 10, 5, 2, 20, 30, 45]
             }]
         },
@@ -30,6 +51,65 @@
         // Configuration options go here
         options: {}
     });
+
+    var ctx = document.getElementById('feature-upvotes').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'horizontalBar',
+    
+        // The data for our dataset
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Features',
+                backgroundColor: '#583870',
+                data: [0, 10, 5, 2, 20, 30, 45]
+            }]
+        },
+    
+        // Configuration options go here
+        options: {}
+    });
+    
+    var ctx = document.getElementById('bug-status').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ["To Do", "In Progress", "Done", "Cancelled"],
+          datasets: [{
+            backgroundColor: ["#2E2FE3", "#583870","#AE0D7A","#5D1D3A"],
+            borderColor: "#D4D4F7",
+            data: [2478,5267,734,784]
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Current Status of Bugs in the Database'
+          }
+        }
+    });
+    
+    var ctx = document.getElementById('feature-status').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ["To Do", "In Progress", "Done", "Cancelled"],
+          datasets: [{
+            backgroundColor: ["#2E2FE3", "#583870","#AE0D7A","#5D1D3A"],
+            borderColor: "#D4D4F7",
+            data: [2478,5267,734,784]
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Current Status of Features in the Database'
+          }
+        }
+    });
+
+    
     </script>
 
 </div>

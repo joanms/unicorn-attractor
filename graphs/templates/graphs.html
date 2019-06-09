@@ -34,39 +34,34 @@
     
     <script>
         new Chart(document.getElementById("bug-upvotes"), {
-            // The type of chart we want to create
             type: 'horizontalBar',
         
-            // The data for our dataset
             data: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [{
-                    label: 'Bugs',
                     backgroundColor: '#583870',
                     data: [0, 10, 5, 2, 20, 30, 45]
                 }]
             },
-        
-            // Configuration options go here
-            options: {}
+
+            options: {
+                legend: { display: false }
+            }
         });
     
         new Chart(document.getElementById("feature-upvotes"), {
-            // The type of chart we want to create
             type: 'horizontalBar',
-        
-            // The data for our dataset
             data: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [{
-                    label: 'Features',
                     backgroundColor: '#583870',
                     data: [0, 10, 5, 2, 20, 30, 45]
                 }]
             },
         
-            // Configuration options go here
-            options: {}
+            options: {
+                legend: { display: false }
+            }
         });
         
         new Chart(document.getElementById("bug-status"), {
@@ -81,8 +76,7 @@
             },
             options: {
               title: {
-                display: true,
-                text: 'Current Status of Bugs in the Database'
+                display: false
               }
             }
         });
@@ -99,8 +93,7 @@
             },
             options: {
               title: {
-                display: true,
-                text: 'Current Status of Features in the Database'
+                display: false
               }
             }
         });

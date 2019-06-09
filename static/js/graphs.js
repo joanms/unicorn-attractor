@@ -4,7 +4,7 @@ new Chart(document.getElementById("bug-upvotes"), {
     data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
-            backgroundColor: '#583870',
+            backgroundColor: '#700CBC',
             data: [0, 10, 5, 2, 20, 30, 45]
         }]
     },
@@ -19,7 +19,7 @@ new Chart(document.getElementById("feature-upvotes"), {
     data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
-            backgroundColor: '#583870',
+            backgroundColor: '#700CBC',
             data: [0, 10, 5, 2, 20, 30, 45]
         }]
     },
@@ -34,7 +34,7 @@ new Chart(document.getElementById("bug-status"), {
     data: {
       labels: ["To Do", "In Progress", "Done", "Cancelled"],
       datasets: [{
-        backgroundColor: ["#2E2FE3", "#583870","#AE0D7A","#5D1D3A"],
+        backgroundColor: ["#2E2FE3", "#700CBC","#AE0D7A","#5D1D3A"],
         borderColor: "#D4D4F7",
         data: [2478,5267,734,784]
       }]
@@ -51,7 +51,7 @@ new Chart(document.getElementById("feature-status"), {
     data: {
       labels: ["To Do", "In Progress", "Done", "Cancelled"],
       datasets: [{
-        backgroundColor: ["#2E2FE3", "#583870","#AE0D7A","#5D1D3A"],
+        backgroundColor: ["#2E2FE3", "#700CBC","#AE0D7A","#5D1D3A"],
         borderColor: "#D4D4F7",
         data: [2478,5267,734,784]
       }]

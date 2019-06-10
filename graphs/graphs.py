@@ -11,7 +11,8 @@ custom_style = Style(
     legend_font_size = 25,
     value_font_size=25, 
     label_font_size=25,
-    major_label_font_size=25)
+    major_label_font_size=25,
+    colors=('#2E2FE3', '#583870', '#AE0D7A', '#5D1D3A', '#347B98'))
 
 
 def bug_pie_chart():
@@ -24,7 +25,7 @@ def bug_pie_chart():
     cancelled = Bug.objects.filter(status='Cancelled').count()
     p_chart = pygal.Pie(
         print_values=True, 
-        style=custom_style
+        style=custom_style,
     )
 
     p_chart.add('To Do', todo)
@@ -101,7 +102,7 @@ def feature_bar_chart():
     bar_chart = pygal.Bar(
         print_values=True,
         print_zeroes=False,
-        style=custom_style
+        style=custom_style,
     )
 
     for feature in features:

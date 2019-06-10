@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.generic import TemplateView
 
-def graphs(request):
-    """A view that displays the graphs page"""
-    return render(request, "graphs.html")
+class GraphView(TemplateView):
+    template_name = "graphs.html"

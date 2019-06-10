@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from .views import graphs
+from .views import GraphView
 
 urlpatterns = [
-    url(r'^$', graphs, name="graphs"),
+    url(r'^$', GraphView.as_view(), name="graphs"),
 ]

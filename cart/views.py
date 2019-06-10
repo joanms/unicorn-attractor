@@ -73,7 +73,7 @@ def subtract_one(request, id):
 
 def delete_item(request, id):
     """
-    Decrement price of an item in the cart. Adapted from code by Marcin Mrugacz: 
+    Delete an item from the cart. Adapted from code by Marcin Mrugacz: 
     https://github.com/Migacz85/django_app/blob/master/cart/views.py
     """
     cart = request.session.get('cart', {})

@@ -1,61 +1,82 @@
 <!--This is based on code from the Authentication and Authorisation unit of the course.-->
 
-{% extends 'base.html' %} 
-
-{% block page_title %}Your Profile{% endblock %} 
-
-{% block content %}
+{% extends 'base.html' %} {% block page_title %}Your Profile{% endblock %} {%
+block content %}
 
 <!--A registered user's profile details-->
 <div class="mx-auto small-container">
-    
-    <h1>Your Profile</h1>
-    <p><strong>Date Joined:</strong> {{ user.date_joined }}</p>
+  <h1>Your Profile</h1>
+  <p><strong>Date Joined:</strong> {{ user.date_joined }}</p>
 
-    <h2>Bug Reports</h2>
-    {% if bug_reports %}
-        <ul>
-        {% for bug in bug_reports %}
-            <li><a href="{% url 'bug_details' bug.id %}">{{ bug }}</a>, {{ bug.date_submitted }}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>You haven't reported any bugs. <a href="{% url 'report_bug' %}">Report one</a>.</p>
-    {% endif %}    
+  <h2>Bug Reports</h2>
+  <!-- If the logged-in user has reported any bugs, they're listed here -->
+  {% if bug_reports %}
+  <ul>
+    {% for bug in bug_reports %}
+    <li>
+      <a href="{% url 'bug_details' bug.id %}">{{ bug }}</a>, {{ bug.date_submitted }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>
+    You haven't reported any bugs.
+    <a href="{% url 'report_bug' %}">Report one</a>.
+  </p>
+  {% endif %}
 
-    <h2>Feature Requests</h2>
-    {% if feature_requests %}
-        <ul>
-        {% for feature in feature_requests %}
-            <li><a href="{% url 'feature_details' feature.id %}">{{ feature }}</a>, {{ feature.date_submitted }}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>You haven't requested any features. <a href="{% url 'request_feature' %}">Request one</a>.</p>
-    {% endif %}    
+  <h2>Feature Requests</h2>
+  <!-- If the logged-in user has requested any features, they're listed here -->
+  {% if feature_requests %}
+  <ul>
+    {% for feature in feature_requests %}
+    <li>
+      <a href="{% url 'feature_details' feature.id %}">{{ feature }}</a>, {{ feature.date_submitted }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>
+    You haven't requested any features.
+    <a href="{% url 'request_feature' %}">Request one</a>.
+  </p>
+  {% endif %}
 
-    <h2>Bug Upvotes</h2>
-    {% if bug_upvotes %}
-        <ul>
-        {% for upvote in bug_upvotes %}
-            <li><a href="{% url 'bug_details' upvote.bug.id %}">{{ upvote.bug }}</a>, {{ upvote.date }}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>You haven't upvoted any bugs. <a href="{% url 'all_bugs' %}">View the list of bugs</a>.</p>
-    {% endif %}    
+  <h2>Bug Upvotes</h2>
+  <!-- If the logged-in user has upvoted any bugs, they're listed here -->
+  {% if bug_upvotes %}
+  <ul>
+    {% for upvote in bug_upvotes %}
+    <li>
+      <a href="{% url 'bug_details' upvote.bug.id %}">{{ upvote.bug }}</a>, {{ upvote.date }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>
+    You haven't upvoted any bugs.
+    <a href="{% url 'all_bugs' %}">View the list of bugs</a>.
+  </p>
+  {% endif %}
 
-    <h2>Feature Upvotes</h2>
-    {% if feature_upvotes %}
-        <ul>
-        {% for item in feature_upvotes %}
-            <li><a href="{% url 'feature_details' item.feature.id %}">{{ item.feature }}</a>: €{{ item.price }}, {{ item.order.date }}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>You haven't upvoted any features. <a href="{% url 'all_features' %}">View the list of features</a>.</p>
-    {% endif %}    
-    
+  <h2>Feature Upvotes</h2>
+  <!-- If the logged-in user has upvoted any features, they're listed here -->
+  {% if feature_upvotes %}
+  <ul>
+    {% for item in feature_upvotes %}
+    <li>
+      <a href="{% url 'feature_details' item.feature.id %}">{{
+        item.feature
+      }}</a>: €{{ item.price }}, {{ item.order.date }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>
+    You haven't upvoted any features.
+    <a href="{% url 'all_features' %}">View the list of features</a>.
+  </p>
+  {% endif %}
 </div>
 
 {% endblock %}

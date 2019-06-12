@@ -12,7 +12,7 @@ custom_style = Style(
     value_font_size=25, 
     label_font_size=25,
     major_label_font_size=25,
-    colors=('#2E2FE3', '#583870', '#AE0D7A', '#5D1D3A', '#347B98'))
+    colors=('#2E2FE3', '#583870', '#AE0D7A', '#347B98', '#B88914'))
 
 
 def bug_pie_chart():

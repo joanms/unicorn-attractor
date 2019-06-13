@@ -48,13 +48,13 @@ def add_one(request, id):
     request.session['cart'] = cart
     
     # CODE FOR JAVASCRIPT ALTERNATIVE
-    # response = {
-    #     'new_price': str(cart[id] + 1),
-    #     'item_updated': 'Item # {}'.format(id)
-    # }
+    response = {
+        'new_price': str(cart[id]),
+        'item_updated': 'Item # {}'.format(id)
+    }
     
-    # return HttpResponse(json.dumps(response))
-    return redirect(reverse('view_cart'))
+    return HttpResponse(json.dumps(response))
+    # return redirect(reverse('view_cart'))
 
 
 def subtract_one(request, id):

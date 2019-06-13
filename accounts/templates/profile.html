@@ -1,7 +1,8 @@
 <!--This is based on code from the Authentication and Authorisation unit of the course.-->
 
-{% extends 'base.html' %} {% block page_title %}Your Profile{% endblock %} {%
-block content %}
+{% extends 'base.html' %}
+{% block page_title %}Your Profile{% endblock %}
+{% block content %}
 
 <!--A registered user's profile details-->
 <div class="mx-auto small-container">
@@ -65,9 +66,8 @@ block content %}
   <ul>
     {% for item in feature_upvotes %}
     <li>
-      <a href="{% url 'feature_details' item.feature.id %}">{{
-        item.feature
-      }}</a>: €{{ item.price }}, {{ item.order.date }}
+      <a href="{% url 'feature_details' item.feature.id %}">{{ item.feature }}</a>: €{{ item.price }},
+      {{ item.order.date }}
     </li>
     {% endfor %}
   </ul>

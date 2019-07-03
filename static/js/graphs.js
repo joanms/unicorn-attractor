@@ -12,22 +12,22 @@ $.ajax({
     var feature_titles = [];
     var feature_upvotes = [];
     var bug_status = [];
-    var bug_quantity = [];
+    var bug_count = [];
     var feature_status = [];
-    var feature_quantity = [];
+    var feature_count = [];
 
     $.each(data.message.bugs, function (i, content) {
       bug_titles.push(content.title);
       bug_upvotes.push(content.votes);
       bug_status.push(content.comments);
-      bug_quantity.push(content.comments);
+      bug_count.push(content.comments);
     });
 
     $.each(data.message.features, function (i, content) {
       feature_titles.push(content.title);
       feature_upvotes.push(content.votes);
       feature_status.push(content.comments);
-      feature_quantity.push(content.comments);
+      feature_count.push(content.comments);
     });
 
     new Chart(document.getElementById("bug-upvotes"), {
@@ -68,7 +68,7 @@ $.ajax({
         datasets: [{
           backgroundColor: ["#2E2FE3", "#700CBC", "#AE0D7A", "#5D1D3A"],
           borderColor: "#D4D4F7",
-          data: bug_quantity
+          data: bug_count
         }]
       },
       options: {
@@ -85,7 +85,7 @@ $.ajax({
         datasets: [{
           backgroundColor: ["#2E2FE3", "#700CBC", "#AE0D7A", "#5D1D3A"],
           borderColor: "#D4D4F7",
-          data: feature_quantity
+          data: feature_count
         }]
       },
       options: {

@@ -4,7 +4,7 @@ $.ajax({
   type: "GET",
   url: "get_chart_data",
   dataType: "json",
-  astnc: true,
+  async: true,
 
   success: function (data) {
     var bug_titles = [];

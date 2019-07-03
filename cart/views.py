@@ -30,8 +30,9 @@ def add_to_cart(request, id):
     duplicating items in the cart
     """
     if feature_id in cart:
-        messages.error(request, "That feature is already in your cart. To change the price, please click or tap the plus or minus symbols next to the feature price.")
-    else:    
+        messages.error(
+            request, "That feature is already in your cart. To change the price, please click or tap the plus or minus symbols next to the feature price.")
+    else:
         cart[id] = cart.get(id, price)
 
     request.session['cart'] = cart
@@ -46,15 +47,13 @@ def add_one(request, id):
     cart = request.session.get('cart', {})
     cart[id] = cart[id] + 1
     request.session['cart'] = cart
-    
-    # CODE FOR JAVASCRIPT ALTERNATIVE
+
     response = {
         'new_price': str(cart[id]),
         'item_updated': 'Item # {}'.format(id)
     }
-    
+
     return HttpResponse(json.dumps(response))
-    # return redirect(reverse('view_cart'))
 
 
 def subtract_one(request, id):
@@ -66,7 +65,8 @@ def subtract_one(request, id):
     if cart[id] > 5:
         cart[id] = cart[id] - 1
     else:
-        messages.error(request, "The minimum price is \u20ac5. To remove the item from the cart, please click Delete.")
+        messages.error(
+            request, "The minimum price is \u20ac5. To remove the item from the cart, please click Delete.")
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))

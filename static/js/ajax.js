@@ -1,9 +1,15 @@
 $(document).ready(function () {
 
     $("#plus-one").click(function () {
-        $.get("/cart/add_one/<id>").done(function (response) {
-            console.log(response);
-            $("#price").text(response.new_price);
-        });
+        $.ajax({
+            url: '/cart/add_one/<id>',
+            data: {
+                'new_price': new_price
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(response);
+                $("#price").html(new_price);
+            });
     });
 });

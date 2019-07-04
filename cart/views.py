@@ -42,8 +42,11 @@ def add_one(request, id):
     Increment price of an item in the cart. Adpated from code by Marcin Mrugacz:
     https://github.com/Migacz85/django_app/blob/master/cart/views.py
     """
+    # Define the cart
     cart = request.session.get('cart', {})
+    # Add one to the price of an item in the cart
     cart[id] = cart[id] + 1
+    # Update the cart
     request.session['cart'] = cart
     data = {
         'new_price': str(cart[id]),

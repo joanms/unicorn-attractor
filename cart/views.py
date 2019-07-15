@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from features.models import Feature
-from django.http import JsonResponse
+from django.http import HttpResponse
+import json
 
 
 @login_required()
@@ -51,7 +52,7 @@ def add_one(request, id):
     data = {
         'new_price': str(cart[id]),
     }
-    return JsonResponse(data)
+    return HttpResponse(json.dumps(data))
 
 
 def subtract_one(request, id):

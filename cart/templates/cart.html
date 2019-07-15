@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load bootstrap_tags %} 
+{% load bootstrap_tags %}
 
 {% block page_title %}Cart{% endblock %}
 
@@ -8,48 +8,50 @@
 
 <div class="mx-auto regular-container">
     <h1>Cart Total: €{{ total }}</h1>
-    
+
     {% if cart_items %}
-    
-        <!--If there are items in the cart, they will appear here-->
-        <div class="flex-container">
-        
-            {% for item in cart_items %}
-                <div class="card" style="width: 18rem;">
-                    
-                    <div class="card-body">
-                        <h2>{{ item.feature.title }}</h2>
-                        <p> {{ item.feature.description|truncatewords:20 }}
-                        <p>
-                            <strong>Price:</strong> €<span id='price'>{{ item.price }}</span>
-                            <!--Code for JavaScript alternative-->
-                            <!--<button type="submit" class="btn btn-secondary btn-sm" id="plus-one"><i class="fas fa-plus"></i></button>-->
-                            <!--<button type="submit" class="btn btn-secondary btn-sm" id="minus-one"><i class="fas fa-minus"></i></button>-->
-                            <a class="price-change btn btn-secondary btn-sm" href="{% url 'add_one' item.id %}"><i class="fas fa-plus"></i></a>
-                            <a class="price-change btn btn-secondary btn-sm" href="{% url 'subtract_one' item.id %}"><i class="fas fa-minus"></i></a>
-                        </p>
-                        <form method="post" action="{% url 'delete_item' item.id %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
-                        </form>
-                    </div>
-                    
-                </div>
+
+    <!--If there are items in the cart, they will appear here-->
+    <div class="flex-container">
+
+        {% for item in cart_items %}
+        <div class="card" style="width: 18rem;">
+
+            <div class="card-body">
+                <h2>{{ item.feature.title }}</h2>
+                <p> {{ item.feature.description|truncatewords:20 }}
+                    <p>
+                        <strong>Price:</strong> €<span id='price'>{{ item.price }}</span>
+                        <!--Code for JavaScript alternative-->
+                        <!--<button type="submit" class="btn btn-secondary btn-sm" id="plus-one"><i class="fas fa-plus"></i></button>-->
+                        <!--<button type="submit" class="btn btn-secondary btn-sm" id="minus-one"><i class="fas fa-minus"></i></button>-->
+                        <a class="price-change btn btn-secondary btn-sm" href="{% url 'add_one' item.id %}"><i
+                                class="fas fa-plus"></i></a>
+                        <a class="price-change btn btn-secondary btn-sm" href="{% url 'subtract_one' item.id %}"><i
+                                class="fas fa-minus"></i></a>
+                    </p>
+                    <form method="post" action="{% url 'delete_item' item.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
+                    </form>
+            </div>
+
+        </div>
 
         {% endfor %}
-        
-        </div>
-        
-        <a class="btn btn-secondary" href="{% url 'checkout' %}">Checkout</a>
-        <a class="btn btn-secondary" href="{% url 'all_features' %}">Add Another Feature</a>
+
+    </div>
+
+    <a class="btn btn-secondary" href="{% url 'checkout' %}">Checkout</a>
+    <a class="btn btn-secondary" href="{% url 'all_features' %}">Add Another Feature</a>
 
     {% else %}
-    
-        <!--If there are no items in the cart, the following text will appear-->
-        <p>Your cart is empty. Look for features to upvote <a href="{% url 'all_features' %}">here</a>.</p>
-        
+
+    <!--If there are no items in the cart, the following text will appear-->
+    <p>Your cart is empty. Look for features to upvote <a href="{% url 'all_features' %}">here</a>.</p>
+
     {% endif %}
-    
+
 </div>
 
 {% endblock %}

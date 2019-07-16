@@ -86,8 +86,11 @@ a:hover {
 
 .card {
     display: inline-block;
+    overflow: auto;
     vertical-align: top;
     width: 16rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     margin: 0.5rem;
 }
 

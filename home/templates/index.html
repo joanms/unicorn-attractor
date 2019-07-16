@@ -1,27 +1,33 @@
 {% extends 'base.html' %}
 
-{% block page_title %}Home Page{% endblock %} 
+{% block page_title %}Home Page{% endblock %}
 
-{% block page_heading %}Home{% endblock %} 
+{% block page_heading %}Home{% endblock %}
 
 {% block content %}
 
-    <div class="mx-auto small-container">
-        
-        <!--Logged in users are greeted by name and thanked for registering-->
-        <h1>Welcome!</h1>
-        
-        <p>We hope that you enjoy playing UnicornAttractor. We're very proud of our game, but we know that there's always room for improvement, and we're here to give you a chance to make it even better.</p>
-        
-        <p>The game is free and always will be, and we also fix bugs for free. We are now offering you the chance to pay for new features.</p>
-        
-        <p>Our issue tracker allows you to report bugs and suggest features, and to upvote bugs and features. Upvoting bugs is free of charge, and we will prioritise the bugs with the most upvotes. However, we ask you to pay a fee of at least €5 per upvote on features. In return, we will spend at least 50% of our time developing the highest-paid features.</p>
-        
-        <p>To offer you transparency, we have included graphs showing our top five bugs and features, and the status of all bugs and features currently in the database.</p>
-            
-        <p>If you have any questions or concerns, please do not hesitate to 
-        <a href = "mailto:support@unicornattractor.com" target="_blank">contact us</a>.</p>
-            
-    </div>
-    
+<div class="mx-auto small-container">
+
+    <!--Logged in users are greeted by name and thanked for registering-->
+    <h1>Welcome!</h1>
+
+    <p>We hope that you enjoy playing UnicornAttractor. We're very proud of our game, but we know that there's always
+        room for improvement, and we're here to give you a chance to make it even better.</p>
+
+    <p>The game is free and always will be, and we also fix bugs for free. We are now offering you the chance to pay for
+        new features.</p>
+
+    <p>Our issue tracker allows you to report bugs and suggest features, and to upvote bugs and features. Upvoting bugs
+        is free of charge, and we will prioritise the bugs with the most upvotes. However, we ask you to pay a fee of at
+        least €5 per upvote on features. In return, we will spend at least 50% of our time developing the highest-paid
+        features.</p>
+
+    <p>To offer you transparency, we have included <a href="{% url 'graphs' %}">graphs</a> showing our top five bugs and
+        features, and the status of all bugs and features currently in the database.</p>
+
+    <p>If you have any questions or concerns, please do not hesitate to
+        <a href="mailto:support@unicornattractor.com" target="_blank">contact us</a>.</p>
+
+</div>
+
 {% endblock %}

@@ -1,53 +1,55 @@
 {% extends "base.html" %}
 
-{% load bootstrap_tags %} 
+{% load bootstrap_tags %}
 
 {% block page_title %}Requested Features{% endblock %}
 
 {% block content %}
 
 <div class="mx-auto regular-container">
-    
+
     <h1>Requested Features</h1>
-    
+
     <!--If there are feature reports in the database, they will be listed in a table here-->
     {% if features %}
-    
-        <div class="flex-container">
-        
-            {% for feature in features %}
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ feature.title }}</h2>
-                        <strong>Submitted by:</strong> {{ feature.submitter }}<br>
-                        <strong>Date:</strong> {{ feature.date_submitted }}<br>
-                        <strong>Upvotes:</strong> {{ feature.upvotes }}<br>
-                        <strong>Amount Paid:</strong> €{{ feature.amount_paid }}<br>
-                        {% if feature.status == "To do" %}
-                            <span class="badge badge-primary">TO DO</span><br>
-                        {% elif feature.status == "In progress" %}
-                            <span class="badge badge-info">IN PROGRESS</span><br>
-                        {% elif feature.status == "Cancelled" %}
-                            <span class="badge badge-dark">CANCELLED</span><br>    
-                        {% else %}
-                            <span class="badge badge-success">DONE</span><br>
-                        {% endif %}
-                        <a class="btn btn-secondary btn-sm" href="{% url 'feature_details' feature.id %}">View Details</a>
-                      </div>
-                </div>
-    
-            {% endfor %}
-        
+
+    <div class="flex-container">
+
+        {% for feature in features %}
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">{{ feature.title }}</h2>
+                <strong>Submitted by:</strong> {{ feature.submitter }}<br>
+                <strong>Date:</strong> {{ feature.date_submitted }}<br>
+                <strong>Upvotes:</strong> {{ feature.upvotes }}<br>
+                <strong>Amount Paid:</strong> €{{ feature.amount_paid }}<br>
+                {% if feature.status == "To do" %}
+                <span class="badge badge-primary">TO DO</span><br>
+                {% elif feature.status == "In progress" %}
+                <span class="badge badge-info">IN PROGRESS</span><br>
+                {% elif feature.status == "Cancelled" %}
+                <span class="badge badge-dark">CANCELLED</span><br>
+                {% else %}
+                <span class="badge badge-success">DONE</span><br>
+                {% endif %}
+                <a class="btn btn-secondary btn-sm" href="{% url 'feature_details' feature.id %}" data-toggle="tooltip"
+                    title="Click here to view the description and comments, and to upvote and comment on the feature">View
+                    Details</a>
+            </div>
         </div>
 
+        {% endfor %}
+
+    </div>
+
     {% else %}
-        <!--If there are no feature reports in the database, the following text will appear-->
-        <p>There are currently no features in the database.</p>
-        
+    <!--If there are no feature reports in the database, the following text will appear-->
+    <p>There are currently no features in the database.</p>
+
     {% endif %}
-    
+
     <div><a class="btn btn-secondary" href="{% url 'request_feature' %}">Request a Feature</a></div>
-    
+
 </div>
 
 {% endblock %}

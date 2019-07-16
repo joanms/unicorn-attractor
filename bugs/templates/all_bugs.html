@@ -1,53 +1,55 @@
 {% extends "base.html" %}
 
-{% load bootstrap_tags %} 
+{% load bootstrap_tags %}
 
 {% block page_title %}Reported Bugs{% endblock %}
 
 {% block content %}
 
 <div class="mx-auto regular-container">
-    
+
     <h1>Reported Bugs</h1>
-    
+
     <!--If there are bug reports in the database, they will appear here-->
     {% if bugs %}
-    
-        <div class="flex-container">
-        
-            {% for bug in bugs %}
-            
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ bug.title }}</h2>
-                        <strong>Submitted by:</strong> {{ bug.submitter }}<br>
-                        <strong>Date:</strong> {{ bug.date_submitted }}<br>
-                        <strong>Upvotes:</strong> {{ bug.upvotes }}<br>
-                        {% if bug.status == "To do" %}
-                            <span class="badge badge-primary">TO DO</span><br>
-                        {% elif bug.status == "In progress" %}
-                            <span class="badge badge-info">IN PROGRESS</span><br>
-                        {% elif bug.status == "Cancelled" %}
-                            <span class="badge badge-dark">CANCELLED</span><br>
-                        {% else %}
-                            <span class="badge badge-success">DONE</span><br>
-                        {% endif %}    
-                        <a class="btn btn-secondary btn-sm" href="{% url 'bug_details' bug.id %}">View Details</a>
-                      </div>
-                </div>
-            
-            {% endfor %}
-    
-        </div>    
-    
+
+    <div class="flex-container">
+
+        {% for bug in bugs %}
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">{{ bug.title }}</h2>
+                <strong>Submitted by:</strong> {{ bug.submitter }}<br>
+                <strong>Date:</strong> {{ bug.date_submitted }}<br>
+                <strong>Upvotes:</strong> {{ bug.upvotes }}<br>
+                {% if bug.status == "To do" %}
+                <span class="badge badge-primary">TO DO</span><br>
+                {% elif bug.status == "In progress" %}
+                <span class="badge badge-info">IN PROGRESS</span><br>
+                {% elif bug.status == "Cancelled" %}
+                <span class="badge badge-dark">CANCELLED</span><br>
+                {% else %}
+                <span class="badge badge-success">DONE</span><br>
+                {% endif %}
+                <a class="btn btn-secondary btn-sm" href="{% url 'bug_details' bug.id %}" data-toggle="tooltip"
+                    title="Click here to view the description and comments, and to upvote and comment on the bug">View
+                    Details</a>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
     {% else %}
-        <!--If there are no bug reports in the database, the following text will appear-->
-        <p>There are currently no bugs in the database.</p>
-        
+    <!--If there are no bug reports in the database, the following text will appear-->
+    <p>There are currently no bugs in the database.</p>
+
     {% endif %}
-    
+
     <div><a class="btn btn-secondary" href="{% url 'report_bug' %}">Report a Bug</a></div>
-    
+
 </div>
 
 {% endblock %}

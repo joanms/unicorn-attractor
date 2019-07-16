@@ -22,9 +22,6 @@
                 <p> {{ item.feature.description|truncatewords:20 }}
                     <p>
                         <strong>Price:</strong> €<span id='price'>{{ item.price }}</span>
-                        <!--Code for JavaScript alternative-->
-                        <!--<button type="submit" class="btn btn-secondary btn-sm" id="plus-one"><i class="fas fa-plus"></i></button>-->
-                        <!--<button type="submit" class="btn btn-secondary btn-sm" id="minus-one"><i class="fas fa-minus"></i></button>-->
                         <a class="price-change btn btn-secondary btn-sm" href="{% url 'add_one' item.id %}"><i
                                 class="fas fa-plus"></i></a>
                         <a class="price-change btn btn-secondary btn-sm" href="{% url 'subtract_one' item.id %}"><i

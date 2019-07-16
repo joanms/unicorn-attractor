@@ -49,10 +49,7 @@ def add_one(request, id):
     cart[id] = cart[id] + 1
     # Update the cart
     request.session['cart'] = cart
-    data = {
-        'new_price': str(cart[id]),
-    }
-    return HttpResponse(json.dumps(data))
+    return redirect(reverse('view_cart'))
 
 
 def subtract_one(request, id):
@@ -60,13 +57,15 @@ def subtract_one(request, id):
     Decrement price of an item in the cart. Adapted from code by Marcin Mrugacz: 
     https://github.com/Migacz85/django_app/blob/master/cart/views.py
     """
+    # Define the cart
     cart = request.session.get('cart', {})
+    # Subtract one from the price of an item in the cart if it isn't already the minimum price
     if cart[id] > 5:
         cart[id] = cart[id] - 1
     else:
         messages.error(
             request, "The minimum price is \u20ac5. To remove the item from the cart, please click Delete.")
-
+    # Update the cart
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 

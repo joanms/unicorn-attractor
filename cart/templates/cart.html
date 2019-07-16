@@ -22,10 +22,10 @@
                 <p> {{ item.feature.description|truncatewords:20 }}
                     <p>
                         <strong>Price:</strong> €<span id='price'>{{ item.price }}</span>
-                        <a class="price-change btn btn-secondary btn-sm" href="{% url 'add_one' item.id %}"><i
-                                class="fas fa-plus"></i></a>
-                        <a class="price-change btn btn-secondary btn-sm" href="{% url 'subtract_one' item.id %}"><i
-                                class="fas fa-minus"></i></a>
+                        <a class="price-change btn btn-secondary btn-sm" href="{% url 'add_one' item.id %}"
+                            data-toggle="tooltip" title="Increase the price"><i class="fas fa-plus"></i></a>
+                        <a class="price-change btn btn-secondary btn-sm" href="{% url 'subtract_one' item.id %}"
+                            data-toggle="tooltip" title="Decrease the price"><i class="fas fa-minus"></i></a>
                     </p>
                     <form method="post" action="{% url 'delete_item' item.id %}">
                         {% csrf_token %}

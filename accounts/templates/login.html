@@ -1,22 +1,22 @@
 <!--This code was copied from the Authentication and Authorisation unit of the course.-->
 
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% load bootstrap_tags %} 
+{% load bootstrap_tags %}
 
-{% block page_title %}Login Page{% endblock %} 
+{% block page_title %}Login Page{% endblock %}
 
 {% block content %}
 
 <!--Form for a user who is already registered to log in-->
 <div class="mx-auto small-container">
     <h1>Please Log In</h1>
-    <p>You need to be logged in to submit, comment on and upvote tickets. If you don't 
-    already have an account, you can register <a href="{% url 'registration' %}">here</a>.</p>
+    <p>You need to be logged in to submit, comment on and upvote tickets. If you don't
+        already have an account, you can register <a href="{% url 'registration' %}">here</a>.</p>
     <form method="POST">
         {% csrf_token %} {{ login_form | as_bootstrap}}
-        <input type="hidden" name="next" value="{{next}}"/>
-        <button type="submit" class="btn btn-secondary">Log In</button>
+        <input type="hidden" name="next" value="{{next}}" />
+        <button type="submit" class="btn btn-secondary"><i class="fas fa-sign-in-alt"></i> Log In</button>
     </form>
     <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
 </div>

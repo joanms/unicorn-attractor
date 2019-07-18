@@ -33,7 +33,8 @@
                 <span class="badge badge-success">DONE</span><br>
                 {% endif %}
                 <a class="btn btn-secondary btn-sm" href="{% url 'bug_details' bug.id %}" data-toggle="tooltip"
-                    title="Click here to view the description and comments, and to upvote and comment on the bug">View
+                    title="Click here to view the description and comments, and to upvote and comment on the bug"><i
+                        class="fas fa-info"></i> View
                     Details</a>
             </div>
         </div>
@@ -48,7 +49,7 @@
 
     {% endif %}
 
-    <div><a class="btn btn-secondary" href="{% url 'report_bug' %}">Report a Bug</a></div>
+    <div><a class="btn btn-secondary" href="{% url 'report_bug' %}"><i class="fas fa-bug"></i> Report a Bug</a></div>
 
 </div>
 

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load bootstrap_tags %} 
+{% load bootstrap_tags %}
 
 {% block page_title %}Report a Bug{% endblock %}
 
@@ -8,10 +8,10 @@
 
 <!--A form for a user to report a bug-->
 <div class="mx-auto small-container">
-   <h1>Report a Bug</h1>
-   <form method="POST">
+    <h1>Report a Bug</h1>
+    <form method="POST">
         {% csrf_token %} {{ bug_form | as_bootstrap}}
-        <button type="submit" class="btn btn-secondary">Submit Report</button>
+        <button type="submit" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Submit Report</button>
     </form>
 </div>
 

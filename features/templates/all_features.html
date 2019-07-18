@@ -33,7 +33,8 @@
                 <span class="badge badge-success">DONE</span><br>
                 {% endif %}
                 <a class="btn btn-secondary btn-sm" href="{% url 'feature_details' feature.id %}" data-toggle="tooltip"
-                    title="Click here to view the description and comments, and to upvote and comment on the feature">View
+                    title="Click here to view the description and comments, and to upvote and comment on the feature"><i
+                        class="fas fa-info"></i> View
                     Details</a>
             </div>
         </div>
@@ -48,7 +49,8 @@
 
     {% endif %}
 
-    <div><a class="btn btn-secondary" href="{% url 'request_feature' %}">Request a Feature</a></div>
+    <div><a class="btn btn-secondary" href="{% url 'request_feature' %}"><i class="fas fa-lightbulb"></i> Request a
+            Feature</a></div>
 
 </div>
 

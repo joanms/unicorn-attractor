@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load bootstrap_tags %} 
+{% load bootstrap_tags %}
 
 {% block page_title %}Request a Feature{% endblock %}
 
@@ -8,10 +8,10 @@
 
 <!--A form for a user to report a feature-->
 <div class="mx-auto small-container">
-   <h1>Request a Feature</h1>
-   <form method="POST">
+    <h1>Request a Feature</h1>
+    <form method="POST">
         {% csrf_token %} {{ feature_form | as_bootstrap}}
-        <button type="submit" class="btn btn-secondary">Request Feature</button>
+        <button type="submit" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Request Feature</button>
     </form>
 </div>
 

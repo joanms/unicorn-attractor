@@ -31,36 +31,42 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i> Home<span
+                            class="sr-only">(current)</span></a>
                 </li>
 
                 <!--If a user is registered and logged in, they can view their profile or log out-->
                 {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logged in as
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>
+                        Logged in as
                         {{ request.user }}</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'profile' %}">View Profile</a>
-                        <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+                        <a class="dropdown-item" href="{% url 'profile' %}">View
+                            Profile</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Log
+                            Out</a>
                     </div>
                 </li>
 
                 <!--If a user is not logged in, they can log in if already registered, or register if not-->
                 {%  else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'registration' %}">Register<span
+                    <a class="nav-link" href="{% url 'registration' %}"><i class="fas fa-user-plus"></i> Register<span
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Log In<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log In<span
+                            class="sr-only">(current)</span></a>
                 </li>
                 {% endif %}
 
                 <!--Dropdown menu with links to a form for reporting bugs and a list of reported bugs-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bugs</a>
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bug"></i>
+                        Bugs</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'report_bug' %}">Report a Bug</a>
                         <a class="dropdown-item" href="{% url 'all_bugs' %}">View All Reported Bugs</a>
@@ -70,7 +76,8 @@
                 <!--Dropdown menu with links to a form for requesting features and a list of requested features-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Features</a>
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                            class="fas fa-lightbulb"></i> Features</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'request_feature' %}">Request a Feature</a>
                         <a class="dropdown-item" href="{% url 'all_features' %}">View All Requested Features</a>
@@ -78,20 +85,21 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'view_cart' %}">Cart <label
+                    <a class="nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i> Cart <label
                             class="badge badge-light">€{{ total }}</label>
                         <span class="sr-only">(current)</span></a>
                 </li>
 
                 <!--Link to graphs of site statistics-->
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'graphs' %}">Statistics <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'graphs' %}"><i class="fas fa-chart-pie"></i> Statistics <span
+                            class="sr-only">(current)</span></a>
                 </li>
 
                 <!--Link to a form for users to contact the site's admin-->
                 <li class="nav-item">
-                    <a class="nav-link" href="mailto:support@unicornattractor.com" target="_blank">Contact Us <span
-                            class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="mailto:support@unicornattractor.com" target="_blank"><i
+                            class="fas fa-envelope"></i> Contact Us <span class="sr-only">(current)</span></a>
                 </li>
 
             </ul>

@@ -33,8 +33,7 @@
                 <span class="badge badge-success">DONE</span><br>
                 {% endif %}
                 <a class="btn btn-secondary btn-sm" href="{% url 'feature_details' feature.id %}" data-toggle="tooltip"
-                    title="Click here to view the description and comments, and to upvote and comment on the feature"><i
-                        class="fas fa-info"></i> View
+                    title="{{ feature.description }}"><i class="fas fa-info"></i> View
                     Details</a>
             </div>
         </div>

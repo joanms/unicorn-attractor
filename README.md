@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/joanms/unicorn-attractor.svg?branch=master)](https://travis-ci.org/joanms/unicorn-attractor)
+
 # UnicornAttractor
 
 This is the Full-Stack Frameworks milestone project for Code Institute's full-stack web development course. It is an issue tracker for a fantasy game called UnicornAttractor. Users can report bugs they have experienced and request features they want added to the game. They can also upvote bugs and features. Upvoting bugs is free, but users can't upvote a bug they submitted, or upvote the same bug more than once. The only limit on upvoting features is the user's budget. Users can upvote any features they like as often as they like, but they need to pay a fee of €5 per upvote. The site developers will prioritise fixing the bugs with the most upvotes and spend at least 50% of their time implementing the highest-paying features.
@@ -72,11 +74,6 @@ The buttons are prominently displayed and clearly labelled to make it easy for u
 
 
 ## Testing
-
-### Travis Continuous Integration
-[![Build Status](https://travis-ci.org/joanms/unicorn-attractor.svg?branch=master)](https://travis-ci.org/joanms/unicorn-attractor)
-
-The Travis build fails unless I comment out 'import env' in settings.py.
 
 ### Code Validation
 I validated the HTML with the [W3C Markup Validation Service](https://validator.w3.org/) and the CSS with the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). The HTML marked the Django template language code and some code necessary to run Stripe as incorrect. I visually checked the code in question.

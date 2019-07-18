@@ -2,7 +2,9 @@
 
 # UnicornAttractor
 
-This is the Full-Stack Frameworks milestone project for Code Institute's full-stack web development course. It is an issue tracker for a fantasy game called UnicornAttractor. Users can report bugs they have experienced and request features they want added to the game. They can also upvote bugs and features. Upvoting bugs is free, but users can't upvote a bug they submitted, or upvote the same bug more than once. The only limit on upvoting features is the user's budget. Users can upvote any features they like as often as they like, but they need to pay a fee of €5 per upvote. The site developers will prioritise fixing the bugs with the most upvotes and spend at least 50% of their time implementing the highest-paying features.
+This is the Full-Stack Frameworks milestone project for Code Institute's full-stack web development course. It is an issue tracker for a fantasy game called UnicornAttractor. Users can report bugs they have experienced and request features they want added to the game. They can also upvote bugs and features. 
+
+Upvoting bugs is free, but users can't upvote a bug they submitted, or upvote the same bug more than once. The only limit on upvoting features is the user's budget. Users can upvote any features they like as often as they like, but they need to pay a fee of at least €5 per upvote. The site developers will prioritise fixing the bugs with the most upvotes and spend at least 50% of their time implementing the highest-paying features.
 
 
 ## UX
@@ -24,9 +26,9 @@ This is the Full-Stack Frameworks milestone project for Code Institute's full-st
 
 - **I want the process of upvoting features to be clear and intuitive.** On each page giving the details of a single feature, there is a box where users can enter their chosen price and an upvote button beside it. The box will not accept any value below the minimum price of €5, and if the user attempts to enter a value below €5, they see a message reminding them of this.
 
-     When the user enters a valid price for upvoting a feature and clicks the upvote button, the upvote is added to their cart, and they are taken to a page showing the cart contents. They can adjust the cart contents by clicking the plus or minus buttons to change the price, the delete button to remove an item or the button inviting them to view other features to upvote. 
+     When the user enters a valid price for upvoting a feature and clicks the upvote button, the upvote is added to their cart, and they are taken to a page showing the cart contents. They click the plus or minus buttons to change the price, the delete button to remove an item or the button inviting them to view other features to upvote. 
 
-- **I want the payment process to be clear and efficient.**If the user doesn't want to alter the cart contents, or if they have finished doing so, they can click the checkout button, which takes them straight to the payment page. When they enter their details and click the Submit Payment button, they see a message telling them whether or not the payment was succesful.
+- **I want the payment process to be clear and efficient.** If the user doesn't want to alter the cart contents, or if they have finished doing so, they can click the checkout button, which takes them straight to the payment page. When they enter their details and click the Submit Payment button, they see a message telling them whether or not the payment was succesful.
 
 ### Design
 Please [click here](static/plans/wireframes.pdf) to view the wireframes.
@@ -53,8 +55,6 @@ The buttons are prominently displayed and clearly labelled to make it easy for u
 - **Comments Panels** on the bug and feature detail pages where users can read comments about the feature from other users and make their own.
 - **Cart** where users can see which upvotes they have added to their order. They can also adjust the price of their order, add items by clicking the button linking them to the page listing all features, and delete them by clicking the delete button for the feature they want to delete.
 - **Checkout** for users to pay for their upvotes.
-
-### Features Left to Implement
 - **Graphs** showing how many bugs or features are tended to on a daily, weekly and monthly basis, as well as the highest-voted bugs and features.
 
 
@@ -225,12 +225,12 @@ Much of the code for the accounts, cart and checkout apps was copied from course
 ### Media
 
 The images were downloaded from [PixaBay](https://pixabay.com/). 
-The logo is by [Clker-Free-Vector-Images](https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=310175). 
+The favicon is by [Clker-Free-Vector-Images](https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=310175). 
 The background image is by [Anna Soppe](https://pixabay.com/users/beautifulugly-3087213/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2262633).
 
 
 ### Acknowledgements
 
-Michael Park, Haley Schafer and Chris Zielinski provided valuable help and advice on the project.
+Ali Ashik, Niel McEwen, Michael Park, Haley Schafer and Chris Zielinski provided valuable help and advice on the project.
 
 [Marcin Mrugacz's project](https://github.com/Migacz85/django_app) gave me ideas about how to approach my own.

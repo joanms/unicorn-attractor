@@ -20,7 +20,7 @@
 }
 
 .nav-link {
-    color: #ffffff !important;
+    color: #ffffff !important; /*!important is used to override the Bootstrap CSS for the nav link text colour*/
 }
 
 

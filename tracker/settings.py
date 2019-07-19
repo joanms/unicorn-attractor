@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [os.environ.get(
-    'C9_HOSTNAME'), '4e7a94ff730e43fdb8292a498c493095.vfs.cloud9.us-east-1.amazonaws.com', '127.0.0.1']
+    'C9_HOSTNAME'), '4e7a94ff730e43fdb8292a498c493095.vfs.cloud9.us-east-1.amazonaws.com', '127.0.0.1', 'joans-unicorn-attractor.herokuapp.com']
 
 
 # Application definition

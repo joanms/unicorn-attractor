@@ -193,12 +193,16 @@ I carried out manual testing as follows:
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+I deployed the app as follows:
+1. Create a new app on Heroku and name it joans-unicorn-attractor.
+2. Enter the environment variables in the Heroku config vars
+3. Ensure that the project includes a Procfile and requirements.txt.
+4. Push the app to GitHub
+5. Go to the Deploy tab for the app on Heroku and select GitHub as the deployment method.
+6. Ensure that the master branch is selected and click Deploy Branch
+7. Open the app on Heroku and check to ensure that it's working correctly.
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+There is a branch on GitHub named chartjs which uses Chart.js for the graphs. This branch is incomplete, and I may work on it further at a later date. However, as stated above, the master branch, which uses Pygal for the charts, is the one that was deployed and is being submitted for assessment.
 
 ### Running the Code Locally
 Steps 1-6 were copied from [here](https://help.github.com/en/articles/cloning-a-repository)

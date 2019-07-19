@@ -60,7 +60,7 @@ a {
     color: #2E2FE3;
 }
 
-a:hover {
+:hover {
     color: #AE0D7A;
 }
 
@@ -104,10 +104,6 @@ a:hover {
     background-color: #583870;
     margin-right: 10px;
     margin-top: 10px;
-}
-
-.btn-secondary:hover {
-    background-color: #AE0D7A;
 }
 
 .price-change {

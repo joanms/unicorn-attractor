@@ -9,7 +9,7 @@
 <!--A form for a user to report a bug-->
 <div class="mx-auto small-container">
     <h1>Report a Bug</h1>
-    <form method="POST">
+    <form method="POST" novalidate>
         {% csrf_token %} {{ bug_form | as_bootstrap}}
         <button type="submit" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Submit Report</button>
     </form>

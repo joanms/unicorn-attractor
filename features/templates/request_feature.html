@@ -9,7 +9,7 @@
 <!--A form for a user to report a feature-->
 <div class="mx-auto small-container">
     <h1>Request a Feature</h1>
-    <form method="POST">
+    <form method="POST" novalidate>
         {% csrf_token %} {{ feature_form | as_bootstrap}}
         <button type="submit" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Request Feature</button>
     </form>

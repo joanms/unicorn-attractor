@@ -19,10 +19,6 @@
     font-size: 2rem;
 }
 
-.nav-link {
-    color: #ffffff !important; /*!important is used to override the Bootstrap CSS for the nav link text colour*/
-}
-
 
 /*Headings*/
 

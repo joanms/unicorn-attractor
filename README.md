@@ -31,7 +31,7 @@ Upvoting bugs is free, but users can't upvote a bug they submitted, or upvote th
 - **I want the payment process to be clear and efficient.** If the user doesn't want to alter the cart contents, or if they have finished doing so, they can click the checkout button, which takes them straight to the payment page. When they enter their details and click the Submit Payment button, they see a message telling them whether or not the payment was succesful.
 
 ### Design
-Please [click here](static/plans/wireframes.pdf) to view the wireframes.
+Please [click here](static/plans/unicorn_attractor_wireframes.pdf) to view the wireframes.
 
 The site is for a fantasy game, and the colour scheme, fonts and background image were chosen with this in mind. Because the site is supposed to serve a practical purpose, I made it as straightforward and streamlined as possible to avoid confusing or frustrating users, but still visually interesting so that it would be pleasant to use.
 

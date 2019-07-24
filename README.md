@@ -60,17 +60,24 @@ The buttons are prominently displayed and clearly labelled to make it easy for u
 
 ## Technologies Used
 
-- **[Balsamiq](https://balsamiq.com/)** was used to create the wireframes.
+### Languages
 - **[HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)** was used to set up the templates for the site.
 - **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)** was used to style the site content.
-- **[Bootstrap](https://getbootstrap.com/)** was used to facilitate the design and responsiveness of the site.
+- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** was used for the tooltips and Stripe payment functionality.
 - **[Python](https://www.python.org/)** was used to write the site's logic.
+- **[SQL](http://www.sqlcourse.com/intro.html)** was used for the database.
+
+### Frameworks/Libraries
+- **[Bootstrap](https://getbootstrap.com/)** was used to facilitate the design and responsiveness of the site.
 - **[Django](https://www.djangoproject.com/)** was used as a framework to facilitate the development of the site.
-- **[SendGrid](https://sendgrid.com/)** is used to send emails from the site.
-- **[Travis](https://travis-ci.org/)** was used to test the code.
-- **[Stripe](https://stripe.com/ie)** is used to process payments.
-- **[Pygal](http://pygal.org/en/stable/)** was used to create the graphs.
+
+### Tools
+- **[Balsamiq](https://balsamiq.com/)** was used to create the wireframes.
 - **[Heroku](https://www.heroku.com/)** was used to deploy the project.
+- **[Pygal](http://pygal.org/en/stable/)** was used to create the graphs.
+- **[SendGrid](https://sendgrid.com/)** is used to send emails from the site.
+- **[Stripe](https://stripe.com/ie)** is used to process payments.
+- **[Travis](https://travis-ci.org/)** was used to test the code.
 
 
 ## Testing
@@ -79,9 +86,7 @@ The buttons are prominently displayed and clearly labelled to make it easy for u
 I validated the HTML with the [W3C Markup Validation Service](https://validator.w3.org/) and the CSS with the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). The HTML marked the Django template language code and some code necessary to run Stripe as incorrect. I visually checked the code in question.
 
 ### Automated Testing
-Automated testing is carried out with Django's own testing framwork. To run the tests, run the following command in the CLI:
-
-python3 manage.py test
+Automated testing is carried out with Django's own testing framwork. To run the tests, run the following command in the CLI: ``python3 manage.py test``
 
 ### Manual testing
 I carried out manual testing as follows:
@@ -214,9 +219,9 @@ Steps 1-6 were copied from [here](https://help.github.com/en/articles/cloning-a-
 6. Press Enter. Your local clone will be created.
 7. Create a virtual environment in which to run the code.
 8. Install Django in the virtual environment by entering the following in the CLI: pip install django==1.11.
-9. Install the packages in requirements.txt by typing pip install -r requirements.txt in the CLI.
+9. Install the packages in requirements.txt by typing ``pip install -r requirements.txt`` in the CLI.
 10. Set an environment variable for the SECRET_KEY.
-11. Run the following command in the CLI: python manage.py runserver.
+11. Run the following command in the CLI: ``python manage.py runserver``.
 
 
 ## Credits

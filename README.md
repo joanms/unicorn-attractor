@@ -6,6 +6,8 @@ This is the Full-Stack Frameworks milestone project for Code Institute's full-st
 
 Upvoting bugs is free, but users can't upvote a bug they submitted, or upvote the same bug more than once. The only limit on upvoting features is the user's budget. Users can upvote any features they like as often as they like, but they need to pay a fee of at least €5 per upvote. The site developers will prioritise fixing the bugs with the most upvotes and spend at least 50% of their time implementing the highest-paying features.
 
+The status of bugs and features is set to either To Do, In Progress, Done or cancelled by the site's admin via the Django admin interface.
+
 
 ## UX
  
@@ -42,7 +44,6 @@ The buttons are prominently displayed and clearly labelled to make it easy for u
 
 ## Features
 
-### Existing Features
 - **Home Page** welcoming users to the site and explaining its purpose.
 - **Registration and Login Pages** allowing users to register and log into their accounts.
 - **Profile Page** where logged in users can view their account details.
@@ -103,7 +104,7 @@ I carried out manual testing as follows:
 #### Accounts
 
 ##### Registration
-1. Navigate to registration page.
+1. Navigate to the registration page.
 2. Enter the email address of an already registered user and a new username.
 3. Ensure that an error message appears, saying that email addresses must be unique.
 4. Enter a unique email address and the username of an already registered user.
@@ -219,9 +220,10 @@ Steps 1-6 were copied from [here](https://help.github.com/en/articles/cloning-a-
 6. Press Enter. Your local clone will be created.
 7. Create a virtual environment in which to run the code.
 8. Install Django in the virtual environment by entering the following in the CLI: pip install django==1.11.
-9. Install the packages in requirements.txt by typing ``pip install -r requirements.txt`` in the CLI.
+9. Install the packages in requirements.txt by running the following command in the CLI: ``pip install -r requirements.txt``
 10. Set an environment variable for the SECRET_KEY.
-11. Run the following command in the CLI: ``python manage.py runserver``.
+11. Run the following command in the CLI: 
+``python manage.py runserver``.
 
 
 ## Credits
@@ -240,6 +242,6 @@ The background image is by [Anna Soppe](https://pixabay.com/users/beautifulugly-
 
 ### Acknowledgements
 
-Ali Ashik, Niel McEwen, Michael Park, Haley Schafer and Chris Zielinski provided valuable help and advice on the project.
+Ali Ashik, Niel McEwen, Marie Obradovic, John O'Sullivan, Michael Park, Haley Schafer and Chris Zielinski provided valuable help and advice on the project.
 
 [Marcin Mrugacz's project](https://github.com/Migacz85/django_app) gave me ideas about how to approach my own.

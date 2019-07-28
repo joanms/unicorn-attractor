@@ -93,7 +93,7 @@ Automated testing is carried out with Django's own testing framwork. To run the 
 I carried out manual testing as follows:
 
 #### Cross-Browser and Device Compatibility
-1. Test the app on Chrome, Edge, Firefox and Opera browsers to ensure that it works on all of them.
+1. Test the app on Chrome, Edge, Firefox, Opera and Safari browsers to ensure that it works on all of them.
 2. Test the app on a desktop, laptop, tablet and smartphone to ensure that it works on all devices.
 
 #### Responsiveness

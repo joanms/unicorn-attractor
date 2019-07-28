@@ -29,7 +29,8 @@
                     </p>
                     <form method="post" action="{% url 'delete_item' item.id %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-secondary btn-sm"><i class="fas fa-trash-alt"></i>
+                        <button type="submit" class="btn btn-secondary btn-sm" data-toggle="tooltip"
+                            title="Delete the item from the cart"><i class="fas fa-trash-alt"></i>
                             Delete</button>
                     </form>
             </div>

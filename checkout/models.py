@@ -4,22 +4,24 @@ from django.db import models
 from accounts.models import User
 from features.models import Feature
 
+
 class Order(models.Model):
     """I added upvoter to this model"""
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
-    country = models.CharField(max_length=40, blank=False)
-    postcode = models.CharField(max_length=20, blank=True)
-    town_or_city = models.CharField(max_length=40, blank=False)
     street_address1 = models.CharField(max_length=40, blank=False)
     street_address2 = models.CharField(max_length=40, blank=True)
-    county = models.CharField(max_length=40, blank=False)
+    town_or_city = models.CharField(max_length=40, blank=False)
+    county = models.CharField(max_length=40, blank=True)
+    postcode = models.CharField(max_length=20, blank=True)
+    country = models.CharField(max_length=40, blank=False)
     date = models.DateField()
     upvoter = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return "{0} on {1}".format(
             self.upvoter, self.date)
+
 
 class OrderLineItem(models.Model):
     """

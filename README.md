@@ -20,7 +20,7 @@ The status of bugs and features is set to either To Do, In Progress, Done or can
 
 - **I want to be able to communicate with other users.** Each page giving details of a bug or feature has a comments panel where users can read comments about it from other users, and add their own comments.
 
-- **I want to be able to communicate with the site's admin.** There is a link in the navbar and in the welcome text on the home page enabling users to email the site's admin. Please note that since this is a site for a fictional game, the email address is fake.
+- **I want to be able to communicate with the site's admin.** There is a link in the navbar and in the welcome text on the home page enabling users to email the site's admin. Please note that since this is a site for a fictional game, the email address is fake. I consider email preferable to a contact form because the user will automatically have a copy of their communication in their email sent items and any chain of communication between the user and the site admin can be maintained.
 
 - **I want the process of submitting tickets to be clear and intuitive.** There are links in the navbar to forms where users can report bugs and request features. These links also appear as buttons on the pages listing all reported bugs and all requested features.
 
@@ -37,7 +37,7 @@ Please [click here](static/plans/unicorn_attractor_wireframes.pdf) to view the w
 
 The site is for a fantasy game, and the colour scheme, fonts and background image were chosen with this in mind. Because the site is supposed to serve a practical purpose, I made it as straightforward and streamlined as possible to avoid confusing or frustrating users, but still visually interesting so that it would be pleasant to use.
 
-The pages displaying all reported bugs, all requested features and the cart comprise cards with summaries of the bugs or features. I considered using tables for these pages, but tables do not work very well on small screens. The content can look squashed, or have horizontal scrollbars because the columns don't all fit on the screen. Cards in a flexbox container are much more suitable for a responsive website. They can be displayed in a single column on the smallest screens, with the number of columns increasing with the width of the screen.
+The pages displaying all reported bugs, all requested features and the cart comprise cards with summaries of the bugs or features. I considered using tables for these pages, but tables do not work very well on small screens. The content can look squashed, or have horizontal scrollbars because the columns don't all fit on the screen. Cards in a flexbox container are much more suitable for a responsive website. They can be displayed in a single column on the smallest screens, with the number of columns increasing with the width of the screen. The height of the cards is set to adjust to their contents. This results in unequal heights, but I decided that this was preferable to blank spaces at the bottom of cards with less content than others.
 
 The buttons are prominently displayed and clearly labelled to make it easy for users to see what they have to click to progress through the site.
 

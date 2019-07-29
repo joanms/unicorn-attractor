@@ -19,23 +19,24 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="card-title">{{ feature.title }}</h2>
-                <strong>Submitted by:</strong> {{ feature.submitter }}<br>
-                <strong>Date:</strong> {{ feature.date_submitted }}<br>
-                <strong>Upvotes:</strong> {{ feature.upvotes }}<br>
-                <strong>Amount Paid:</strong> €{{ feature.amount_paid }}<br>
-                {% if feature.status == "To do" %}
-                <span class="badge badge-primary">TO DO</span><br>
-                {% elif feature.status == "In progress" %}
-                <span class="badge badge-info">IN PROGRESS</span><br>
-                {% elif feature.status == "Cancelled" %}
-                <span class="badge badge-dark">CANCELLED</span><br>
-                {% else %}
-                <span class="badge badge-success">DONE</span><br>
-                {% endif %}
-                <a class="btn btn-secondary btn-sm" href="{% url 'feature_details' feature.id %}" data-toggle="tooltip"
-                    title="View the description, upvote the feature and make and read comments"><i
-                        class="fas fa-info"></i> View
-                    Details</a>
+                Submitted by: {{ feature.submitter }}<br>
+                Date: {{ feature.date_submitted }}<br>
+                <Upvotes: {{ feature.upvotes }}<br>
+                    Amount Paid: €{{ feature.amount_paid }}<br>
+                    {% if feature.status == "To do" %}
+                    <span class="badge badge-primary">TO DO</span><br>
+                    {% elif feature.status == "In progress" %}
+                    <span class="badge badge-info">IN PROGRESS</span><br>
+                    {% elif feature.status == "Cancelled" %}
+                    <span class="badge badge-dark">CANCELLED</span><br>
+                    {% else %}
+                    <span class="badge badge-success">DONE</span><br>
+                    {% endif %}
+                    <a class="btn btn-secondary btn-sm" href="{% url 'feature_details' feature.id %}"
+                        data-toggle="tooltip"
+                        title="View the description, upvote the feature and make and read comments"><i
+                            class="fas fa-info"></i> View
+                        Details</a>
             </div>
         </div>
 

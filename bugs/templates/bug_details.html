@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load bootstrap_tags %} 
+{% load bootstrap_tags %}
 
 {% block page_title %}Bug: {{ bug.title }}{% endblock %}
 
@@ -9,55 +9,56 @@
 
 
 <div class="mx-auto small-container">
-    
+
     <!--The details of an individual bug-->
     <h1>{{ bug.title }}</h1>
     <p><strong>Submitted by {{ bug.submitter }}, {{ bug.date_submitted }}<br>
-    Upvotes: {{ bug.upvotes }}</strong><br>
-    <!--One of three badges will be displayed, indicating the bug's status-->
-    {% if bug.status == "To do" %}
+            Upvotes: {{ bug.upvotes }}</strong><br>
+        <!--One of three badges will be displayed, indicating the bug's status-->
+        {% if bug.status == "To do" %}
         <span class="badge badge-primary">TO DO</span>
-    {% elif bug.status == "In progress" %}
+        {% elif bug.status == "In progress" %}
         <span class="badge badge-info">IN PROGRESS</span>
-    {% elif bug.status == "Cancelled" %}
-        <span class="badge badge-dark">CANCELLED</span>   
-    {% else %}
+        {% elif bug.status == "Cancelled" %}
+        <span class="badge badge-dark">CANCELLED</span>
+        {% else %}
         <span class="badge badge-success">DONE</span>
-    {% endif %}</p>    
+        {% endif %}</p>
     <p>{{ bug.description }}</p>
-    
+
     <!--The user sees an upvote button and text inviting them to upvote if they wish, 
     unless they submitted the bug or have already upvoted it.-->
     {% if bug.status == "Cancelled" %}
-        <em>This bug report has been cancelled, so upvoting is disabled.</em>
+    <em>This bug report has been cancelled, so upvoting is disabled.</em>
     {% elif bug.status == "Done" %}
-        <em>This bug has been fixed, so upvoting is disabled.</em>
+    <em>This bug has been fixed, so upvoting is disabled.</em>
     {% elif request.user == bug.submitter %}
-        <em>You can't upvote a bug you submitted.</em>
+    <em>You can't upvote a bug you submitted.</em>
     {% elif user_upvoted %}
-        {% for upvote in user_upvoted %}
-            <em>You upvoted this bug on {{ upvote.date }}.</em>
-        {% endfor %}    
-    {% else %}    
-        <em>If you also experience this bug, please click here: <a class="btn btn-secondary btn-sm" href="{% url 'upvote_bug' bug.id %}">Upvote</a></em>
-    {% endif %}    
-    
+    {% for upvote in user_upvoted %}
+    <em>You upvoted this bug on {{ upvote.date }}.</em>
+    {% endfor %}
+    {% else %}
+    <em>If you also experience this bug, please click here: <a class="btn btn-secondary btn-sm"
+            href="{% url 'upvote_bug' bug.id %}">Upvote</a></em>
+    {% endif %}
+
     <!--If there are comments on the bug, they appear here-->
     <div class="comment-pane">
         <h2>Comments</h2>
         {% if comments %}
-            {% for comment in comments %}
-                <strong>Posted by {{ comment.commenter }}, {{ comment.comment_date }}</strong>
-                <p>{{ comment.text }}</p>
-            {% endfor %}
+        {% for comment in comments %}
+        <strong>Posted by {{ comment.commenter }}, {{ comment.comment_date }}</strong>
+        <p>{{ comment.text }}</p>
+        {% endfor %}
         {% endif %}
-        
+
         <!--Link for users to make their own comments-->
         <a class="btn btn-secondary btn-sm" href="{% url 'bug_comment' bug.id %}">Add a Comment</a>
     </div>
-    
+
     <a class="btn btn-secondary btn-sm" href="{% url 'all_bugs' %}">View All Bugs</a>
-    
+
 </div>
 
 {% endblock %}

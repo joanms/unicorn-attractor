@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load bootstrap_tags %} 
+{% load bootstrap_tags %}
 
 {% block page_title %}Feature: {{feature.title}}{% endblock %}
 
@@ -9,67 +9,67 @@
 
 
 <div class="mx-auto small-container">
-    
+
     <!--The details of an individual feature-->
     <h1>{{ feature.title }}</h1>
     <p><strong>Submitted by {{ feature.submitter }}, {{ feature.date_submitted }}<br>
-    Upvotes: {{ feature.upvotes }}<br>
-    Amount Paid: €{{ feature.amount_paid }}</strong><br>
-    {% if feature.status == "To do" %}
+            Upvotes: {{ feature.upvotes }}<br>
+            Amount Paid: €{{ feature.amount_paid }}</strong><br>
+        {% if feature.status == "To do" %}
         <span class="badge badge-primary">TO DO</span>
-    {% elif feature.status == "In progress" %}
+        {% elif feature.status == "In progress" %}
         <span class="badge badge-info">IN PROGRESS</span>
-    {% elif feature.status == "Cancelled" %}
+        {% elif feature.status == "Cancelled" %}
         <span class="badge badge-dark">CANCELLED</span>
-    {% else %}
+        {% else %}
         <span class="badge badge-success">DONE</span>
-    {% endif %}</p>
+        {% endif %}</p>
     <p>{{ feature.description }}</p>
-    
+
     {% if feature.status == "Cancelled" %}
-        <em>This feature has been cancelled, so upvoting has been disabled. 
+    <em>This feature has been cancelled, so upvoting has been disabled.
         All fees paid for upvoting it will be refunded within 10 working days.</em>
     {% elif feature.status == "Done" %}
-        <em>This feature has been implemented, so upvoting has been disabled. Any 
+    <em>This feature has been implemented, so upvoting has been disabled. Any
         fees paid after it was completed will be refunded within 10 working days.</em>
-    {% else %}    
-        <!--This form is used to set the price for an upvote on the featre-->
-        <em>If you also want this feature, please enter the amount you are willing 
+    {% else %}
+    <!--This form is used to set the price for an upvote on the featre-->
+    <em>If you also want this feature, please enter the amount you are willing
         to pay (at least €5, whole euro amounts only) and click "Upvote".</em>
-        <form method="post" action="{% url 'add_to_cart' feature.id %}">
-            {% csrf_token %}
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">€</span>
-                </div>
-                <input name="price" type="number" min="5" max="999" class="form-control" Required>
-                <div class="input-group-append">
-                    <span class="input-group-text">.00</span>
-                </div>
+    <form method="post" action="{% url 'add_to_cart' feature.id %}">
+        {% csrf_token %}
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">€</span>
             </div>
-            <div class="input-group-btn">
-                <button class="btn btn-secondary btn-sm" type="submit">Upvote</button>
+            <input name="price" type="number" min="5" max="999" class="form-control" Required>
+            <div class="input-group-append">
+                <span class="input-group-text">.00</span>
             </div>
-        </form>
-    {% endif %}    
+        </div>
+        <div class="input-group-btn">
+            <button class="btn btn-secondary btn-sm" type="submit">Upvote</button>
+        </div>
+    </form>
+    {% endif %}
 
     <!--If there are comments on the feature, they appear here-->
     <div class="comment-pane">
         <h2>Comments</h2>
         {% if comments %}
-            {% for comment in comments %}
-                <strong>Posted by {{ comment.commenter }}, {{ comment.comment_date }}</strong>
-                <p>{{ comment.text }}</p>
-            {% endfor %}
+        {% for comment in comments %}
+        <strong>Posted by {{ comment.commenter }}, {{ comment.comment_date }}</strong>
+        <p>{{ comment.text }}</p>
+        {% endfor %}
         {% endif %}
-        
+
         <!--Link for users to make their own comments-->
         <a class="btn btn-secondary btn-sm" href="{% url 'feature_comment' feature.id %}">Add a Comment</a>
-        
+
     </div>
-    
+
     <a class="btn btn-secondary btn-sm" href="{% url 'all_features' %}">View All Features</a>
-    
+
 </div>
 
 {% endblock %}

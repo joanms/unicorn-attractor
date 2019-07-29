@@ -20,9 +20,9 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="card-title">{{ bug.title }}</h2>
-                <strong>Submitted by:</strong> {{ bug.submitter }}<br>
-                <strong>Date:</strong> {{ bug.date_submitted }}<br>
-                <strong>Upvotes:</strong> {{ bug.upvotes }}<br>
+                Submitted by: {{ bug.submitter }}<br>
+                Date: {{ bug.date_submitted }}<br>
+                Upvotes: {{ bug.upvotes }}<br>
                 {% if bug.status == "To do" %}
                 <span class="badge badge-primary">TO DO</span><br>
                 {% elif bug.status == "In progress" %}

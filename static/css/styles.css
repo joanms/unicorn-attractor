@@ -11,7 +11,7 @@
 /*Nav*/
 
 .navbar-dark {
-    background-color: #583870 !important; /*!important is used to override the Bootstrap CSS for the navbar background colour*/
+    background-color: #583870 !important; /*!important is used to override the Bootstrap CSS*/
 }
 
 .navbar-brand {
@@ -20,11 +20,11 @@
 }
 
 .nav-link {
-    color: #ffffff !important;
+    color: #ffffff !important; /*!important is used to override the Bootstrap CSS*/
 }
 
 .nav-link:hover {
-    color: #D4D4F7 !important;
+    color: #D4D4F7 !important; /*!important is used to override the Bootstrap CSS*/
 }
 
 
@@ -102,6 +102,7 @@ a:hover {
     margin: 0.5rem;
 }
 
+
 /*Buttons*/
 
 .btn-secondary {
@@ -123,6 +124,7 @@ a:hover {
     vertical-align: bottom;
 }
 
+
 /*Images*/
 
 .profile-img {
@@ -143,7 +145,6 @@ a:hover {
         font-size: 3rem;
     }
 }
-
 
 @media screen and (min-width: 1200px) {
     .regular-container {

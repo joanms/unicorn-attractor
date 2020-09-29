@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/joanms/unicorn-attractor.svg?branch=master)](https://travis-ci.org/joanms/unicorn-attractor)
+[![Build Status](https://travis-ci.com/joanms/unicorn-attractor.svg?branch=master)](https://travis-ci.com/joanms/unicorn-attractor)
 
 # UnicornAttractor
 
